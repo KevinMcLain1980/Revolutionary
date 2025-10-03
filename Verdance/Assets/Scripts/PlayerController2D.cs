@@ -1,98 +1,71 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController2D : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    [Tooltip("Horizontal movement speed")]
-    public float moveSpeed = 5f;
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 5f;
+    private Vector2 moveInput;
 
-    [Tooltip("Vertical jump force")]
-    public float jumpForce = 12f;
-
-    [Header("Ground Detection")]
-    [Tooltip("Transform used to check if player is grounded")]
-    public Transform groundCheck;
-
-    [Tooltip("Radius of ground check overlap")]
-    public float groundCheckRadius = 0.2f;
-
-    [Tooltip("Layer considered as ground")]
-    public LayerMask groundLayer;
+    [Header("Attack")]
+    [SerializeField] private float attackCooldown = 0.5f;
+    [SerializeField] private GameObject thornbrandHitboxPrefab;
+    [SerializeField] private Transform attackSpawnPoint;
+    [SerializeField] private Animator animator;
+    private bool canAttack = true;
 
     private Rigidbody2D rb;
-    private Vector2 moveInput;
-    private bool jumpQueued;
-    private bool isGrounded;
-    private bool isCrouching;
 
-    void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        HandleMovement();
-        HandleJump();
-        HandleCrouch();
+        MovePlayer();
     }
 
-    void FixedUpdate()
+    private void MovePlayer()
     {
-        CheckGrounded();
+        Vector2 movement = new Vector2(moveInput.x, 0f) * moveSpeed;
+        rb.linearVelocity = new Vector2(movement.x, rb.linearVelocity.y);
     }
 
-    // Input System callbacks (Send Messages mode)
+    // Called by Input System (Send Messages)
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    public void OnAttack(InputValue value)
     {
-        if (context.started && isGrounded && !isCrouching)
+        if (value.isPressed)
         {
-            jumpQueued = true;
+            TryAttack();
         }
     }
 
-    public void OnCrouch(InputAction.CallbackContext context)
+    private void TryAttack()
     {
-        isCrouching = context.ReadValue<float>() > 0;
+        if (!canAttack) return;
+
+        animator.SetTrigger("Attack");
+        canAttack = false;
+        Invoke(nameof(ResetAttack), attackCooldown);
     }
 
-    // Movement logic
-    void HandleMovement()
+    private void ResetAttack()
     {
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        canAttack = true;
     }
 
-    void HandleJump()
+    // Called by animation event
+    public void SpawnThornbrandHitbox()
     {
-        if (jumpQueued)
+        if (thornbrandHitboxPrefab != null && attackSpawnPoint != null)
         {
-            rb.linearVelocity = new Vector2(moveInput.x, jumpForce);
-            jumpQueued = false;
-        }
-    }
-
-    void HandleCrouch()
-    {
-        // Optional: Adjust visuals or collider here
-        Debug.Log("Crouching: " + isCrouching);
-    }
-
-    void CheckGrounded()
-    {
-        if (groundCheck != null)
-        {
-            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        }
-        else
-        {
-            Debug.LogWarning("GroundCheck transform not assigned in PlayerController2D.");
+            Instantiate(thornbrandHitboxPrefab, attackSpawnPoint.position, Quaternion.identity);
         }
     }
 }
