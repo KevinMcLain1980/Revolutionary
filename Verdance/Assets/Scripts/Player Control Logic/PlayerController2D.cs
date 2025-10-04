@@ -7,6 +7,13 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     private Vector2 moveInput;
 
+    [Header("Jumping")]
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+    private bool isGrounded;
+
     [Header("Attack")]
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private GameObject thornbrandHitboxPrefab;
@@ -28,14 +35,26 @@ public class PlayerController2D : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 movement = new Vector2(moveInput.x, 0f) * moveSpeed;
-        rb.linearVelocity = new Vector2(movement.x, rb.linearVelocity.y);
+        Vector2 movement = new Vector2(moveInput.x, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(movement.x * moveSpeed, movement.y);
     }
 
-    // Called by Input System (Send Messages)
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    public void OnJump(InputValue value)
+    {
+        if (value.isPressed && IsGrounded())
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
     public void OnAttack(InputValue value)
@@ -50,7 +69,11 @@ public class PlayerController2D : MonoBehaviour
     {
         if (!canAttack) return;
 
-        animator.SetTrigger("Attack");
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
+
         canAttack = false;
         Invoke(nameof(ResetAttack), attackCooldown);
     }
