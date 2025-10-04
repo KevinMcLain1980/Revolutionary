@@ -47,6 +47,17 @@
                 {
                     "name": "",
                     "id": "e2856948-efef-4c2e-97f5-4f5c427f8028",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b844ff6d-7c83-43fc-8d2e-087c154f0405",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
