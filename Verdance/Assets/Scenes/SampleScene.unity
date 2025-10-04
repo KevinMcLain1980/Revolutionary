@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 775330359}
   - component: {fileID: 775330360}
   - component: {fileID: 775330361}
+  - component: {fileID: 775330362}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -757,6 +758,9 @@ MonoBehaviour:
   thornbrandHitboxPrefab: {fileID: 3805182736695198511}
   attackSpawnPoint: {fileID: 545528525}
   animator: {fileID: 0}
+  magicManager: {fileID: 0}
+  windStepCooldown: 5
+  lightPulseCooldown: 8
 --- !u!114 &775330360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,6 +813,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &775330362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775330354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d579762cf08c7624184058fb442fd056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightPulse: {fileID: 0}
+  windStep: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

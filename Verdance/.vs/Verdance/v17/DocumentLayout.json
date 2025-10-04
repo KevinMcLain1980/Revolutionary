@@ -3,12 +3,40 @@
   "WorkspaceRootPath": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\camera\\camerafollowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera\\camerafollowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\puzzles\\windtunnelforce.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\windtunnelforce.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\magic\\lightpulseprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\magic\\lightpulseprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\puzzles\\lightgatetrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\lightgatetrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\magic\\windstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\magic\\windstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\magic\\lightpulse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\magic\\lightpulse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\interfaces\\isstunnable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\interfaces\\isstunnable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\magic\\magicmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\magic\\magicmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\camera\\camerafollowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera\\camerafollowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,32 +95,36 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CameraFollowController.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Camera\\CameraFollowController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\CameraFollowController.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Camera\\CameraFollowController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Camera\\CameraFollowController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "Title": "WindTunnelForce.cs",
+              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\WindTunnelForce.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\WindTunnelForce.cs",
+              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\WindTunnelForce.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Puzzles\\WindTunnelForce.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAgwCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T19:47:23.19Z",
+              "WhenOpened": "2025-10-04T03:32:46.59Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PlayerController2D.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAADIAAAA/AAAAAAAAAA==",
+              "Title": "LightPulseProjectile.cs",
+              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightPulseProjectile.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\LightPulseProjectile.cs",
+              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightPulseProjectile.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Magic\\LightPulseProjectile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAQwAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T17:59:03.81Z",
+              "WhenOpened": "2025-10-04T03:30:10.979Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "PlayerController2D.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\PlayerController2D.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController2D.cs",
@@ -102,12 +134,92 @@
               "WhenOpened": "2025-10-02T23:46:20.967Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LightGateTrigger.cs",
+              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\LightGateTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\LightGateTrigger.cs",
+              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\LightGateTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Puzzles\\LightGateTrigger.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T03:23:36.422Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
+              "Title": "isStunnable.cs",
+              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Interfaces\\isStunnable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Interfaces\\isStunnable.cs",
+              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Interfaces\\isStunnable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Interfaces\\isStunnable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T03:08:44.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WindStep.cs",
+              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\WindStep.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\WindStep.cs",
+              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\WindStep.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Magic\\WindStep.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAqwA0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T03:06:52.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LightPulse.cs",
+              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightPulse.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\LightPulse.cs",
+              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightPulse.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Magic\\LightPulse.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T03:05:00.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MagicManager.cs",
+              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\MagicManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\MagicManager.cs",
+              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\MagicManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Magic\\MagicManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T03:04:15.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CameraFollowController.cs",
+              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Camera\\CameraFollowController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\CameraFollowController.cs",
+              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Camera\\CameraFollowController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Camera\\CameraFollowController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T19:47:23.19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerController2D.cs",
+              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
+              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T17:59:03.81Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\GameManager.cs",
@@ -119,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "PlayerControls.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\PlayerControls.cs",
               "RelativeDocumentMoniker": "Assets\\PlayerControls.cs",
