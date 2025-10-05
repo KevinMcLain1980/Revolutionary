@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\boss\\arenabosstrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boss\\arenabosstrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\magic\\windstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\magic\\windstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\magic\\lightpulse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 21,
           "Children": [
             {
               "$type": "Bookmark",
@@ -105,8 +105,12 @@
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ArenaBossTrigger.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Boss\\ArenaBossTrigger.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Boss\\ArenaBossTrigger.cs",
@@ -141,12 +145,8 @@
               "WhenOpened": "2025-10-02T23:46:20.967Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BossManager.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Boss\\BossManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Boss\\BossManager.cs",
@@ -158,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "WindTunnelForce.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\WindTunnelForce.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\WindTunnelForce.cs",
@@ -170,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LightPulseProjectile.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightPulseProjectile.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\LightPulseProjectile.cs",
@@ -182,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "LightGateTrigger.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\LightGateTrigger.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\LightGateTrigger.cs",
@@ -206,7 +206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "WindStep.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\WindStep.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\WindStep.cs",
@@ -254,15 +254,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "PlayerController2D.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T17:59:03.81Z"
+              "WhenOpened": "2025-10-03T17:59:03.81Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
