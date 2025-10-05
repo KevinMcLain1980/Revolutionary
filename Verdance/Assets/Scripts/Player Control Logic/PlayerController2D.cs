@@ -29,21 +29,37 @@ public class PlayerController2D : MonoBehaviour
     private bool canCastLightPulse = true;
 
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
         MovePlayer();
+        UpdateAnimationStates();
     }
 
     private void MovePlayer()
     {
         Vector2 movement = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
         rb.linearVelocity = movement;
+    }
+
+    private void UpdateAnimationStates()
+    {
+        float horizontalSpeed = Mathf.Abs(rb.linearVelocity.x);
+        animator.SetFloat("Speed", horizontalSpeed);
+        animator.SetBool("IsJumping", !IsGrounded());
+
+        // Flip sprite based on movement direction
+        if (moveInput.x > 0.1f)
+            spriteRenderer.flipX = false;
+        else if (moveInput.x < -0.1f)
+            spriteRenderer.flipX = true;
     }
 
     public void OnMove(InputValue value)
@@ -56,9 +72,6 @@ public class PlayerController2D : MonoBehaviour
         if (value.isPressed && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-
-            animator?.ResetTrigger("Jump");
-            animator?.SetTrigger("Jump");
         }
     }
 
@@ -79,7 +92,7 @@ public class PlayerController2D : MonoBehaviour
     {
         if (!canAttack) return;
 
-        animator?.SetTrigger("Attack");
+        animator.SetTrigger("AttackTrigger");
         canAttack = false;
         Invoke(nameof(ResetAttack), attackCooldown);
     }
@@ -89,6 +102,7 @@ public class PlayerController2D : MonoBehaviour
         canAttack = true;
     }
 
+    // Called by animation event
     public void SpawnThornbrandHitbox()
     {
         if (thornbrandHitboxPrefab != null && attackSpawnPoint != null)
@@ -123,6 +137,7 @@ public class PlayerController2D : MonoBehaviour
 
     // Called by WindStep.cs
     public void ModifySpeed(float multiplier) => currentSpeedMultiplier = multiplier;
+
     public void SetPhaseThrough(bool value)
     {
         // Optional: implement collision layer toggling here
