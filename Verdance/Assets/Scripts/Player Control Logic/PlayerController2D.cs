@@ -45,17 +45,28 @@ public class PlayerController2D : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 movement = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
-        rb.linearVelocity = movement;
+        Vector2 slopeDirection = GetSlopeAdjustedDirection();
+        rb.linearVelocity = slopeDirection * moveSpeed * currentSpeedMultiplier;
+    }
+
+    private Vector2 GetSlopeAdjustedDirection()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.5f, groundLayer);
+        if (hit.collider != null)
+        {
+            Vector2 normal = hit.normal;
+            Vector2 slopeDirection = new Vector2(normal.y, -normal.x); // perpendicular to normal
+            return slopeDirection.normalized * moveInput.x;
+        }
+
+        return new Vector2(moveInput.x, 0f); // fallback: flat ground
     }
 
     private void UpdateAnimationStates()
     {
-        float horizontalSpeed = Mathf.Abs(rb.linearVelocity.x);
-        animator.SetFloat("Speed", horizontalSpeed);
+        animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
         animator.SetBool("IsJumping", !IsGrounded());
 
-        // Flip sprite based on movement direction
         if (moveInput.x > 0.1f)
             spriteRenderer.flipX = false;
         else if (moveInput.x < -0.1f)
@@ -111,7 +122,6 @@ public class PlayerController2D : MonoBehaviour
         }
     }
 
-    // Magic Inputs
     public void OnCastWindStep(InputValue value)
     {
         if (value.isPressed && canCastWindStep)
@@ -135,12 +145,11 @@ public class PlayerController2D : MonoBehaviour
     private void ResetWindStep() => canCastWindStep = true;
     private void ResetLightPulse() => canCastLightPulse = true;
 
-    // Called by WindStep.cs
     public void ModifySpeed(float multiplier) => currentSpeedMultiplier = multiplier;
 
     public void SetPhaseThrough(bool value)
     {
-        // Optional: implement collision layer toggling here
         Debug.Log($"Phase-through set to {value}");
+        // Optional: implement collision layer toggling here
     }
 }
