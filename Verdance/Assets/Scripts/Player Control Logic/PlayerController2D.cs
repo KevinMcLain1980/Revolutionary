@@ -56,6 +56,9 @@ public class PlayerController2D : MonoBehaviour
         if (value.isPressed && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
+            animator?.ResetTrigger("Jump");
+            animator?.SetTrigger("Jump");
         }
     }
 
