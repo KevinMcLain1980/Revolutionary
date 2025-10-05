@@ -762,7 +762,7 @@ MonoBehaviour:
   attackCooldown: 0.5
   thornbrandHitboxPrefab: {fileID: 3805182736695198511}
   attackSpawnPoint: {fileID: 545528525}
-  animator: {fileID: 0}
+  animator: {fileID: 775330361}
   magicManager: {fileID: 0}
   windStepCooldown: 5
   lightPulseCooldown: 8
