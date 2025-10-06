@@ -14,6 +14,12 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Slope Detection")]
+    [SerializeField] private float slopeRayLength = 0.5f;
+    [SerializeField] private float currentSlopeAngle;
+    private bool isOnSlope;
+    private Vector2 slopeDirection;
+
     [Header("Attack")]
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private GameObject thornbrandHitboxPrefab;
@@ -45,20 +51,26 @@ public class PlayerController2D : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 slopeDirection = GetSlopeAdjustedDirection();
-        rb.linearVelocity = slopeDirection * moveSpeed * currentSpeedMultiplier;
+        Vector2 moveDirection = IsGrounded() ? GetSlopeAdjustedDirection() : new Vector2(moveInput.x, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveDirection.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
     }
 
     private Vector2 GetSlopeAdjustedDirection()
     {
-        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.5f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, slopeRayLength, groundLayer);
         if (hit.collider != null)
         {
             Vector2 normal = hit.normal;
-            Vector2 slopeDirection = new Vector2(normal.y, -normal.x); // perpendicular to normal
+            currentSlopeAngle = Vector2.Angle(normal, Vector2.up);
+            slopeDirection = new Vector2(normal.y, -normal.x); // perpendicular to normal
+            isOnSlope = currentSlopeAngle > 0f;
+
+            animator.SetFloat("SlopeAngle", currentSlopeAngle); // optional animator hook
             return slopeDirection.normalized * moveInput.x;
         }
 
+        isOnSlope = false;
+        currentSlopeAngle = 0f;
         return new Vector2(moveInput.x, 0f); // fallback: flat ground
     }
 
