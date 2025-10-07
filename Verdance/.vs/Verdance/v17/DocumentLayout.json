@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -91,7 +91,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAwwF8AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T13:17:02.541Z",
               "EditorCaption": ""
