@@ -2,29 +2,30 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+// Manages player UI elements including health, stamina, magic, inventory slots, and boss health bar
 public class PlayerUI : MonoBehaviour
 {
     [Header("Player Status UI (Bottom Left)")]
-    [SerializeField] private Slider playerHealthSlider;
-    [SerializeField] private Slider playerStaminaSlider;
-    [SerializeField] private Slider playerMagicSlider;
-    [SerializeField] private Text healthText;
-    [SerializeField] private Text staminaText;
-    [SerializeField] private Text magicText;
+    [SerializeField] private Slider playerHealthSlider; // Visual health bar
+    [SerializeField] private Slider playerStaminaSlider; // Visual stamina bar
+    [SerializeField] private Slider playerMagicSlider; // Visual magic bar
+    [SerializeField] private Text healthText; // Health number display
+    [SerializeField] private Text staminaText; // Stamina number display
+    [SerializeField] private Text magicText; // Magic number display
 
     [Header("Inventory Slots")]
-    [SerializeField] private Button[] inventorySlots = new Button[7];
-    [SerializeField] private Image[] slotCooldownOverlays = new Image[3]; // Only for magic slots (last 3)
-    [SerializeField] private Text[] cooldownTexts = new Text[3]; // Cooldown timers for magic slots
+    [SerializeField] private Button[] inventorySlots = new Button[7]; // 4 item slots + 3 magic slots
+    [SerializeField] private Image[] slotCooldownOverlays = new Image[3]; // Cooldown visuals for magic slots
+    [SerializeField] private Text[] cooldownTexts = new Text[3]; // Cooldown timer text
 
     [Header("Boss Health Bar (Top Middle)")]
-    [SerializeField] private GameObject bossHealthBarPanel;
-    [SerializeField] private Slider bossHealthSlider;
-    [SerializeField] private Text bossNameText;
-    [SerializeField] private Text bossHealthText;
+    [SerializeField] private GameObject bossHealthBarPanel; // Boss health UI container
+    [SerializeField] private Slider bossHealthSlider; // Boss health bar
+    [SerializeField] private Text bossNameText; // Boss name display
+    [SerializeField] private Text bossHealthText; // Boss health number display
 
     [Header("Settings")]
-    [SerializeField] private float[] magicSlotCooldowns = { 5f, 8f, 12f }; // Cooldown times for magic slots
+    [SerializeField] private float[] magicSlotCooldowns = { 5f, 8f, 12f }; // Cooldown duration for each magic slot
 
     // Player stats
     private float maxHealth = 100f;
@@ -39,7 +40,7 @@ public class PlayerUI : MonoBehaviour
     private float currentBossHealth = 1000f;
     private string bossName = "Ancient Evil";
 
-    // Cooldown tracking
+    // Cooldown tracking for magic spells
     private float[] magicCooldownTimers = new float[3];
     private bool[] magicSlotsOnCooldown = new bool[3];
 
@@ -191,6 +192,7 @@ public class PlayerUI : MonoBehaviour
             GameManager.Instance.UpdateHealth(currentPlayerHealth / maxHealth);
     }
 
+    // Update health UI visuals
     private void UpdatePlayerHealthUI()
     {
         if (playerHealthSlider != null)
@@ -206,11 +208,12 @@ public class PlayerUI : MonoBehaviour
         currentStamina = Mathf.Clamp(currentStamina + amount, 0f, maxStamina);
         UpdatePlayerStaminaUI();
 
-        // Update GameManager sanity slider for stamina (convert to 0-1 range)
+        // Update GameManager sanity slider for stamina
         if (GameManager.Instance != null)
             GameManager.Instance.UpdateSanity(currentStamina / maxStamina);
     }
 
+    // Update stamina UI visuals
     private void UpdatePlayerStaminaUI()
     {
         if (playerStaminaSlider != null)
@@ -226,11 +229,12 @@ public class PlayerUI : MonoBehaviour
         currentPlayerMagic = Mathf.Clamp(currentPlayerMagic + amount, 0f, maxMagic);
         UpdatePlayerMagicUI();
 
-        // Update GameManager magic slider (convert to 0-1 range)
+        // Update GameManager magic slider
         if (GameManager.Instance != null)
             GameManager.Instance.UpdateMagic(currentPlayerMagic / maxMagic);
     }
 
+    // Update magic UI visuals
     private void UpdatePlayerMagicUI()
     {
         if (playerMagicSlider != null)
@@ -240,7 +244,7 @@ public class PlayerUI : MonoBehaviour
             magicText.text = $"{(int)currentPlayerMagic}/{(int)maxMagic}";
     }
 
-    // Boss health bar management
+    // Show boss health bar with given name and max health
     public void ShowBossHealthBar(string name, float maxHealth)
     {
         bossName = name;
@@ -253,12 +257,14 @@ public class PlayerUI : MonoBehaviour
         UpdateBossHealthUI();
     }
 
+    // Hide boss health bar
     public void HideBossHealthBar()
     {
         if (bossHealthBarPanel != null)
             bossHealthBarPanel.SetActive(false);
     }
 
+    // Update boss health value
     public void UpdateBossHealth(float newHealth)
     {
         currentBossHealth = Mathf.Clamp(newHealth, 0f, maxBossHealth);
@@ -271,6 +277,7 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    // Update boss health UI visuals
     private void UpdateBossHealthUI()
     {
         if (bossHealthSlider != null)
@@ -283,6 +290,7 @@ public class PlayerUI : MonoBehaviour
             bossHealthText.text = $"{(int)currentBossHealth}/{(int)maxBossHealth}";
     }
 
+    // Wait before hiding boss health bar
     private IEnumerator HideBossHealthBarAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
