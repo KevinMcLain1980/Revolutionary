@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\users\\lokig\\source\\repos\\revolutionary\\verdance\\assets\\scripts\\puzzles\\movingplatforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\movingplatforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\users\\lokig\\source\\repos\\revolutionary\\verdance\\assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\users\\lokig\\source\\repos\\revolutionary\\verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +46,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "MovingPlatforms.cs",
+              "DocumentMoniker": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\MovingPlatforms.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\MovingPlatforms.cs",
+              "ToolTip": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\MovingPlatforms.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Puzzles\\MovingPlatforms.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T18:16:59.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "PlayerController2D.cs",
               "DocumentMoniker": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
@@ -50,12 +67,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T16:51:45.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T16:51:45.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CameraFollowController.cs",
               "DocumentMoniker": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Camera\\CameraFollowController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\CameraFollowController.cs",
@@ -67,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "playerui.cs",
               "DocumentMoniker": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\playerui.cs",
@@ -79,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\GameManager.cs",

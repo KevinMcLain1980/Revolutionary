@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\users\\lokig\\source\\repos\\revolutionary\\verdance\\assets\\scripts\\puzzles\\movingplatforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\movingplatforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\MovingPlatforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Puzzles\\MovingPlatforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\users\\lokig\\source\\repos\\revolutionary\\verdance\\assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -21,6 +21,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\PlatformCollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Puzzles\\PlatformCollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,16 +50,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlatformCollision.cs",
+              "DocumentMoniker": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\PlatformCollision.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\PlatformCollision.cs",
+              "ToolTip": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\PlatformCollision.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Puzzles\\PlatformCollision.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T18:53:49.277Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MovingPlatforms.cs",
               "DocumentMoniker": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\MovingPlatforms.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\MovingPlatforms.cs",
               "ToolTip": "C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Puzzles\\MovingPlatforms.cs",
               "RelativeToolTip": "Assets\\Scripts\\Puzzles\\MovingPlatforms.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAADAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T18:16:59.651Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-07T18:16:59.651Z"
             },
             {
               "$type": "Document",
@@ -103,8 +117,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\GameManager.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAwE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T22:38:28.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-03T22:38:28.899Z"
             }
           ]
         }
