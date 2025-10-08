@@ -1,28 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 // Manages player UI elements including health, stamina, magic, inventory slots, and boss health bar
 public class PlayerUI : MonoBehaviour
 {
     [Header("Player Status UI (Bottom Left)")]
-    [SerializeField] private Slider playerHealthSlider; // Visual health bar
-    [SerializeField] private Slider playerStaminaSlider; // Visual stamina bar
-    [SerializeField] private Slider playerMagicSlider; // Visual magic bar
-    [SerializeField] private Text healthText; // Health number display
-    [SerializeField] private Text staminaText; // Stamina number display
-    [SerializeField] private Text magicText; // Magic number display
+    [SerializeField] private Image playerHealthSlider; // Visual health bar (fill image)
+    [SerializeField] private Image playerStaminaSlider; // Visual stamina bar (fill image)
+    [SerializeField] private Image playerMagicSlider; // Visual magic bar (fill image)
+    [SerializeField] private TMP_Text healthText; // Health number display
+    [SerializeField] private TMP_Text staminaText; // Stamina number display
+    [SerializeField] private TMP_Text magicText; // Magic number display
 
     [Header("Inventory Slots")]
     [SerializeField] private Button[] inventorySlots = new Button[7]; // 4 item slots + 3 magic slots
     [SerializeField] private Image[] slotCooldownOverlays = new Image[3]; // Cooldown visuals for magic slots
-    [SerializeField] private Text[] cooldownTexts = new Text[3]; // Cooldown timer text
+    [SerializeField] private TMP_Text[] cooldownTexts = new TMP_Text[3]; // Cooldown timer text
 
     [Header("Boss Health Bar (Top Middle)")]
     [SerializeField] private GameObject bossHealthBarPanel; // Boss health UI container
-    [SerializeField] private Slider bossHealthSlider; // Boss health bar
-    [SerializeField] private Text bossNameText; // Boss name display
-    [SerializeField] private Text bossHealthText; // Boss health number display
+    [SerializeField] private Image bossHealthSlider; // Boss health bar (fill image)
+    [SerializeField] private TMP_Text bossNameText; // Boss name display
+    [SerializeField] private TMP_Text bossHealthText; // Boss health number display
 
     [Header("Settings")]
     [SerializeField] private float[] magicSlotCooldowns = { 5f, 8f, 12f }; // Cooldown duration for each magic slot
@@ -196,7 +197,7 @@ public class PlayerUI : MonoBehaviour
     private void UpdatePlayerHealthUI()
     {
         if (playerHealthSlider != null)
-            playerHealthSlider.value = currentPlayerHealth / maxHealth;
+            playerHealthSlider.fillAmount = currentPlayerHealth / maxHealth;
 
         if (healthText != null)
             healthText.text = $"{(int)currentPlayerHealth}/{(int)maxHealth}";
@@ -217,7 +218,7 @@ public class PlayerUI : MonoBehaviour
     private void UpdatePlayerStaminaUI()
     {
         if (playerStaminaSlider != null)
-            playerStaminaSlider.value = currentStamina / maxStamina;
+            playerStaminaSlider.fillAmount = currentStamina / maxStamina;
 
         if (staminaText != null)
             staminaText.text = $"{(int)currentStamina}/{(int)maxStamina}";
@@ -238,7 +239,7 @@ public class PlayerUI : MonoBehaviour
     private void UpdatePlayerMagicUI()
     {
         if (playerMagicSlider != null)
-            playerMagicSlider.value = currentPlayerMagic / maxMagic;
+            playerMagicSlider.fillAmount = currentPlayerMagic / maxMagic;
 
         if (magicText != null)
             magicText.text = $"{(int)currentPlayerMagic}/{(int)maxMagic}";
@@ -281,7 +282,7 @@ public class PlayerUI : MonoBehaviour
     private void UpdateBossHealthUI()
     {
         if (bossHealthSlider != null)
-            bossHealthSlider.value = currentBossHealth / maxBossHealth;
+            bossHealthSlider.fillAmount = currentBossHealth / maxBossHealth;
 
         if (bossNameText != null)
             bossNameText.text = bossName;
