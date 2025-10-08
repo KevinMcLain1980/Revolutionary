@@ -46,3 +46,6 @@ Assets/ExternalAssets/
 *.zip
 *.rar
 *.vsidx
+*.bin
+*.db
+Verdance/.vs/Verdance/CopilotIndices/17.14.1091.29919/CodeChunks.db-shm
