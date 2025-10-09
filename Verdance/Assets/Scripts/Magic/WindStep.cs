@@ -2,37 +2,44 @@ using UnityEngine;
 
 public class WindStep : MonoBehaviour
 {
-    public float speedBoost = 2f;
-    public float duration = 3f;
-    public ParticleSystem windEffect;
-    public AudioClip windSound;
+    [Header("WindStep Settings")]
+    [SerializeField] private float speedMultiplier = 2f;
+    [SerializeField] private float duration = 1.5f;
+    [SerializeField] private bool enablePhaseThrough = true;
 
-    private PlayerController2D player;
+    [Header("References")]
+    [SerializeField] private PlayerController2D player;
 
-    private void Awake()
+    private bool isActive = false;
+
+    private void Start()
     {
-        player = GetComponent<PlayerController2D>();
+        if (player == null)
+            player = GetComponent<PlayerController2D>();
     }
 
     public void Activate()
     {
-        if (player == null) return;
+        if (isActive || player == null) return;
 
-        if (windEffect != null) windEffect.Play();
-        AudioSource.PlayClipAtPoint(windSound, transform.position);
+        isActive = true;
 
-        StartCoroutine(BoostRoutine());
-        Debug.Log("Wind Step activated");
+        // Apply speed boost
+        player.ModifySpeed(speedMultiplier, duration);
+
+        // Enable phase-through
+        if (enablePhaseThrough)
+            player.SetPhaseThrough(true);
+
+        // Schedule reset
+        Invoke(nameof(Deactivate), duration);
     }
 
-    private System.Collections.IEnumerator BoostRoutine()
+    private void Deactivate()
     {
-        player.ModifySpeed(speedBoost);
-        player.SetPhaseThrough(true);
+        if (player != null && enablePhaseThrough)
+            player.SetPhaseThrough(false);
 
-        yield return new WaitForSeconds(duration);
-
-        player.ModifySpeed(1f); // Reset to normal
-        player.SetPhaseThrough(false);
+        isActive = false;
     }
 }

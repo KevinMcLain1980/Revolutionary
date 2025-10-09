@@ -3,123 +3,74 @@ using System.Collections;
 
 public class ShamblerAI : MonoBehaviour
 {
-    private enum ShamblerState { Idle, Wander, Charge }
+    [Header("Health")]
+    [SerializeField] private int maxHealth = 3;
+    private int currentHealth;
 
     [Header("Movement")]
-    [SerializeField] private float wanderSpeed = 1f;
-    [SerializeField] private float chargeSpeed = 4f;
-    [SerializeField] private float lungeDelay = 0.5f;
-    [SerializeField] private float minPaceDuration = 2f;
-    [SerializeField] private float maxPaceDuration = 5f;
+    [SerializeField] private float moveSpeed = 2f;
+    private Transform player;
+    private Rigidbody2D rb;
+    private bool isStunned = false;
 
-    [Header("Detection")]
-    [SerializeField] private Transform player;
-    [SerializeField] private float detectionRadius = 5f;
-    [SerializeField] private LayerMask playerLayer;
-
-    [Header("References")]
+    [Header("Animation")]
     [SerializeField] private Animator animator;
-    [SerializeField] private Rigidbody2D rb;
 
-    private ShamblerState currentState;
-    private bool isDead = false;
-    private bool isTwitching = false;
-    private bool isStaggering = false;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {
-        animator.SetTrigger("IsSpawning");
-        currentState = ShamblerState.Idle;
-        StartCoroutine(PaceRoutine());
+        currentHealth = maxHealth;
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
     private void Update()
     {
-        if (isDead) return;
+        if (isStunned || player == null) return;
+        MoveTowardsPlayer();
+    }
 
-        DetectPlayer();
-
-        switch (currentState)
-        {
-            case ShamblerState.Idle:
-                rb.linearVelocity = Vector2.zero;
-                break;
-
-            case ShamblerState.Wander:
-                rb.linearVelocity = new Vector2(wanderSpeed * Mathf.Sign(transform.localScale.x), rb.linearVelocity.y);
-                break;
-
-            case ShamblerState.Charge:
-                Vector2 direction = (player.position - transform.position).normalized;
-                rb.linearVelocity = new Vector2(direction.x * chargeSpeed, rb.linearVelocity.y);
-                break;
-        }
-
+    private void MoveTowardsPlayer()
+    {
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
         animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
-        animator.SetBool("IsTwitching", isTwitching);
-        animator.SetBool("IsStaggering", isStaggering);
     }
 
-    private IEnumerator PaceRoutine()
+    public void TakeDamage(int amount, Vector2 knockbackForce)
     {
-        while (!isDead)
-        {
-            currentState = Random.value > 0.5f ? ShamblerState.Idle : ShamblerState.Wander;
-            animator.SetTrigger(currentState == ShamblerState.Idle ? "IdleTrigger" : "WalkTrigger");
+        currentHealth -= amount;
+        animator.SetTrigger("HurtTrigger");
 
-            float duration = Random.Range(minPaceDuration, maxPaceDuration);
-            yield return new WaitForSeconds(duration);
+        StartCoroutine(ApplyKnockback(knockbackForce));
+        StartCoroutine(StunForSeconds(1f));
 
-            if (currentState == ShamblerState.Wander)
-                FlipDirection();
-        }
+        if (currentHealth <= 0)
+            Die();
     }
 
-    private void DetectPlayer()
+    private IEnumerator ApplyKnockback(Vector2 force)
     {
-        if (currentState == ShamblerState.Charge) return;
-
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, detectionRadius, playerLayer);
-        if (hit != null && hit.transform == player)
-        {
-            StopAllCoroutines();
-            StartCoroutine(ChargeRoutine());
-        }
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(force, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.3f);
     }
 
-    private IEnumerator ChargeRoutine()
+    private IEnumerator StunForSeconds(float duration)
     {
-        currentState = ShamblerState.Charge;
-        animator.SetTrigger("ChargeTrigger");
-        yield return new WaitForSeconds(lungeDelay);
+        isStunned = true;
+        rb.linearVelocity = Vector2.zero;
+        yield return new WaitForSeconds(duration);
+        isStunned = false;
     }
 
-    private void FlipDirection()
+    private void Die()
     {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-    }
-
-    public void TakeDamage()
-    {
-        if (isDead) return;
-
-        animator.SetTrigger("IsHurt");
-        isTwitching = Random.value > 0.5f;
-        isStaggering = !isTwitching;
-    }
-
-    public void Die()
-    {
-        isDead = true;
         animator.SetBool("IsDead", true);
         rb.linearVelocity = Vector2.zero;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        // Disable AI, collider, or trigger death effects here
     }
 }
