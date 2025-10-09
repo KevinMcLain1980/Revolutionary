@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Tilemaps;
+using System.Collections;
 
 public class PlayerController2D : MonoBehaviour
 {
@@ -8,18 +8,16 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     private Vector2 moveInput;
     private float currentSpeedMultiplier = 1f;
-    [SerializeField] private float SlopeCheckDistance;
+
     [Header("Jumping")]
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
-
     [Header("Attack")]
+    [SerializeField] private GameObject thornbrandHitbox;
     [SerializeField] private float attackCooldown = 0.5f;
-    [SerializeField] private GameObject thornbrandHitboxPrefab;
-    [SerializeField] private Transform attackSpawnPoint;
     [SerializeField] private Animator animator;
     private bool canAttack = true;
 
@@ -30,131 +28,66 @@ public class PlayerController2D : MonoBehaviour
     private bool canCastWindStep = true;
     private bool canCastLightPulse = true;
 
+    [Header("Damage Feedback")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Color flashColor = Color.red;
+    [SerializeField] private float flashDuration = 0.1f;
+    [SerializeField] private int flashCount = 3;
+    [SerializeField] private float knockbackDuration = 0.3f;
 
-    [Header("Slope Logic")]
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-    private Vector2 colliderSize;
     private CapsuleCollider2D cc;
-    private float slopeDownAngle;
-    private Vector2 slopeNormalPerp;
-    private bool IsOnSlope;
-    private float slopeDownAngleOld;
-    private float slopeSideAngle;
+    private Color originalColor;
+    private bool isKnockedBack = false;
+    private bool isInvincible = false;
+    private bool isDead = false;
+    private int currentHealth;
+    [SerializeField] private int maxHealth = 5;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         cc = GetComponent<CapsuleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+    }
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
     }
 
     private void Update()
     {
         MovePlayer();
-        SlopeCheck();
         UpdateAnimationStates();
-        // Debug grounding status
-        Debug.Log($"IsGrounded: {IsGrounded()}");
+    }
 
+    public void SetPhaseThrough(bool value)
+    {
+        Debug.Log($"Phase-through set to {value}");
+
+        gameObject.layer = value ? LayerMask.NameToLayer("Phasing") : LayerMask.NameToLayer("Player");
+        animator.SetBool("IsPhasing", value);
     }
 
     private void MovePlayer()
     {
-        if (IsGrounded())
-        {
-            rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
-        }
-    }
-
-    private void SlopeCheck()
-    {
-        Vector2 CheckPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
-        SlopeCheckVertical(CheckPos);
-        SlopeCheckHorizontal(CheckPos);
-    }
-
-    private void SlopeCheckHorizontal(Vector2 CheckPos)
-    {
-        RaycastHit2D slopeHitFront = Physics2D.Raycast(CheckPos, transform.right, SlopeCheckDistance, groundLayer);
-        RaycastHit2D slopeHitBack = Physics2D.Raycast(CheckPos, -transform.right, SlopeCheckDistance, groundLayer);
-
-        if(slopeHitFront)
-        {
-            IsOnSlope = true;
-            slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
-        }
-        else if(slopeHitBack)
-        {
-            IsOnSlope = true;
-            slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
-        }
-        else
-        {
-            slopeSideAngle = 0.0f;
-            IsOnSlope = false;
-        }
-    }
-
-    private void SlopeCheckVertical(Vector2 CheckPos)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(CheckPos, Vector2.down, SlopeCheckDistance, groundLayer);
-
-        if (hit)
-        {
-            slopeNormalPerp = Vector2.Perpendicular(hit.normal).normalized;
-            slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
-
-            if(slopeDownAngle != slopeDownAngleOld)
-            {
-                IsOnSlope = true;
-            }
-
-            slopeDownAngleOld = slopeDownAngle;
-            Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
-            Debug.DrawRay(hit.point, hit.normal, Color.green);
-        }
+        if (isKnockedBack) return;
+        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
     }
 
     private void UpdateAnimationStates()
     {
         animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
-
-        if (moveInput.x > 0.1f)
-            spriteRenderer.flipX = false;
-        else if (moveInput.x < -0.1f)
-            spriteRenderer.flipX = true;
+        if (moveInput.x > 0.1f) spriteRenderer.flipX = false;
+        else if (moveInput.x < -0.1f) spriteRenderer.flipX = true;
     }
 
     public void OnMove(InputValue value)
     {
+        if (isKnockedBack) return;
         moveInput = value.Get<Vector2>();
-
-        if (IsGrounded() && !IsOnSlope)
-        {
-            // Standard grounded movement
-            rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
-            Debug.Log("Moving on flat ground");
-        }
-        else if (IsGrounded() && IsOnSlope)
-        {
-            // Slope-adjusted movement
-            Vector2 slopeMoveDirection = slopeNormalPerp * -moveInput.x;
-            rb.linearVelocity = new Vector2(slopeMoveDirection.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
-            Debug.Log("Moving on slope");
-        }
-        else if (!IsGrounded())
-        {
-            // Airborne movement (optional: limited control)
-            rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier * 0.5f, rb.linearVelocity.y);
-            Debug.Log("Airborne movement");
-        }
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
     public void OnJump(InputValue value)
@@ -163,11 +96,13 @@ public class PlayerController2D : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             animator.SetTrigger("IsJumping");
-            Debug.Log("Jump triggered");
         }
     }
 
-
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
 
     public void OnAttack(InputValue value)
     {
@@ -180,7 +115,6 @@ public class PlayerController2D : MonoBehaviour
     private void TryAttack()
     {
         if (!canAttack) return;
-
         animator.SetTrigger("AttackTrigger");
         canAttack = false;
         Invoke(nameof(ResetAttack), attackCooldown);
@@ -191,13 +125,19 @@ public class PlayerController2D : MonoBehaviour
         canAttack = true;
     }
 
-    // Called by animation event
-    public void SpawnThornbrandHitbox()
+    public void ActivateThornbrandHitbox()
     {
-        if (thornbrandHitboxPrefab != null && attackSpawnPoint != null)
+        if (thornbrandHitbox != null)
         {
-            Instantiate(thornbrandHitboxPrefab, attackSpawnPoint.position, Quaternion.identity);
+            thornbrandHitbox.SetActive(true);
+            StartCoroutine(DisableHitboxAfterDelay(0.2f));
         }
+    }
+
+    private IEnumerator DisableHitboxAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        thornbrandHitbox.SetActive(false);
     }
 
     public void OnCastWindStep(InputValue value)
@@ -225,9 +165,62 @@ public class PlayerController2D : MonoBehaviour
 
     public void ModifySpeed(float multiplier) => currentSpeedMultiplier = multiplier;
 
-    public void SetPhaseThrough(bool value)
+    public void ModifySpeed(float multiplier, float duration)
     {
-        Debug.Log($"Phase-through set to {value}");
-        // Optional: implement collision layer toggling here
+        StopCoroutine(nameof(ResetSpeed));
+        currentSpeedMultiplier = multiplier;
+        StartCoroutine(ResetSpeed(duration));
+    }
+
+    private IEnumerator ResetSpeed(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        currentSpeedMultiplier = 1f;
+    }
+
+    public void TakeDamage(int amount, Vector2 knockbackForce)
+    {
+        if (isDead || isKnockedBack || isInvincible) return;
+
+        currentHealth -= amount;
+        animator.SetTrigger("HurtTrigger");
+
+        StartCoroutine(ApplyKnockback(knockbackForce));
+        StartCoroutine(FlashAndInvincibility());
+
+        if (currentHealth <= 0)
+            Die();
+    }
+
+    private IEnumerator ApplyKnockback(Vector2 force)
+    {
+        isKnockedBack = true;
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(force, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(knockbackDuration);
+        isKnockedBack = false;
+    }
+
+    private IEnumerator FlashAndInvincibility()
+    {
+        isInvincible = true;
+
+        for (int i = 0; i < flashCount; i++)
+        {
+            spriteRenderer.color = flashColor;
+            yield return new WaitForSeconds(flashDuration);
+            spriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(flashDuration);
+        }
+
+        yield return new WaitForSeconds(1.5f - (flashCount * flashDuration * 2));
+        isInvincible = false;
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        animator.SetBool("IsDead", true);
+        // Disable movement, input, etc.
     }
 }
