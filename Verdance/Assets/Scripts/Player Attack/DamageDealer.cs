@@ -2,34 +2,60 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    [Header("Damage Settings")]
-    [SerializeField] private int damageAmount = 1;
-    [SerializeField] private float hitboxDuration = 0.2f;
+    public enum DealerType { Player, Enemy}
 
-    private void OnEnable()
-    {
-        Invoke(nameof(DisableHitbox), hitboxDuration);
-    }
+    [Header("Settings")]
+    [SerializeField] private DealerType dealerType = DealerType.Player;
+    [SerializeField] private float damageAmount = 10f;
+    [SerializeField] private float knockbackStrength = 6f;
+    [SerializeField] private float knockbackLift = 4f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the collided object has a ShamblerAI component
-        ShamblerAI shambler = other.GetComponent<ShamblerAI>();
-        if (shambler != null)
+        if (dealerType == DealerType.Player)
         {
-            shambler.TakeDamage(damageAmount);
+            if (dealerType == DealerType.Player)
+            {
+               DealDamageToEnemy(other);
+            }
+            else if (dealerType != DealerType.Enemy)
+            {
+                DealDamageToPlayer(other);
+            }
         }
-
-        // Optional: support other enemy types
-        // var health = other.GetComponent<EnemyHealth>();
-        // if (health != null)
-        // {
-        //     health.TakeDamage(damageAmount);
-        // }
     }
 
-    private void DisableHitbox()
+    private void DealDamageToEnemy(Collider2D other)
     {
-        gameObject.SetActive(false);
+        if (other.CompareTag("Enemy"))
+        {
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null & damageable.IsDead())
+            {
+                Vector2 direction = (other.transform.position - transform.position).normalized;
+                Vector2 knockback = new Vector2(direction.x * knockbackStrength, knockbackLift);
+                damageable.TakeDamage(damageAmount, knockback);
+            }
+        }
+    }
+
+    private void DealDamageToPlayer (Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerStats playerStats = PlayerStats.Instance;
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(damageAmount);
+            }
+
+            PlayerController2D playerController = other.GetComponent<PlayerController2D>();
+            if (playerController != null)
+            {
+                Vector2 direction = (other.transform.position - transform.position).normalized;
+                Vector2 knockback = new Vector2(direction.x * knockbackStrength, knockbackLift);
+                playerController.TakeDamage((int)damageAmount, knockback);
+            }
+        }
     }
 }
