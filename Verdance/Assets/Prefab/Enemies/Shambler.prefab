@@ -198,7 +198,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 5726225962964023232}
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 715477767466429467, guid: 1efb3872eecb55544bc85b4a4400c88b, type: 3}
   spriteRenderer: {fileID: 3476161586707072955}
   rb: {fileID: 0}
   maxHealth: 10
