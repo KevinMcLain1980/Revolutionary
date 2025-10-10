@@ -33,6 +33,7 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private Color flashColor = Color.red;
     [SerializeField] private float flashDuration = 0.1f;
     [SerializeField] private int flashCount = 3;
+    [SerializeField] private float knockbackDuration = 0.3f;
 
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
@@ -47,7 +48,7 @@ public class PlayerController2D : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cc = GetComponent<CapsuleCollider2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
     }
 
@@ -64,6 +65,8 @@ public class PlayerController2D : MonoBehaviour
 
     public void SetPhaseThrough(bool value)
     {
+        Debug.Log($"Phase-through set to {value}");
+
         gameObject.layer = value ? LayerMask.NameToLayer("Phasing") : LayerMask.NameToLayer("Player");
         animator.SetBool("IsPhasing", value);
     }
@@ -89,7 +92,7 @@ public class PlayerController2D : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        if (value.isPressed && IsGrounded() && !isKnockedBack)
+        if (value.isPressed && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             animator.SetTrigger("IsJumping");
@@ -111,13 +114,16 @@ public class PlayerController2D : MonoBehaviour
 
     private void TryAttack()
     {
-        if (!canAttack || isKnockedBack) return;
+        if (!canAttack) return;
         animator.SetTrigger("AttackTrigger");
         canAttack = false;
         Invoke(nameof(ResetAttack), attackCooldown);
     }
 
-    private void ResetAttack() => canAttack = true;
+    private void ResetAttack()
+    {
+        canAttack = true;
+    }
 
     public void ActivateThornbrandHitbox()
     {
@@ -136,7 +142,7 @@ public class PlayerController2D : MonoBehaviour
 
     public void OnCastWindStep(InputValue value)
     {
-        if (value.isPressed && canCastWindStep && !isKnockedBack)
+        if (value.isPressed && canCastWindStep)
         {
             magicManager?.CastSpell("WindStep");
             canCastWindStep = false;
@@ -146,7 +152,7 @@ public class PlayerController2D : MonoBehaviour
 
     public void OnCastLightPulse(InputValue value)
     {
-        if (value.isPressed && canCastLightPulse && !isKnockedBack)
+        if (value.isPressed && canCastLightPulse)
         {
             magicManager?.CastSpell("LightPulse");
             canCastLightPulse = false;
@@ -172,35 +178,32 @@ public class PlayerController2D : MonoBehaviour
         currentSpeedMultiplier = 1f;
     }
 
-    public void TakeDamage(int amount, Vector2 _unused)
+    public void TakeDamage(int amount, Vector2 knockbackForce)
     {
         if (isDead || isKnockedBack || isInvincible) return;
 
         currentHealth -= amount;
         animator.SetTrigger("HurtTrigger");
 
-        StartCoroutine(FlashAndRecover());
+        StartCoroutine(ApplyKnockback(knockbackForce));
+        StartCoroutine(FlashAndInvincibility());
 
         if (currentHealth <= 0)
             Die();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Enemy"))
-        {
-            TakeDamage(1, Vector2.zero); // Knockback handled internally
-        }
-    }
-
-    private IEnumerator FlashAndRecover()
+    private IEnumerator ApplyKnockback(Vector2 force)
     {
         isKnockedBack = true;
-        isInvincible = true;
-
-        Vector2 reverseDirection = -moveInput.normalized;
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(reverseDirection * moveSpeed, ForceMode2D.Impulse);
+        rb.AddForce(force, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(knockbackDuration);
+        isKnockedBack = false;
+    }
+
+    private IEnumerator FlashAndInvincibility()
+    {
+        isInvincible = true;
 
         for (int i = 0; i < flashCount; i++)
         {
@@ -210,9 +213,7 @@ public class PlayerController2D : MonoBehaviour
             yield return new WaitForSeconds(flashDuration);
         }
 
-        yield return new WaitForSeconds(0.5f);
-
-        isKnockedBack = false;
+        yield return new WaitForSeconds(1.5f - (flashCount * flashDuration * 2));
         isInvincible = false;
     }
 
