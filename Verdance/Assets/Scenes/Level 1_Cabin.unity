@@ -9787,6 +9787,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5637883133361353540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: flashCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637883133361353540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: flashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7535306133530936840, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9827,8 +9835,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7779058891065398652, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: hitboxDuration
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7476611245702678517, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}

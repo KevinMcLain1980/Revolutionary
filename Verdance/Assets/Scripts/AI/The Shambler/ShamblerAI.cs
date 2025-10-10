@@ -5,8 +5,8 @@ public class ShamblerAI : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float detectionRange = 6f;
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private Animator animator;
+    [SerializeField] private float idleDirectionChangeInterval = 2f;
+
     [Header("References")]
     [SerializeField] private Transform playerTransform;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -17,6 +17,8 @@ public class ShamblerAI : MonoBehaviour
     private int currentHealth;
 
     private bool isChasing = false;
+    private float idleTimer = 0f;
+    private int idleDirection = 1; // 1 = right, -1 = left
 
     private void Start()
     {
@@ -34,6 +36,8 @@ public class ShamblerAI : MonoBehaviour
 
         if (spriteRenderer == null)
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        ChooseNewIdleDirection();
     }
 
     private void FixedUpdate()
@@ -45,30 +49,38 @@ public class ShamblerAI : MonoBehaviour
 
         if (isChasing)
         {
-            MoveTowardPlayer();
-            FacePlayer();
+            ChasePlayer();
         }
         else
         {
-            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // idle
+            PatrolIdle();
         }
     }
 
-    private void MoveTowardPlayer()
+    private void PatrolIdle()
+    {
+        idleTimer += Time.fixedDeltaTime;
+
+        if (idleTimer >= idleDirectionChangeInterval)
+        {
+            ChooseNewIdleDirection();
+            idleTimer = 0f;
+        }
+
+        rb.linearVelocity = new Vector2(idleDirection * moveSpeed, rb.linearVelocity.y);
+        spriteRenderer.flipX = idleDirection < 0f;
+    }
+
+    private void ChooseNewIdleDirection()
+    {
+        idleDirection = Random.value < 0.5f ? -1 : 1;
+    }
+
+    private void ChasePlayer()
     {
         Vector2 direction = (playerTransform.position - transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
-        animator.SetFloat("Speed", 1f);
-    }
-
-    private void FacePlayer()
-    {
-        float directionToPlayer = playerTransform.position.x - transform.position.x;
-        if (Mathf.Abs(directionToPlayer) > 0.1f)
-        {
-            spriteRenderer.flipX = directionToPlayer < 0f;
-        }
-        Debug.Log("Facing player. FlipX: " + spriteRenderer.flipX);
+        spriteRenderer.flipX = direction.x < 0f;
     }
 
     public void TakeDamage(int amount)
@@ -86,7 +98,6 @@ public class ShamblerAI : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
         Debug.Log($"{gameObject.name} has died.");
-        // Optional: play death animation, disable AI, destroy object
         Destroy(gameObject);
     }
 

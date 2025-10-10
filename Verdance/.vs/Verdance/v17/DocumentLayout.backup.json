@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\environment\\sceneboundary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environment\\sceneboundary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\environment\\sceneboundary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environment\\sceneboundary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -114,26 +114,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SceneBoundary.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\SceneBoundary.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Environment\\SceneBoundary.cs",
               "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\SceneBoundary.cs",
               "RelativeToolTip": "Assets\\Scripts\\Environment\\SceneBoundary.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAmwB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-10T00:58:47.966Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ShamblerAI.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
               "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
               "RelativeToolTip": "Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAA6wAgAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-07T12:35:59.742Z",
               "EditorCaption": ""

@@ -13,11 +13,11 @@ public class DamageDealer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the collided object has a TakeDamage method
-        var enemy = other.GetComponent<ShamblerAI>();
-        if (enemy != null)
+        // Check if the collided object has a ShamblerAI component
+        ShamblerAI shambler = other.GetComponent<ShamblerAI>();
+        if (shambler != null)
         {
-            enemy.TakeDamage(damageAmount);
+            shambler.TakeDamage(damageAmount);
         }
 
         // Optional: support other enemy types

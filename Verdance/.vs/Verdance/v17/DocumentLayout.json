@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\environment\\sceneboundary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environment\\sceneboundary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player attack\\damagedealer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player attack\\damagedealer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\environment\\sceneboundary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environment\\sceneboundary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player attack\\damagedealer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player attack\\damagedealer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shamblerslicerandanimate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -114,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "SceneBoundary.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\SceneBoundary.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Environment\\SceneBoundary.cs",
@@ -133,7 +133,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
               "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
               "RelativeToolTip": "Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAA6wAgAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-07T12:35:59.742Z",
               "EditorCaption": ""
@@ -179,15 +179,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "DamageDealer.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Attack\\DamageDealer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Attack\\DamageDealer.cs",
               "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Attack\\DamageDealer.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player Attack\\DamageDealer.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAcwCMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAmwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T02:19:50.035Z"
+              "WhenOpened": "2025-10-09T02:19:50.035Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -287,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PlayerController2D.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
