@@ -7033,6 +7033,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7874725832004310558, guid: 5ef91fdf0f4faac44b124ce311ac5e90, type: 3}
   m_PrefabInstance: {fileID: 1453122916}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1454060727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1284953984730672635, guid: d9d1a6c7df410e04d99c8dc3debf8932, type: 3}
+  m_PrefabInstance: {fileID: 1568114802478897019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1461274056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8033497453438154412, guid: b2bfb7ccd9418d243a3243588b472c00, type: 3}
@@ -8463,6 +8468,44 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6713505990047201479, guid: d9d1a6c7df410e04d99c8dc3debf8932, type: 3}
   m_PrefabInstance: {fileID: 1568114802478897019}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1869326169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454060727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a6f3d2d1aa08642ba3623a57222550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
+  itemSlot1: {fileID: 0}
+  itemSlot2: {fileID: 0}
+  spell1: {fileID: 0}
+  spell2: {fileID: 0}
+  spell3: {fileID: 0}
+--- !u!114 &1869326170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454060727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1ffa9bf613b264494d30c39bf33505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  maxSanity: 100
+  currentSanity: 0
+  sanityRegenRate: 5
+  maxMagic: 100
+  currentMagic: 0
 --- !u!1001 &1880246165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9737,7 +9780,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7535306133530936840, guid: d9d1a6c7df410e04d99c8dc3debf8932, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1797219225}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1284953984730672635, guid: d9d1a6c7df410e04d99c8dc3debf8932, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1869326170}
+    - targetCorrespondingSourceObject: {fileID: 1284953984730672635, guid: d9d1a6c7df410e04d99c8dc3debf8932, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1869326169}
   m_SourcePrefab: {fileID: 100100000, guid: d9d1a6c7df410e04d99c8dc3debf8932, type: 3}
 --- !u!4 &2558225363679886013 stripped
 Transform:
