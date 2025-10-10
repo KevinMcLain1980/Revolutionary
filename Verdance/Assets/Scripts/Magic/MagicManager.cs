@@ -6,6 +6,7 @@ public class MagicManager : MonoBehaviour
     [SerializeField] private WindStep windStep;
     [SerializeField] private LightPulse lightPulse;
 
+   
     public void CastSpell(string spellName)
     {
         switch (spellName)

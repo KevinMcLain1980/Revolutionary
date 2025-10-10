@@ -1,70 +1,71 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\",
+  "WorkspaceRootPath": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\full sail\\pp3\\revolutionary\\verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\player attack\\damagedealer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player attack\\damagedealer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shamblerslicerandanimate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shamblerslicerandanimate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shambleranimationgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shambleranimationgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\magic\\magicmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|c:\\users\\alex\\source\\repos\\revolutionary\\verdance\\assets\\scripts\\magic\\magicmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\magic\\magicmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\magic\\windstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\magic\\lightpulse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\magic\\lightpulse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\player attack\\damagedealer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player attack\\damagedealer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shamblerslicerandanimate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shamblerslicerandanimate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shambleranimationgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shambleranimationgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\magic\\windstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\magic\\windstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shambleranimatorbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shambleranimatorbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shambleranimatorbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shamblerbackgroundremover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shamblerbackgroundremover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shamblerbackgroundremover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shambleranimatorautolinker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shambleranimatorautolinker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shambleranimatorautolinker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shamblerspriteslicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shamblerspriteslicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shamblerspriteslicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\PlayerGroundMover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Environment\\PlayerGroundMover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\PlayerGroundMover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundConnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Environment\\GroundConnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundConnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundNode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Environment\\GroundNode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundNode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,124 +75,103 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 22,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "LightPulse.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightPulse.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\LightPulse.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightPulse.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Magic\\LightPulse.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T01:27:25.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "DamageDealer.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Attack\\DamageDealer.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Attack\\DamageDealer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Attack\\DamageDealer.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Attack\\DamageDealer.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Attack\\DamageDealer.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player Attack\\DamageDealer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T02:19:50.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T02:19:50.035Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ShamblerAI.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
               "RelativeToolTip": "Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
               "ViewState": "AgIAADwAAAAAAAAAAAAmwAAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T12:35:59.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-07T12:35:59.742Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "PlayerGroundMover.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\PlayerGroundMover.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Environment\\PlayerGroundMover.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\PlayerGroundMover.cs",
               "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\PlayerGroundMover.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Environment\\PlayerGroundMover.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\PlayerGroundMover.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T13:58:24.491Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "GroundConnector.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundConnector.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Environment\\GroundConnector.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundConnector.cs",
               "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundConnector.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Environment\\GroundConnector.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundConnector.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T12:52:07.846Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "GroundNode.cs",
               "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundNode.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Environment\\GroundNode.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundNode.cs",
               "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundNode.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Environment\\GroundNode.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\GroundNode.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T12:47:34.836Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "MagicManager.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\MagicManager.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\MagicManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\MagicManager.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\MagicManager.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\MagicManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Magic\\MagicManager.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T00:28:27.735Z"
+              "WhenOpened": "2025-10-09T00:28:27.735Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "WindStep.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\WindStep.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\WindStep.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\WindStep.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\WindStep.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\WindStep.cs",
               "RelativeToolTip": "Assets\\Scripts\\Magic\\WindStep.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAmwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -199,24 +179,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ShamblerAnimationGenerator.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimationGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimationGenerator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\ShamblerAnimationGenerator.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimationGenerator.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimationGenerator.cs",
               "RelativeToolTip": "Assets\\Scripts\\Editor\\ShamblerAnimationGenerator.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAqwHAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T17:01:34.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-07T17:01:34.394Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ShamblerBackgroundRemover.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerBackgroundRemover.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerBackgroundRemover.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\ShamblerBackgroundRemover.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerBackgroundRemover.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerBackgroundRemover.cs",
               "RelativeToolTip": "Assets\\Scripts\\Editor\\ShamblerBackgroundRemover.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAADwv0gAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -224,11 +203,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ShamblerAnimatorAutoLinker.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimatorAutoLinker.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimatorAutoLinker.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\ShamblerAnimatorAutoLinker.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimatorAutoLinker.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimatorAutoLinker.cs",
               "RelativeToolTip": "Assets\\Scripts\\Editor\\ShamblerAnimatorAutoLinker.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAgwC4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -236,11 +215,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ShamblerAnimatorBuilder.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimatorBuilder.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimatorBuilder.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\ShamblerAnimatorBuilder.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimatorBuilder.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerAnimatorBuilder.cs",
               "RelativeToolTip": "Assets\\Scripts\\Editor\\ShamblerAnimatorBuilder.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAgwF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -248,24 +227,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ShamblerSlicerAndAnimate.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
               "RelativeToolTip": "Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T13:09:36.063Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-07T13:09:36.063Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ShamblerSpriteSlicer.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
               "RelativeToolTip": "Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -273,24 +251,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PlayerController2D.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAwwEcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T13:17:02.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T13:17:02.541Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "playerui.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\playerui.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
               "RelativeToolTip": "Assets\\Scripts\\UI\\playerui.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -298,11 +275,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\GameManager.cs",
-              "ToolTip": "C:\\Full Sail\\PP3\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameManager.cs",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\UI\\GameManager.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAgwE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
