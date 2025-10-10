@@ -9,9 +9,16 @@ public class ShamblerAI : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float attackCooldown = 1.5f;
+    private float lastAttackTime = 0f;
+
     private Transform player;
     private Rigidbody2D rb;
     private bool isStunned = false;
+    private bool isDead = false;
+
+    [Header("Combat")]
+    [SerializeField] private float meleeDamage = 15f;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -29,7 +36,7 @@ public class ShamblerAI : MonoBehaviour
 
     private void Update()
     {
-        if (isStunned || player == null) return;
+        if (isStunned || isDead || player == null) return;
         MoveTowardsPlayer();
     }
 
@@ -37,15 +44,29 @@ public class ShamblerAI : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
-        animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        }
     }
 
-    public void TakeDamage(int amount, Vector2 knockbackForce)
+    public void TakeDamage(float damage, Vector2 knockbackDirection = default)
     {
-        currentHealth -= amount;
-        animator.SetTrigger("HurtTrigger");
+        if (isDead) return;
 
-        StartCoroutine(ApplyKnockback(knockbackForce));
+        currentHealth -= (int)damage;
+
+        if (animator != null)
+        {
+            animator.SetTrigger("HurtTrigger");
+        }
+
+        if (knockbackDirection != Vector2.zero)
+        {
+            StartCoroutine(ApplyKnockback(knockbackDirection));
+        }
+
         StartCoroutine(StunForSeconds(1f));
 
         if (currentHealth <= 0)
@@ -69,8 +90,67 @@ public class ShamblerAI : MonoBehaviour
 
     private void Die()
     {
-        animator.SetBool("IsDead", true);
+        isDead = true;
+
+        if (animator != null)
+        {
+            animator.SetBool("IsDead", true);
+        }
+
         rb.linearVelocity = Vector2.zero;
-        // Disable AI, collider, or trigger death effects here
+        enabled = false;
+    }
+
+    public bool IsDead() => isDead;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDead) return;
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (Time.time >= lastAttackTime + attackCooldown)
+            {
+                PlayerStats playerStats = PlayerStats.Instance;
+                if (playerStats != null)
+                {
+                    playerStats.TakeDamage(meleeDamage);
+                }
+
+                PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
+                if (playerController != null)
+                {
+                    Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                    playerController.TakeDamage((int)meleeDamage, knockbackDirection);
+                }
+
+                lastAttackTime = Time.time;
+                Debug.Log($"Shambler dealt {meleeDamage} damage to player");
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (isDead) return;
+
+        if (collision.gameObject.CompareTag("Player") && Time.time >= lastAttackTime + attackCooldown)
+        {
+            PlayerStats playerStats = PlayerStats.Instance;
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(meleeDamage);
+            }
+
+            PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
+            if (playerController != null)
+            {
+                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                playerController.TakeDamage((int)meleeDamage, knockbackDirection);
+            }
+
+            lastAttackTime = Time.time;
+            Debug.Log($"Shambler dealt {meleeDamage} damage to player");
+        }
     }
 }

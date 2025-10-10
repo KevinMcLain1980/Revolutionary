@@ -1,52 +1,62 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using System.Collections;
 using TMPro;
 
-// Manages player UI elements including health, stamina, magic, inventory slots, and boss health bar
 public class PlayerUI : MonoBehaviour
 {
     [Header("Player Status UI (Bottom Left)")]
-    [SerializeField] private Image playerHealthSlider; // Visual health bar (fill image)
-    [SerializeField] private Image playerStaminaSlider; // Visual stamina bar (fill image)
-    [SerializeField] private Image playerMagicSlider; // Visual magic bar (fill image)
-    [SerializeField] private TMP_Text healthText; // Health number display
-    [SerializeField] private TMP_Text staminaText; // Stamina number display
-    [SerializeField] private TMP_Text magicText; // Magic number display
+    [SerializeField] private Image playerHealthSlider;
+    [SerializeField] private Image playerSanitySlider;
+    [SerializeField] private Image playerMagicSlider;
+    [SerializeField] private TMP_Text healthText;
+    [SerializeField] private TMP_Text sanityText;
+    [SerializeField] private TMP_Text magicText;
 
     [Header("Inventory Slots")]
-    [SerializeField] private Button[] inventorySlots = new Button[7]; // 4 item slots + 3 magic slots
-    [SerializeField] private Image[] slotCooldownOverlays = new Image[3]; // Cooldown visuals for magic slots
-    [SerializeField] private TMP_Text[] cooldownTexts = new TMP_Text[3]; // Cooldown timer text
+    [SerializeField] private Button[] inventorySlots = new Button[7];
+    [SerializeField] private Image[] slotCooldownOverlays = new Image[3];
+    [SerializeField] private TMP_Text[] cooldownTexts = new TMP_Text[3];
 
     [Header("Boss Health Bar (Top Middle)")]
-    [SerializeField] private GameObject bossHealthBarPanel; // Boss health UI container
-    [SerializeField] private Image bossHealthSlider; // Boss health bar (fill image)
-    [SerializeField] private TMP_Text bossNameText; // Boss name display
-    [SerializeField] private TMP_Text bossHealthText; // Boss health number display
+    [SerializeField] private GameObject bossHealthBarPanel;
+    [SerializeField] private Image bossHealthSlider;
+    [SerializeField] private TMP_Text bossNameText;
+    [SerializeField] private TMP_Text bossHealthText;
 
     [Header("Settings")]
-    [SerializeField] private float[] magicSlotCooldowns = { 5f, 8f, 12f }; // Cooldown duration for each magic slot
+    [SerializeField] private float[] magicSlotCooldowns = { 5f, 8f, 12f };
 
-    // Player stats
-    private float maxHealth = 100f;
-    private float currentPlayerHealth = 100f;
-    private float maxStamina = 100f;
-    private float currentStamina = 100f;
-    private float maxMagic = 100f;
-    private float currentPlayerMagic = 100f;
+    private PlayerStats playerStats;
+    private PlayerInventory playerInventory;
+    private PlayerController2D playerController;
 
-    // Boss stats
     private float maxBossHealth = 1000f;
     private float currentBossHealth = 1000f;
     private string bossName = "Ancient Evil";
 
-    // Cooldown tracking for magic spells
     private float[] magicCooldownTimers = new float[3];
     private bool[] magicSlotsOnCooldown = new bool[3];
 
     private void Start()
     {
+        playerStats = PlayerStats.Instance;
+        playerInventory = PlayerInventory.Instance;
+        playerController = FindFirstObjectByType<PlayerController2D>();
+
+        if (playerStats != null)
+        {
+            playerStats.OnHealthChanged += UpdatePlayerHealthUI;
+            playerStats.OnMagicChanged += UpdatePlayerMagicUI;
+            playerStats.OnSanityChanged += UpdatePlayerSanityUI;
+        }
+
+        if (playerInventory != null)
+        {
+            playerInventory.OnInventoryChanged += UpdateInventoryUI;
+        }
+
         InitializeUI();
         SetupInventorySlots();
     }
@@ -54,21 +64,35 @@ public class PlayerUI : MonoBehaviour
     private void Update()
     {
         UpdateCooldowns();
+        HandleKeyboardInput();
     }
 
-    // Initialize all UI elements
+    private void HandleKeyboardInput()
+    {
+        var keyboard = Keyboard.current;
+        if (keyboard == null) return;
+
+        if (keyboard.digit1Key.wasPressedThisFrame) OnInventorySlotClicked(0);
+        if (keyboard.digit2Key.wasPressedThisFrame) OnInventorySlotClicked(1);
+        if (keyboard.digit3Key.wasPressedThisFrame) OnInventorySlotClicked(2);
+        if (keyboard.digit4Key.wasPressedThisFrame) OnInventorySlotClicked(3);
+        if (keyboard.digit5Key.wasPressedThisFrame) OnInventorySlotClicked(4);
+        if (keyboard.digit6Key.wasPressedThisFrame) OnInventorySlotClicked(5);
+        if (keyboard.digit7Key.wasPressedThisFrame) OnInventorySlotClicked(6);
+    }
+
     private void InitializeUI()
     {
-        // Initialize player status UI
-        UpdatePlayerHealthUI();
-        UpdatePlayerStaminaUI();
-        UpdatePlayerMagicUI();
+        if (playerStats != null)
+        {
+            UpdatePlayerHealthUI(playerStats.GetCurrentHealth(), playerStats.GetMaxHealth());
+            UpdatePlayerSanityUI(playerStats.GetCurrentSanity(), playerStats.GetMaxSanity());
+            UpdatePlayerMagicUI(playerStats.GetCurrentMagic(), playerStats.GetMaxMagic());
+        }
 
-        // Hide boss health bar initially
         if (bossHealthBarPanel != null)
             bossHealthBarPanel.SetActive(false);
 
-        // Initialize cooldown overlays
         for (int i = 0; i < slotCooldownOverlays.Length; i++)
         {
             if (slotCooldownOverlays[i] != null)
@@ -79,12 +103,11 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    // Setup inventory slot click handlers
     private void SetupInventorySlots()
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
-            int slotIndex = i; // Capture index for lambda
+            int slotIndex = i;
             if (inventorySlots[i] != null)
             {
                 inventorySlots[i].onClick.AddListener(() => OnInventorySlotClicked(slotIndex));
@@ -92,15 +115,12 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    // Handle inventory slot clicks
     private void OnInventorySlotClicked(int slotIndex)
     {
-        // Regular inventory slots (0-3)
         if (slotIndex < 4)
         {
             UseInventoryItem(slotIndex);
         }
-        // Magic spell slots (4-6) with cooldowns
         else
         {
             int magicSlotIndex = slotIndex - 4;
@@ -112,25 +132,34 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    // Use regular inventory item
     private void UseInventoryItem(int slotIndex)
     {
-        Debug.Log($"Used inventory item in slot {slotIndex}");
-        // Add your item usage logic here
+        if (playerInventory != null)
+        {
+            playerInventory.UseItem(slotIndex);
+        }
     }
 
-    // Use magic spell
     private void UseMagicSpell(int magicSlotIndex)
     {
-        Debug.Log($"Cast magic spell from slot {magicSlotIndex + 4}");
+        if (playerInventory == null) return;
 
-        // Consume magic points
-        ModifyPlayerMagic(-20f);
-
-        // Add your spell casting logic here
+        MagicSpell spell = playerInventory.GetMagicSpell(magicSlotIndex);
+        if (spell != null && playerStats != null)
+        {
+            if (playerStats.ConsumeMagic(spell.manaCost))
+            {
+                Vector3 playerPos = playerController != null ? playerController.transform.position : Vector3.zero;
+                Vector3 direction = playerController != null ? new Vector3(playerController.transform.localScale.x, 0, 0) : Vector3.right;
+                spell.Cast(playerPos, direction);
+            }
+            else
+            {
+                Debug.Log("Not enough magic!");
+            }
+        }
     }
 
-    // Start cooldown for magic slot
     private void StartMagicCooldown(int magicSlotIndex)
     {
         magicSlotsOnCooldown[magicSlotIndex] = true;
@@ -140,7 +169,6 @@ public class PlayerUI : MonoBehaviour
             inventorySlots[magicSlotIndex + 4].interactable = false;
     }
 
-    // Update magic spell cooldowns
     private void UpdateCooldowns()
     {
         for (int i = 0; i < magicCooldownTimers.Length; i++)
@@ -149,21 +177,18 @@ public class PlayerUI : MonoBehaviour
             {
                 magicCooldownTimers[i] -= Time.deltaTime;
 
-                // Update cooldown overlay
                 if (slotCooldownOverlays[i] != null)
                 {
                     float fillAmount = magicCooldownTimers[i] / magicSlotCooldowns[i];
                     slotCooldownOverlays[i].fillAmount = fillAmount;
                 }
 
-                // Update cooldown text
                 if (cooldownTexts[i] != null)
                 {
                     cooldownTexts[i].gameObject.SetActive(true);
                     cooldownTexts[i].text = Mathf.Ceil(magicCooldownTimers[i]).ToString();
                 }
 
-                // Check if cooldown finished
                 if (magicCooldownTimers[i] <= 0f)
                 {
                     magicSlotsOnCooldown[i] = false;
@@ -182,70 +207,66 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    // Player health management
-    public void ModifyPlayerHealth(float amount)
-    {
-        currentPlayerHealth = Mathf.Clamp(currentPlayerHealth + amount, 0f, maxHealth);
-        UpdatePlayerHealthUI();
-
-        // Update GameManager if needed (convert to 0-1 range)
-        if (GameManager.Instance != null)
-            GameManager.Instance.UpdateHealth(currentPlayerHealth / maxHealth);
-    }
-
-    // Update health UI visuals
-    private void UpdatePlayerHealthUI()
+    private void UpdatePlayerHealthUI(float current, float max)
     {
         if (playerHealthSlider != null)
-            playerHealthSlider.fillAmount = currentPlayerHealth / maxHealth;
+            playerHealthSlider.fillAmount = current / max;
 
         if (healthText != null)
-            healthText.text = $"{(int)currentPlayerHealth}/{(int)maxHealth}";
-    }
+            healthText.text = $"{(int)current}/{(int)max}";
 
-    // Player stamina management
-    public void ModifyPlayerStamina(float amount)
-    {
-        currentStamina = Mathf.Clamp(currentStamina + amount, 0f, maxStamina);
-        UpdatePlayerStaminaUI();
-
-        // Update GameManager sanity slider for stamina
         if (GameManager.Instance != null)
-            GameManager.Instance.UpdateSanity(currentStamina / maxStamina);
+            GameManager.Instance.UpdateHealth(current / max);
     }
 
-    // Update stamina UI visuals
-    private void UpdatePlayerStaminaUI()
+    private void UpdatePlayerSanityUI(float current, float max)
     {
-        if (playerStaminaSlider != null)
-            playerStaminaSlider.fillAmount = currentStamina / maxStamina;
+        if (playerSanitySlider != null)
+            playerSanitySlider.fillAmount = current / max;
 
-        if (staminaText != null)
-            staminaText.text = $"{(int)currentStamina}/{(int)maxStamina}";
-    }
+        if (sanityText != null)
+            sanityText.text = $"{(int)current}/{(int)max}";
 
-    // Player magic management
-    public void ModifyPlayerMagic(float amount)
-    {
-        currentPlayerMagic = Mathf.Clamp(currentPlayerMagic + amount, 0f, maxMagic);
-        UpdatePlayerMagicUI();
-
-        // Update GameManager magic slider
         if (GameManager.Instance != null)
-            GameManager.Instance.UpdateMagic(currentPlayerMagic / maxMagic);
+            GameManager.Instance.UpdateSanity(current / max);
     }
 
-    // Update magic UI visuals
-    private void UpdatePlayerMagicUI()
+    private void UpdatePlayerMagicUI(float current, float max)
     {
         if (playerMagicSlider != null)
-            playerMagicSlider.fillAmount = currentPlayerMagic / maxMagic;
+            playerMagicSlider.fillAmount = current / max;
 
         if (magicText != null)
-            magicText.text = $"{(int)currentPlayerMagic}/{(int)maxMagic}";
+            magicText.text = $"{(int)current}/{(int)max}";
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.UpdateMagic(current / max);
     }
 
-    // Show boss health bar with given name and max health
+    private void UpdateInventoryUI(System.Collections.Generic.List<Item> items)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (inventorySlots[i] != null)
+            {
+                var slotImage = inventorySlots[i].GetComponent<UnityEngine.UI.Image>();
+                if (i < items.Count && items[i] != null)
+                {
+                    if (slotImage != null && items[i].itemIcon != null)
+                    {
+                        slotImage.sprite = items[i].itemIcon;
+                        slotImage.enabled = true;
+                    }
+                }
+                else
+                {
+                    if (slotImage != null)
+                        slotImage.enabled = false;
+                }
+            }
+        }
+    }
+
     public void ShowBossHealthBar(string name, float maxHealth)
     {
         bossName = name;
@@ -258,27 +279,23 @@ public class PlayerUI : MonoBehaviour
         UpdateBossHealthUI();
     }
 
-    // Hide boss health bar
     public void HideBossHealthBar()
     {
         if (bossHealthBarPanel != null)
             bossHealthBarPanel.SetActive(false);
     }
 
-    // Update boss health value
     public void UpdateBossHealth(float newHealth)
     {
         currentBossHealth = Mathf.Clamp(newHealth, 0f, maxBossHealth);
         UpdateBossHealthUI();
 
-        // Hide boss health bar when boss dies
         if (currentBossHealth <= 0f)
         {
             StartCoroutine(HideBossHealthBarAfterDelay(2f));
         }
     }
 
-    // Update boss health UI visuals
     private void UpdateBossHealthUI()
     {
         if (bossHealthSlider != null)
@@ -291,17 +308,24 @@ public class PlayerUI : MonoBehaviour
             bossHealthText.text = $"{(int)currentBossHealth}/{(int)maxBossHealth}";
     }
 
-    // Wait before hiding boss health bar
     private IEnumerator HideBossHealthBarAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         HideBossHealthBar();
     }
 
-    // Public getters for other scripts
-    public float GetCurrentHealth() => currentPlayerHealth;
-    public float GetCurrentStamina() => currentStamina;
-    public float GetCurrentMagic() => currentPlayerMagic;
-    public bool IsMagicSlotOnCooldown(int magicSlotIndex) => magicSlotsOnCooldown[magicSlotIndex];
-    public float GetMagicCooldownTime(int magicSlotIndex) => magicCooldownTimers[magicSlotIndex];
+    private void OnDestroy()
+    {
+        if (playerStats != null)
+        {
+            playerStats.OnHealthChanged -= UpdatePlayerHealthUI;
+            playerStats.OnMagicChanged -= UpdatePlayerMagicUI;
+            playerStats.OnSanityChanged -= UpdatePlayerSanityUI;
+        }
+
+        if (playerInventory != null)
+        {
+            playerInventory.OnInventoryChanged -= UpdateInventoryUI;
+        }
+    }
 }
