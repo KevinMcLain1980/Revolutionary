@@ -98,7 +98,14 @@ public class ShamblerAI : MonoBehaviour
         }
 
         rb.linearVelocity = Vector2.zero;
+
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.OnEnemyKilled(gameObject);
+        }
+
         enabled = false;
+        Destroy(gameObject, 3f);
     }
 
     public bool IsDead() => isDead;

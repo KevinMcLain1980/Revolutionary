@@ -2238,6 +2238,7 @@ GameObject:
   - component: {fileID: 3942548949837984227}
   - component: {fileID: 3801213113387001715}
   - component: {fileID: 8447748764666541016}
+  - component: {fileID: 5103762881990469491}
   m_Layer: 0
   m_Name: UserInterface
   m_TagString: Untagged
@@ -2298,10 +2299,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthSlider: {fileID: 7886977180641180107}
-  playerStaminaSlider: {fileID: 7183305480964429125}
+  playerSanitySlider: {fileID: 0}
   playerMagicSlider: {fileID: 2739992235433101607}
   healthText: {fileID: 7460542691291402835}
-  staminaText: {fileID: 318151985328973737}
+  sanityText: {fileID: 0}
   magicText: {fileID: 8082852340816140138}
   inventorySlots:
   - {fileID: 7757707907296254875}
@@ -2319,14 +2320,31 @@ MonoBehaviour:
   - {fileID: 5247180882478034266}
   - {fileID: 3872571989086770239}
   - {fileID: 2399764202677777082}
-  bossHealthBarPanel: {fileID: 0}
-  bossHealthSlider: {fileID: 0}
-  bossNameText: {fileID: 0}
-  bossHealthText: {fileID: 0}
+  bossHealthBarPanel: {fileID: 8096035954630496296}
+  bossHealthSlider: {fileID: 5819202596973607854}
+  bossNameText: {fileID: 3254947218258755831}
+  bossHealthText: {fileID: 6951073053017938855}
   magicSlotCooldowns:
   - 5
   - 8
   - 12
+--- !u!114 &5103762881990469491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5292283440566872854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c079f3ad70d9ed946bbe986542b20d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelName: Level 2_ForestDepths
+  requireBossKill: 1
+  requireAllEnemiesKilled: 1
+  levelCompleteDelay: 2
+  levelCompleteUI: {fileID: 0}
 --- !u!1 &5371254284383472956
 GameObject:
   m_ObjectHideFlags: 0
