@@ -9787,6 +9787,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4725913309588204540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725913309588204540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5637883133361353540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: flashCount
       value: 3
