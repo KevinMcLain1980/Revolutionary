@@ -61,6 +61,12 @@ public class PlayerController2D : MonoBehaviour
     {
         MovePlayer();
         UpdateAnimationStates();
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Debug.Log("Spacebar pressed via Keyboard.current");
+        }
+
+
     }
 
     public void SetPhaseThrough(bool value)
@@ -92,10 +98,18 @@ public class PlayerController2D : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
+        Debug.Log($"Jump input received: {value.isPressed}");
+
+
+
+
         if (value.isPressed && IsGrounded())
         {
+            Debug.Log($"Jumping! Velocity before: {rb.linearVelocity.y}");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             animator.SetTrigger("IsJumping");
+            Debug.Log($"Velocity after: {rb.linearVelocity.y}");
+            Debug.Log($"Jump input received: {value.isPressed}, IsGrounded: {IsGrounded()}");
         }
     }
 

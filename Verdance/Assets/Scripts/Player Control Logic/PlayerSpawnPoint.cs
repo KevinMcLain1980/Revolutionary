@@ -21,6 +21,7 @@ public class PlayerSpawnPoint : MonoBehaviour
         if (spawnOnStart)
         {
             SpawnPlayer();
+            Debug.Log($"SpawnPoint active at {transform.position}, spawnOnStart = {spawnOnStart}");
         }
     }
 
