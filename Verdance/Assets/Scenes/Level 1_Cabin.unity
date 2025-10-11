@@ -2829,6 +2829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01_a (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7006781228711610542, guid: fd1c4f48b01149f45846fd739b29ab89, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bf5b1506ae7b24e428ddfd3b6c8fbc9f, type: 2}
     - target: {fileID: 8680303187070329335, guid: fd1c4f48b01149f45846fd739b29ab89, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.56154
