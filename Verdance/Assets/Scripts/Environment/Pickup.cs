@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Collider2D))]
 public class Pickup : MonoBehaviour
 {
     public enum PickupType { Health, Magic, Sanity, Item, MagicSpell, PrimaryWeapon, SecondaryWeapon }
@@ -15,7 +15,7 @@ public class Pickup : MonoBehaviour
     public MagicSpell spellData;
     public int targetSlot = 0;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         var playerRoot = other.transform.root;
 
