@@ -3,11 +3,19 @@
   "WorkspaceRootPath": "E:\\Unity_Projects\\Revolutionary\\Verdance\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|e:\\unity_projects\\revolutionary\\verdance\\assets\\scripts\\ui\\settingsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\settingsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\mainmenu and loading\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu and loading\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|e:\\unity_projects\\revolutionary\\verdance\\assets\\scripts\\mainmenu and loading\\settingsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu and loading\\settingsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|e:\\unity_projects\\revolutionary\\verdance\\assets\\scripts\\mainmenu and loading\\settingsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\mainmenu and loading\\settingsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu and loading\\settingsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -37,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\interfaces\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\interfaces\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\mainmenu and loading\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu and loading\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\LevelTransition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -146,6 +150,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SettingsMenu.cs",
+              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\SettingsMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\SettingsMenu.cs",
+              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\SettingsMenu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\SettingsMenu.cs",
+              "ViewState": "AgIAAJ4BAAAAAAAAAAAuwMYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T23:20:25.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "SettingsManager.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\SettingsManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\SettingsManager.cs",
@@ -158,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "SettingsData.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\SettingsData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\SettingsData.cs",
@@ -166,12 +183,11 @@
               "RelativeToolTip": "Assets\\Scripts\\MainMenu and Loading\\SettingsData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T23:19:16.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-10T23:19:16.112Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "PlayerCombat.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerCombat.cs",
@@ -183,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "ConsumableItem.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Interfaces\\ConsumableItem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Interfaces\\ConsumableItem.cs",
@@ -195,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Weapon.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Interfaces\\Weapon.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Interfaces\\Weapon.cs",
@@ -207,7 +223,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "GameSaveData.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\GameSaveData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\GameSaveData.cs",
@@ -219,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "LevelManager.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\LevelManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\LevelManager.cs",
@@ -231,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "DamageDealer.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Attack\\DamageDealer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Attack\\DamageDealer.cs",
@@ -243,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "IDamageable.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Interfaces\\IDamageable.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Interfaces\\IDamageable.cs",
@@ -255,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "SpellDamage.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\SpellDamage.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\SpellDamage.cs",
@@ -267,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "LightProjectileSpell.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightProjectileSpell.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\LightProjectileSpell.cs",
@@ -279,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "WindStepSpell.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\WindStepSpell.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\WindStepSpell.cs",
@@ -291,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "LightPulseSpell.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightPulseSpell.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\LightPulseSpell.cs",
@@ -303,7 +319,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "LightPulse.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\LightPulse.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\LightPulse.cs",
@@ -315,7 +331,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "MagicSpell.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\MagicSpell.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\MagicSpell.cs",
@@ -327,7 +343,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Item.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Interfaces\\Item.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Interfaces\\Item.cs",
@@ -339,7 +355,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "PlayerInventory.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerInventory.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerInventory.cs",
@@ -351,7 +367,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "Pickup.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\Pickup.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Environment\\Pickup.cs",
@@ -363,7 +379,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ShamblerAI.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
@@ -375,7 +391,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PlayerController2D.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
@@ -387,7 +403,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "PlayerStats.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerStats.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerStats.cs",
@@ -399,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "MagicManager.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Magic\\MagicManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Magic\\MagicManager.cs",
@@ -411,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "PauseMenu.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\PauseMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\PauseMenu.cs",
@@ -423,7 +439,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "settingsManager.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\The-Celestials\\FPS Game\\Assets\\Scripts\\settingsManager.cs",
               "RelativeDocumentMoniker": "..\\..\\The-Celestials\\FPS Game\\Assets\\Scripts\\settingsManager.cs",
@@ -435,7 +451,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "LevelTransition.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\LevelTransition.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\LevelTransition.cs",
@@ -447,7 +463,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "SaveSystem.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\SaveSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\SaveSystem.cs",
@@ -459,7 +475,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "LoadingScreen.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\LoadingScreen.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\LoadingScreen.cs",
@@ -471,19 +487,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\MainMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\MainMenu.cs",
               "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\MainMenu.cs",
               "RelativeToolTip": "Assets\\Scripts\\MainMenu and Loading\\MainMenu.cs",
-              "ViewState": "AgIAAIMAAAAAAAAAAAAgwKwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAuwK0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T06:09:08.295Z"
+              "WhenOpened": "2025-10-05T06:09:08.295Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "playerui.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\playerui.cs",
@@ -495,7 +512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "GameManager.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\GameManager.cs",
