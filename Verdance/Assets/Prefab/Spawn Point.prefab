@@ -105,5 +105,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8a7b5e2e8016145b0855d414c05442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 1284953984730672635, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
   spawnOnStart: 1
