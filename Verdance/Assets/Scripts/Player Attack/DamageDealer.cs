@@ -9,6 +9,11 @@ public class DamageDealer : MonoBehaviour
     [SerializeField] private float damageAmount = 10f;
     [SerializeField] private float knockbackStrength = 6f;
     [SerializeField] private float knockbackLift = 4f;
+    [SerializeField] private LayerMask targetLayers;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip hitSound;
+    [Range(0f, 1f)][SerializeField] private float volume = 0.7f;
 
     public void SetDamage(float damage)
     {
@@ -17,7 +22,13 @@ public class DamageDealer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"DamageDealer hit: {other.gameObject.name}, Tag: {other.tag}, DealerType: {dealerType}");
+        Debug.Log($"DamageDealer hit: {other.gameObject.name}, Tag: {other.tag}, Layer: {LayerMask.LayerToName(other.gameObject.layer)}, DealerType: {dealerType}");
+
+        if (targetLayers != 0 && ((1 << other.gameObject.layer) & targetLayers) == 0)
+        {
+            Debug.Log($"Ignoring {other.name} - not in target layers");
+            return;
+        }
 
         if (dealerType == DealerType.Player)
         {
@@ -54,6 +65,12 @@ public class DamageDealer : MonoBehaviour
         Vector2 knockback = new Vector2(direction.x * knockbackStrength, knockbackLift);
 
         Debug.Log($"Dealing {damageAmount} damage to {other.transform.root.name}");
+
+        if (hitSound != null)
+        {
+            AudioSource.PlayClipAtPoint(hitSound, other.transform.position, volume);
+        }
+
         damageable.TakeDamage(damageAmount, knockback);
     }
 

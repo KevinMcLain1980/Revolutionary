@@ -14,8 +14,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button exitButton;
 
-    [Header("Settings Panel (Optional)")]
+    [Header("Settings Panel")]
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private SettingsMenu settingsMenu;
 
     [Header("Sound Effects")]
     [SerializeField] private AudioClip hoverSound; // Sound when hovering over buttons
@@ -152,13 +153,35 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // Toggle the settings panel on/off
     private void ToggleSettings()
     {
         Debug.Log("Settings button clicked");
         PlayClickSound();
+
         if (settingsPanel != null)
-            settingsPanel.SetActive(!settingsPanel.activeSelf);
+        {
+            bool isActive = settingsPanel.activeSelf;
+            settingsPanel.SetActive(!isActive);
+            Debug.Log($"Settings panel now {(!isActive ? "active" : "inactive")}");
+
+            if (pauseMenuPanel != null && !isActive)
+            {
+                pauseMenuPanel.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.LogError("Settings panel not assigned!");
+        }
+    }
+
+    public void CloseSettings()
+    {
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
+
+        if (pauseMenuPanel != null)
+            pauseMenuPanel.SetActive(true);
     }
 
     // Exit to the main menu (scene 0)

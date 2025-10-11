@@ -56,6 +56,12 @@ public class PlayerCombat : MonoBehaviour
             animator.SetTrigger("AttackTrigger");
         }
 
+        Weapon weaponData = weapon as Weapon;
+        if (weaponData != null && weaponData.swingSound != null)
+        {
+            AudioSource.PlayClipAtPoint(weaponData.swingSound, transform.position, weaponData.volume);
+        }
+
         ActivateWeaponHitbox(primaryWeaponHitbox, weapon);
         canAttackPrimary = false;
         Invoke(nameof(ResetPrimaryAttack), primaryAttackCooldown);
@@ -75,6 +81,12 @@ public class PlayerCombat : MonoBehaviour
         if (animator != null)
         {
             animator.SetTrigger("AttackTrigger");
+        }
+
+        Weapon weaponData = weapon as Weapon;
+        if (weaponData != null && weaponData.swingSound != null)
+        {
+            AudioSource.PlayClipAtPoint(weaponData.swingSound, transform.position, weaponData.volume);
         }
 
         ActivateWeaponHitbox(secondaryWeaponHitbox, weapon);

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 
+// Manages settings menu UI, audio volume controls, and keybind rebinding
 public class SettingsMenu : MonoBehaviour
 {
     [Header("Audio Sliders")]
@@ -136,6 +137,7 @@ public class SettingsMenu : MonoBehaviour
             spell3KeybindButton.onClick.AddListener(() => StartRebinding("Spell Slot 7"));
     }
 
+    // Load saved settings and update UI
     private void LoadSettings()
     {
         if (SettingsManager.Instance == null) return;
@@ -149,6 +151,7 @@ public class SettingsMenu : MonoBehaviour
         UpdateKeybindTexts();
     }
 
+    // Update keybind display text to show current bindings
     private void UpdateKeybindTexts()
     {
         if (inputActions != null)
@@ -247,6 +250,7 @@ public class SettingsMenu : MonoBehaviour
         UpdateVolumeText(uiVolumeText, uiVolumeSlider?.value ?? 1f);
     }
 
+    // Start rebinding process for a specific action
     private void StartRebinding(string displayName)
     {
         if (inputActions == null)
@@ -364,6 +368,7 @@ public class SettingsMenu : MonoBehaviour
         return 0;
     }
 
+    // Save keybind changes to PlayerPrefs
     private void SaveBindingOverride(InputAction action)
     {
         for (int i = 0; i < action.bindings.Count; i++)
@@ -373,6 +378,7 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    // Load saved keybind overrides from PlayerPrefs
     private void LoadBindingOverrides()
     {
         if (inputActions == null) return;
@@ -397,6 +403,7 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
+    // Reset all keybinds to defaults
     private void ResetAllBindings()
     {
         if (inputActions == null) return;
@@ -444,7 +451,15 @@ public class SettingsMenu : MonoBehaviour
 
     private void OnCloseClicked()
     {
-        gameObject.SetActive(false);
+        PauseMenu pauseMenu = FindFirstObjectByType<PauseMenu>();
+        if (pauseMenu != null)
+        {
+            pauseMenu.CloseSettings();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnDestroy()

@@ -9,6 +9,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip hurtSound;
+    [SerializeField] private AudioClip deathSound;
+    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+
     [Header("Sanity")]
     [SerializeField] private float maxSanity = 100f;
     [SerializeField] private float currentSanity;
@@ -62,6 +67,10 @@ public class PlayerStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+        }
+        else if (hurtSound != null)
+        {
+            AudioSource.PlayClipAtPoint(hurtSound, transform.position, sfxVolume);
         }
     }
 
@@ -117,6 +126,17 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, sfxVolume);
+        }
+
         Debug.Log("Player died!");
+
+        PlayerRespawn respawn = GetComponent<PlayerRespawn>();
+        if (respawn != null)
+        {
+            respawn.OnPlayerDeath();
+        }
     }
 }

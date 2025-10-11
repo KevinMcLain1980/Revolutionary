@@ -9,6 +9,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [Header("Knockback Settings")]
     [SerializeField] private float knockbackResistance = 1f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip hurtSound;
+    [SerializeField] private AudioClip deathSound;
+    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+
     private Rigidbody2D rb;
     private Animator animator;
     private bool isDead = false;
@@ -54,12 +59,22 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         {
             animator.SetTrigger("HurtTrigger");
         }
+
+        if (hurtSound != null)
+        {
+            AudioSource.PlayClipAtPoint(hurtSound, transform.position, sfxVolume);
+        }
     }
 
     protected virtual void Die()
     {
         isDead = true;
         Debug.Log($"{gameObject.name} died!");
+
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, sfxVolume);
+        }
 
         if (LevelManager.Instance != null)
         {
