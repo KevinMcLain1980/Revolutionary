@@ -12,8 +12,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button exitButton;
 
-    [Header("Settings Panel (Optional)")]
+    [Header("Settings Panel")]
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private SettingsMenu settingsMenu;
 
     [Header("Sound Effects")]
     [SerializeField] private AudioClip hoverSound;
@@ -92,7 +93,20 @@ public class MainMenu : MonoBehaviour
     private void OnNewGame()
     {
         SaveSystem.DeleteSave();
-        SaveSystem.SaveGame(3);
+
+        GameSaveData saveData = new GameSaveData
+        {
+            currentLevel = SceneManager.GetSceneByBuildIndex(1).name,
+            nextLevel = SceneManager.sceneCountInBuildSettings > 2 ?
+                SceneManager.GetSceneByBuildIndex(2).name : "",
+            playerHealth = 100f,
+            playerSanity = 100f,
+            playerMagic = 100f,
+            saveTime = System.DateTime.Now.ToString(),
+            levelsCompleted = 0
+        };
+
+        SaveSystem.SaveGame(saveData);
         SceneManager.LoadScene(1);
     }
 
@@ -108,10 +122,17 @@ public class MainMenu : MonoBehaviour
 
     private void LoadSavedGame()
     {
-        SaveData data = SaveSystem.LoadGame();
+        GameSaveData data = SaveSystem.LoadGame();
         if (data != null)
         {
             SceneManager.LoadScene(data.currentLevel);
+
+            if (PlayerStats.Instance != null)
+            {
+                PlayerStats.Instance.SetHealth(data.playerHealth);
+                PlayerStats.Instance.SetSanity(data.playerSanity);
+                PlayerStats.Instance.SetMagic(data.playerMagic);
+            }
         }
     }
 
@@ -126,7 +147,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayExitSound();
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif

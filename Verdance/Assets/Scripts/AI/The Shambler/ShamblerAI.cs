@@ -1,108 +1,156 @@
 using UnityEngine;
+using System.Collections;
 
 public class ShamblerAI : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float detectionRange = 6f;
-    [SerializeField] private float idleDirectionChangeInterval = 2f;
+    [SerializeField] private float attackCooldown = 1.5f;
+    private float lastAttackTime = 0f;
 
-    [Header("References")]
-    [SerializeField] private Transform playerTransform;
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Rigidbody2D rb;
+    private Transform player;
+    private Rigidbody2D rb;
+    private bool isStunned = false;
+    private bool isDead = false;
 
-    [Header("Health")]
-    [SerializeField] private int maxHealth = 3;
-    private int currentHealth;
+    [Header("Combat")]
+    [SerializeField] private float meleeDamage = 15f;
 
-    private bool isChasing = false;
-    private float idleTimer = 0f;
-    private int idleDirection = 1; // 1 = right, -1 = left
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {
-        currentHealth = maxHealth;
-
-        if (playerTransform == null)
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-                playerTransform = player.transform;
-        }
-
-        if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
-
-        if (spriteRenderer == null)
-            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
-        ChooseNewIdleDirection();
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (playerTransform == null || isDead()) return;
-
-        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-        isChasing = distanceToPlayer <= detectionRange;
-
-        if (isChasing)
-        {
-            ChasePlayer();
-        }
-        else
-        {
-            PatrolIdle();
-        }
+        if (isStunned || isDead || player == null) return;
+        MoveTowardsPlayer();
     }
 
-    private void PatrolIdle()
+    private void MoveTowardsPlayer()
     {
-        idleTimer += Time.fixedDeltaTime;
-
-        if (idleTimer >= idleDirectionChangeInterval)
-        {
-            ChooseNewIdleDirection();
-            idleTimer = 0f;
-        }
-
-        rb.linearVelocity = new Vector2(idleDirection * moveSpeed, rb.linearVelocity.y);
-        spriteRenderer.flipX = idleDirection < 0f;
-    }
-
-    private void ChooseNewIdleDirection()
-    {
-        idleDirection = Random.value < 0.5f ? -1 : 1;
-    }
-
-    private void ChasePlayer()
-    {
-        Vector2 direction = (playerTransform.position - transform.position).normalized;
+        Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
-        spriteRenderer.flipX = direction.x < 0f;
-    }
 
-    public void TakeDamage(int amount)
-    {
-        currentHealth -= amount;
-        Debug.Log($"{gameObject.name} took {amount} damage. Remaining HP: {currentHealth}");
-
-        if (currentHealth <= 0)
+        if (animator != null)
         {
-            Die();
+            animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
         }
     }
 
-    private void Die()
+    public void OnHurt()
+    {
+        if (isDead) return;
+
+        if (animator != null)
+        {
+            animator.SetTrigger("HurtTrigger");
+        }
+
+        StartCoroutine(StunForSeconds(0.5f));
+    }
+
+    private IEnumerator ApplyKnockback(Vector2 force)
     {
         rb.linearVelocity = Vector2.zero;
-        Debug.Log($"{gameObject.name} has died.");
-        Destroy(gameObject);
+        rb.AddForce(force, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.3f);
     }
 
-    private bool isDead()
+    private IEnumerator StunForSeconds(float duration)
     {
-        return currentHealth <= 0;
+        isStunned = true;
+        rb.linearVelocity = Vector2.zero;
+        yield return new WaitForSeconds(duration);
+        isStunned = false;
+    }
+
+    public void Die()
+    {
+        isDead = true;
+
+        if (animator != null && animator.parameters != null)
+        {
+            foreach (var param in animator.parameters)
+            {
+                if (param.name == "IsDead")
+                {
+                    animator.SetBool("IsDead", true);
+                    break;
+                }
+            }
+        }
+
+        rb.linearVelocity = Vector2.zero;
+        enabled = false;
+
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = false;
+        }
+
+        Destroy(gameObject, 0.5f);
+    }
+
+    public bool IsDead() => isDead;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDead) return;
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (Time.time >= lastAttackTime + attackCooldown)
+            {
+                PlayerStats playerStats = PlayerStats.Instance;
+                if (playerStats != null)
+                {
+                    playerStats.TakeDamage(meleeDamage);
+                }
+
+                PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
+                if (playerController != null)
+                {
+                    Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                    playerController.TakeDamage((int)meleeDamage, knockbackDirection);
+                }
+
+                lastAttackTime = Time.time;
+                Debug.Log($"Shambler dealt {meleeDamage} damage to player");
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (isDead) return;
+
+        if (collision.gameObject.CompareTag("Player") && Time.time >= lastAttackTime + attackCooldown)
+        {
+            PlayerStats playerStats = PlayerStats.Instance;
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(meleeDamage);
+            }
+
+            PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
+            if (playerController != null)
+            {
+                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                playerController.TakeDamage((int)meleeDamage, knockbackDirection);
+            }
+
+            lastAttackTime = Time.time;
+            Debug.Log($"Shambler dealt {meleeDamage} damage to player");
+        }
     }
 }

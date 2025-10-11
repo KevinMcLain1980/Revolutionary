@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 44266212541678624}
   - component: {fileID: 3476161586707072955}
   - component: {fileID: 5143185248373188403}
+  - component: {fileID: 5710160380467175630}
+  - component: {fileID: 8199211770492758105}
   m_Layer: 7
   m_Name: Shambler
   m_TagString: Enemy
@@ -119,8 +121,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.9, y: 0}
-  m_Size: {x: 9, y: 10}
+  m_Offset: {x: -0.34, y: 0}
+  m_Size: {x: 5, y: 10}
   m_Direction: 0
 --- !u!212 &3476161586707072955
 SpriteRenderer:
@@ -142,8 +144,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -165,7 +165,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -193,12 +192,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShamblerAI
   moveSpeed: 2
-  detectionRange: 10
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  attackCooldown: 1.5
+  meleeDamage: 15
   animator: {fileID: 5726225962964023232}
-  playerTransform: {fileID: 715477767466429467, guid: 1efb3872eecb55544bc85b4a4400c88b, type: 3}
-  spriteRenderer: {fileID: 3476161586707072955}
-  rb: {fileID: 0}
-  maxHealth: 10
+--- !u!114 &5710160380467175630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535567683494491136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6018be7dd3f7794899ec47e0b67ba6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dealerType: 0
+  damageAmount: 3
+  knockbackStrength: 6
+  knockbackLift: 4
+--- !u!114 &8199211770492758105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535567683494491136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67bb068863cfbf48881154b1525d5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  knockbackResistance: 1

@@ -1,19 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Handles level transitions, loading next levels, specific levels, and returning to main menu
 public class LevelTransition : MonoBehaviour
 {
-    // Load the next level in the build settings and save progress
     public void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
 
-        // Check if there's a next level available
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SaveSystem.SaveGame(nextSceneIndex);
+            GameSaveData saveData = new GameSaveData
+            {
+                currentLevel = SceneManager.GetSceneByBuildIndex(nextSceneIndex).name,
+                nextLevel = nextSceneIndex + 1 < SceneManager.sceneCountInBuildSettings ?
+                    SceneManager.GetSceneByBuildIndex(nextSceneIndex + 1).name : "",
+                playerHealth = PlayerStats.Instance?.GetCurrentHealth() ?? 100f,
+                playerSanity = PlayerStats.Instance?.GetCurrentSanity() ?? 100f,
+                playerMagic = PlayerStats.Instance?.GetCurrentMagic() ?? 100f,
+                saveTime = System.DateTime.Now.ToString(),
+                levelsCompleted = currentSceneIndex
+            };
+
+            SaveSystem.SaveGame(saveData);
             SceneManager.LoadScene(nextSceneIndex);
         }
         else
@@ -22,14 +31,27 @@ public class LevelTransition : MonoBehaviour
         }
     }
 
-    // Load a specific level by index and save progress
     public void LoadSpecificLevel(int levelIndex)
     {
-        SaveSystem.SaveGame(levelIndex);
-        SceneManager.LoadScene(levelIndex);
+        if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            GameSaveData saveData = new GameSaveData
+            {
+                currentLevel = SceneManager.GetSceneByBuildIndex(levelIndex).name,
+                nextLevel = levelIndex + 1 < SceneManager.sceneCountInBuildSettings ?
+                    SceneManager.GetSceneByBuildIndex(levelIndex + 1).name : "",
+                playerHealth = PlayerStats.Instance?.GetCurrentHealth() ?? 100f,
+                playerSanity = PlayerStats.Instance?.GetCurrentSanity() ?? 100f,
+                playerMagic = PlayerStats.Instance?.GetCurrentMagic() ?? 100f,
+                saveTime = System.DateTime.Now.ToString(),
+                levelsCompleted = levelIndex - 1
+            };
+
+            SaveSystem.SaveGame(saveData);
+            SceneManager.LoadScene(levelIndex);
+        }
     }
 
-    // Return to the main menu (scene 0)
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(0);
