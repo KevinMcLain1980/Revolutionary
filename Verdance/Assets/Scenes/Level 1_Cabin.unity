@@ -1017,6 +1017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_08_d (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7301779289742822977, guid: 5ef91fdf0f4faac44b124ce311ac5e90, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 600f828e41f48f14fa23df98c59e7143, type: 2}
     - target: {fileID: 7874725832004310558, guid: 5ef91fdf0f4faac44b124ce311ac5e90, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.45154
@@ -6128,6 +6132,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1161547626}
     m_Modifications:
+    - target: {fileID: 1890150956474264176, guid: b8b228e736f6c974388ccf14c31f334a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e5240ac05257b6344a570012d0eefd5e, type: 2}
     - target: {fileID: 2264249565251518400, guid: b8b228e736f6c974388ccf14c31f334a, type: 3}
       propertyPath: m_Name
       value: Tree_07_a (2)
@@ -9765,6 +9773,14 @@ PrefabInstance:
     - target: {fileID: 1284953984730672635, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725913309588204540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725913309588204540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5637883133361353540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: flashCount
