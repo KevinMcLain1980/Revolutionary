@@ -7,9 +7,9 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance { get; private set; }
 
     [Header("Level Settings")]
-    [SerializeField] private string nextLevelName;
-    [SerializeField] private bool requireBossKill = true;
-    [SerializeField] private bool requireAllEnemiesKilled = false;
+    [SerializeField] private Object nextLevelScene;
+    [SerializeField] private bool requireBossKill = false;
+    [SerializeField] private bool requireAllEnemiesKilled = true;
     [SerializeField] private float levelCompleteDelay = 2f;
 
     [Header("References")]
@@ -104,6 +104,8 @@ public class LevelManager : MonoBehaviour
 
     private void SaveGame()
     {
+        string nextLevelName = nextLevelScene != null ? nextLevelScene.name : "";
+
         GameSaveData saveData = new GameSaveData
         {
             currentLevel = SceneManager.GetActiveScene().name,
@@ -120,9 +122,11 @@ public class LevelManager : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        if (!string.IsNullOrEmpty(nextLevelName))
+        if (nextLevelScene != null)
         {
-            SceneManager.LoadScene(nextLevelName);
+            string sceneName = nextLevelScene.name;
+            Debug.Log($"Loading next level: {sceneName}");
+            SceneManager.LoadScene(sceneName);
         }
         else
         {

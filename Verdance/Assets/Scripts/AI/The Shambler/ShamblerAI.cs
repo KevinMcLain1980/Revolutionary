@@ -3,10 +3,6 @@ using System.Collections;
 
 public class ShamblerAI : MonoBehaviour
 {
-    [Header("Health")]
-    [SerializeField] private int maxHealth = 3;
-    private int currentHealth;
-
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float attackCooldown = 1.5f;
@@ -30,7 +26,6 @@ public class ShamblerAI : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
@@ -51,26 +46,16 @@ public class ShamblerAI : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage, Vector2 knockbackDirection = default)
+    public void OnHurt()
     {
         if (isDead) return;
-
-        currentHealth -= (int)damage;
 
         if (animator != null)
         {
             animator.SetTrigger("HurtTrigger");
         }
 
-        if (knockbackDirection != Vector2.zero)
-        {
-            StartCoroutine(ApplyKnockback(knockbackDirection));
-        }
-
-        StartCoroutine(StunForSeconds(1f));
-
-        if (currentHealth <= 0)
-            Die();
+        StartCoroutine(StunForSeconds(0.5f));
     }
 
     private IEnumerator ApplyKnockback(Vector2 force)
@@ -88,24 +73,32 @@ public class ShamblerAI : MonoBehaviour
         isStunned = false;
     }
 
-    private void Die()
+    public void Die()
     {
         isDead = true;
 
-        if (animator != null)
+        if (animator != null && animator.parameters != null)
         {
-            animator.SetBool("IsDead", true);
+            foreach (var param in animator.parameters)
+            {
+                if (param.name == "IsDead")
+                {
+                    animator.SetBool("IsDead", true);
+                    break;
+                }
+            }
         }
 
         rb.linearVelocity = Vector2.zero;
+        enabled = false;
 
-        if (LevelManager.Instance != null)
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
         {
-            LevelManager.Instance.OnEnemyKilled(gameObject);
+            spriteRenderer.enabled = false;
         }
 
-        enabled = false;
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 0.5f);
     }
 
     public bool IsDead() => isDead;

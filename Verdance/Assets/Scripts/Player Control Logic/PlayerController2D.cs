@@ -108,7 +108,15 @@ public class PlayerController2D : MonoBehaviour
     {
         if (value.isPressed)
         {
-            TryAttack();
+            PlayerCombat combat = GetComponent<PlayerCombat>();
+            if (combat != null)
+            {
+                combat.PerformAttack();
+            }
+            else
+            {
+                TryAttack();
+            }
         }
     }
 
@@ -138,6 +146,15 @@ public class PlayerController2D : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         thornbrandHitbox.SetActive(false);
+    }
+
+    public void UseInventoryItem(int slotIndex)
+    {
+        PlayerInventory inventory = PlayerInventory.Instance;
+        if (inventory != null)
+        {
+            inventory.UseItem(slotIndex);
+        }
     }
 
     public void OnCastWindStep(InputValue value)

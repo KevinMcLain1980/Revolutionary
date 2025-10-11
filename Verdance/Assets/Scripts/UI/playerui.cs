@@ -134,9 +134,25 @@ public class PlayerUI : MonoBehaviour
 
     private void UseInventoryItem(int slotIndex)
     {
-        if (playerInventory != null)
+        if (slotIndex == 0 || slotIndex == 1)
         {
-            playerInventory.UseItem(slotIndex);
+            PlayerCombat combat = playerController?.GetComponent<PlayerCombat>();
+            if (combat != null)
+            {
+                combat.SwitchWeapon(slotIndex);
+                combat.PerformAttack();
+            }
+        }
+        else
+        {
+            if (playerInventory != null)
+            {
+                Item item = playerInventory.GetItem(slotIndex);
+                if (item != null && item.IsUsable())
+                {
+                    item.Use();
+                }
+            }
         }
     }
 

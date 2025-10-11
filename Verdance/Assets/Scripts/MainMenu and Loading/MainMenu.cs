@@ -12,8 +12,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button exitButton;
 
-    [Header("Settings Panel (Optional)")]
+    [Header("Settings Panel")]
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private SettingsMenu settingsMenu;
 
     [Header("Sound Effects")]
     [SerializeField] private AudioClip hoverSound;
