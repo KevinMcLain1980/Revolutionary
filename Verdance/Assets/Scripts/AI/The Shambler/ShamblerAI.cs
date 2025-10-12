@@ -6,12 +6,15 @@ public class ShamblerAI : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float attackCooldown = 1.5f;
+    [SerializeField] private float detectionRange = 8f;
+    [SerializeField] private float stopChaseRange = 12f;
     private float lastAttackTime = 0f;
 
     private Transform player;
     private Rigidbody2D rb;
     private bool isStunned = false;
     private bool isDead = false;
+    private bool isChasing = false;
 
     [Header("Combat")]
     [SerializeField] private float meleeDamage = 15f;
@@ -32,7 +35,31 @@ public class ShamblerAI : MonoBehaviour
     private void Update()
     {
         if (isStunned || isDead || player == null) return;
-        MoveTowardsPlayer();
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (!isChasing && distanceToPlayer <= detectionRange)
+        {
+            isChasing = true;
+        }
+        else if (isChasing && distanceToPlayer > stopChaseRange)
+        {
+            isChasing = false;
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        }
+
+        if (isChasing)
+        {
+            MoveTowardsPlayer();
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            if (animator != null)
+            {
+                animator.SetFloat("Speed", 0);
+            }
+        }
     }
 
     private void MoveTowardsPlayer()
