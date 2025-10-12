@@ -13,6 +13,11 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float secondaryAttackCooldown = 0.7f;
     [SerializeField] private float hitboxActiveDuration = 0.2f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackSwingSound;
+    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+
     private PlayerInventory inventory;
     private Animator animator;
     private bool canAttackPrimary = true;
@@ -23,6 +28,9 @@ public class PlayerCombat : MonoBehaviour
     {
         inventory = PlayerInventory.Instance;
         animator = GetComponent<Animator>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
 
         if (primaryWeaponHitbox != null) primaryWeaponHitbox.SetActive(false);
         if (secondaryWeaponHitbox != null) secondaryWeaponHitbox.SetActive(false);
@@ -57,9 +65,13 @@ public class PlayerCombat : MonoBehaviour
         }
 
         Weapon weaponData = weapon as Weapon;
-        if (weaponData != null && weaponData.swingSound != null)
+        if (weaponData != null && weaponData.swingSound != null && audioSource != null)
         {
-            AudioSource.PlayClipAtPoint(weaponData.swingSound, transform.position, weaponData.volume);
+            audioSource.PlayOneShot(weaponData.swingSound, weaponData.volume);
+        }
+        else if (attackSwingSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(attackSwingSound, sfxVolume);
         }
 
         ActivateWeaponHitbox(primaryWeaponHitbox, weapon);
@@ -84,9 +96,13 @@ public class PlayerCombat : MonoBehaviour
         }
 
         Weapon weaponData = weapon as Weapon;
-        if (weaponData != null && weaponData.swingSound != null)
+        if (weaponData != null && weaponData.swingSound != null && audioSource != null)
         {
-            AudioSource.PlayClipAtPoint(weaponData.swingSound, transform.position, weaponData.volume);
+            audioSource.PlayOneShot(weaponData.swingSound, weaponData.volume);
+        }
+        else if (attackSwingSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(attackSwingSound, sfxVolume);
         }
 
         ActivateWeaponHitbox(secondaryWeaponHitbox, weapon);

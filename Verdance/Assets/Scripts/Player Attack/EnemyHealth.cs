@@ -2,13 +2,19 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
+    [Header("Health Settings")]
     [SerializeField] private float maxHealth = 100f;
+    private float currentHealth;
+
+    [Header("Knockback Settings")]
     [SerializeField] private float knockbackResistance = 1f;
+
+    [Header("Audio")]
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioSource audioSource;
     [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
 
-    private float currentHealth;
     private Rigidbody2D rb;
     private Animator animator;
     private bool isDead = false;
@@ -18,6 +24,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
+        Debug.Log($"{gameObject.name} initialized with {currentHealth}/{maxHealth} health");
     }
 
     public void TakeDamage(float damage, Vector2 knockbackDirection = default)
@@ -25,39 +36,66 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (isDead) return;
 
         currentHealth -= damage;
+        Debug.Log($"{gameObject.name} took {damage} damage. Health: {currentHealth}/{maxHealth}");
 
         if (knockbackDirection != Vector2.zero && rb != null)
+        {
             rb.AddForce(knockbackDirection / knockbackResistance, ForceMode2D.Impulse);
+        }
 
         if (currentHealth <= 0)
+        {
             Die();
+        }
         else
+        {
             OnDamageTaken();
+        }
     }
 
     protected virtual void OnDamageTaken()
     {
-        GetComponent<ShamblerAI>()?.OnHurt();
-        animator?.SetTrigger("HurtTrigger");
+        ShamblerAI shambler = GetComponent<ShamblerAI>();
+        if (shambler != null)
+        {
+            shambler.OnHurt();
+        }
 
-        if (hurtSound != null)
-            AudioSource.PlayClipAtPoint(hurtSound, transform.position, sfxVolume);
+        if (animator != null)
+        {
+            animator.SetTrigger("HurtTrigger");
+        }
+
+        if (hurtSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hurtSound, sfxVolume);
+        }
     }
 
     protected virtual void Die()
     {
         isDead = true;
+        Debug.Log($"{gameObject.name} died!");
 
-        if (deathSound != null)
-            AudioSource.PlayClipAtPoint(deathSound, transform.position, sfxVolume);
+        if (deathSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(deathSound, sfxVolume);
+        }
 
-        LevelManager.Instance?.OnEnemyKilled(gameObject);
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.OnEnemyKilled(gameObject);
+        }
 
         ShamblerAI shambler = GetComponent<ShamblerAI>();
         if (shambler != null)
+        {
             shambler.Die();
+        }
         else
+        {
             Destroy(gameObject, 2f);
+        }
     }
 
     public bool IsDead() => isDead;

@@ -18,6 +18,9 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private TMP_Text musicVolumeText;
     [SerializeField] private TMP_Text sfxVolumeText;
 
+    [Header("Audio Output")]
+    [SerializeField] private TMPro.TMP_Dropdown audioOutputDropdown;
+
     [Header("Keybind Buttons")]
     [SerializeField] private Button moveLeftKeybindButton;
     [SerializeField] private Button moveRightKeybindButton;
@@ -62,6 +65,7 @@ public class SettingsMenu : MonoBehaviour
     {
         SetupSliders();
         SetupButtons();
+        SetupAudioOutputDropdown();
         LoadSettings();
         LoadBindingOverrides();
 
@@ -451,6 +455,35 @@ public class SettingsMenu : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private void SetupAudioOutputDropdown()
+    {
+        if (audioOutputDropdown == null) return;
+
+        audioOutputDropdown.ClearOptions();
+
+        string[] devices = new string[] { "Default" };
+
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+        
+        devices = new string[] { "Default (Use Windows Settings)" };
+#endif
+
+        audioOutputDropdown.AddOptions(new System.Collections.Generic.List<string>(devices));
+        audioOutputDropdown.onValueChanged.AddListener(OnAudioOutputChanged);
+
+        int savedDevice = PlayerPrefs.GetInt("AudioOutputDevice", 0);
+        audioOutputDropdown.value = savedDevice;
+    }
+
+    private void OnAudioOutputChanged(int deviceIndex)
+    {
+        PlayerPrefs.SetInt("AudioOutputDevice", deviceIndex);
+        PlayerPrefs.Save();
+
+        Debug.Log($"Audio output device changed to index: {deviceIndex}");
+        Debug.Log("Note: Windows audio output is controlled through Windows Sound Settings");
     }
 
     private void OnDestroy()
