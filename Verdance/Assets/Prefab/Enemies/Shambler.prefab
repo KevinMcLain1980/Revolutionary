@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 44266212541678624}
   - component: {fileID: 3476161586707072955}
   - component: {fileID: 5143185248373188403}
-  - component: {fileID: 5710160380467175630}
   - component: {fileID: 8199211770492758105}
   m_Layer: 7
   m_Name: Shambler
@@ -193,24 +192,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShamblerAI
   moveSpeed: 2
   attackCooldown: 1.5
+  detectionRange: 8
+  stopChaseRange: 12
   meleeDamage: 15
   animator: {fileID: 5726225962964023232}
---- !u!114 &5710160380467175630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535567683494491136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6018be7dd3f7794899ec47e0b67ba6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dealerType: 0
-  damageAmount: 3
-  knockbackStrength: 6
-  knockbackLift: 4
 --- !u!114 &8199211770492758105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,3 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   knockbackResistance: 1
+  hurtSound: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+  deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+  audioSource: {fileID: 0}
+  sfxVolume: 0.44

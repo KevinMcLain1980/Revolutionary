@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [Header("Audio")]
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioSource audioSource;
     [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
 
     private Rigidbody2D rb;
@@ -23,6 +24,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
         Debug.Log($"{gameObject.name} initialized with {currentHealth}/{maxHealth} health");
     }
 
@@ -61,9 +66,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             animator.SetTrigger("HurtTrigger");
         }
 
-        if (hurtSound != null)
+        if (hurtSound != null && audioSource != null)
         {
-            AudioSource.PlayClipAtPoint(hurtSound, transform.position, sfxVolume);
+            audioSource.PlayOneShot(hurtSound, sfxVolume);
         }
     }
 
@@ -72,9 +77,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         isDead = true;
         Debug.Log($"{gameObject.name} died!");
 
-        if (deathSound != null)
+        if (deathSound != null && audioSource != null)
         {
-            AudioSource.PlayClipAtPoint(deathSound, transform.position, sfxVolume);
+            audioSource.PlayOneShot(deathSound, sfxVolume);
         }
 
         if (LevelManager.Instance != null)

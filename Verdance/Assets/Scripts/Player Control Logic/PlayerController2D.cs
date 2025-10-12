@@ -35,6 +35,12 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private int flashCount = 3;
     [SerializeField] private float knockbackDuration = 0.3f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip hurtSound;
+    [SerializeField] private AudioClip deathSound;
+    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
     private Color originalColor;
@@ -50,6 +56,9 @@ public class PlayerController2D : MonoBehaviour
         cc = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -206,6 +215,11 @@ public class PlayerController2D : MonoBehaviour
         currentHealth -= amount;
         animator.SetTrigger("HurtTrigger");
 
+        if (hurtSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hurtSound, sfxVolume);
+        }
+
         StartCoroutine(ApplyKnockback(knockbackForce));
         StartCoroutine(FlashAndInvincibility());
 
@@ -242,6 +256,12 @@ public class PlayerController2D : MonoBehaviour
     {
         isDead = true;
         animator.SetBool("IsDead", true);
+
+        if (deathSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(deathSound, sfxVolume);
+        }
+
         // Disable movement, input, etc.
     }
 

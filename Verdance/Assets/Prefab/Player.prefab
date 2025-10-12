@@ -157,6 +157,10 @@ MonoBehaviour:
   flashDuration: 0.2
   flashCount: 3
   knockbackDuration: 0.3
+  audioSource: {fileID: 0}
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  sfxVolume: 0.8
   maxHealth: 100
 --- !u!114 &5789065593826317894
 MonoBehaviour:
@@ -320,6 +324,9 @@ MonoBehaviour:
   primaryAttackCooldown: 0.5
   secondaryAttackCooldown: 0.7
   hitboxActiveDuration: 2
+  audioSource: {fileID: 0}
+  attackSwingSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
+  sfxVolume: 0.8
 --- !u!114 &6565300697740426556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +520,10 @@ PrefabInstance:
     - target: {fileID: 5646629921380889180, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5646629921380889180, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7967610825700699216, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       propertyPath: damageAmount
