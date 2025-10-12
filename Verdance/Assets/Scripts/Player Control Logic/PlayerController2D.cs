@@ -265,6 +265,26 @@ public class PlayerController2D : MonoBehaviour
         // Disable movement, input, etc.
     }
 
+    public void ResetOnRespawn()
+    {
+        isDead = false;
+        isKnockedBack = false;
+        isInvincible = true;
+        currentHealth = maxHealth;
+
+        animator.SetBool("IsDead", false);
+        spriteRenderer.color = originalColor;
+
+        StopAllCoroutines();
+        StartCoroutine(SpawnInvincibility(2f));
+    }
+
+    private IEnumerator SpawnInvincibility(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        isInvincible = false;
+    }
+
     // private void OnCollisionStay2D(Collision2D collision)
     // {
     //     Debug.Log($"Colliding with: {collision.gameObject.name}, Layer: {LayerMask.LayerToName(collision.gameObject.layer)}, Contacts: {collision.contactCount}");

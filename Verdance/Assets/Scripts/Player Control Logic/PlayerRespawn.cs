@@ -59,6 +59,12 @@ public class PlayerRespawn : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
 
+        PlayerController2D controller = GetComponent<PlayerController2D>();
+        if (controller != null)
+        {
+            controller.ResetOnRespawn();
+        }
+
         ResetPlayerStats();
         Debug.Log("Player respawned");
     }
