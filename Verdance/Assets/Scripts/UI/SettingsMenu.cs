@@ -267,7 +267,7 @@ public class SettingsMenu : MonoBehaviour
         }
 
         currentActionToRebind = action;
-        bindingIndex = GetBindingIndex(action);
+        bindingIndex = GetBindingIndex(action, displayName);
 
         if (rebindingPrompt != null)
             rebindingPrompt.SetActive(true);
@@ -334,31 +334,22 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
-    private int GetBindingIndex(InputAction action)
+    private int GetBindingIndex(InputAction action, string displayName)
     {
-        // For Move action, we need to find the specific part of the composite
-        string currentActionName = currentActionToRebind?.name;
-
-        if (currentActionName == "Move")
+        if (action.name == "Move")
         {
-            // Find the binding index for left or right within the composite
             for (int i = 0; i < action.bindings.Count; i++)
             {
                 var binding = action.bindings[i];
+                if (binding.isComposite) continue;
 
-                // Skip the composite itself
-                if (binding.isComposite)
-                    continue;
-
-                // Check if this is the left or right part
-                if (rebindingText.text.Contains("Move Left") && binding.name == "left")
+                if (displayName.Contains("Move Left") && binding.name == "left")
                     return i;
-                if (rebindingText.text.Contains("Move Right") && binding.name == "right")
+                if (displayName.Contains("Move Right") && binding.name == "right")
                     return i;
             }
         }
 
-        // For non-composite actions, return first non-composite binding
         for (int i = 0; i < action.bindings.Count; i++)
         {
             if (!action.bindings[i].isComposite && !action.bindings[i].isPartOfComposite)

@@ -98,6 +98,15 @@ public class PlayerCombat : MonoBehaviour
     {
         if (hitbox == null) return;
 
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            float direction = spriteRenderer.flipX ? -1 : 1;
+            Vector3 localPos = hitbox.transform.localPosition;
+            localPos.x = Mathf.Abs(localPos.x) * direction;
+            hitbox.transform.localPosition = localPos;
+        }
+
         DamageDealer damageDealer = hitbox.GetComponent<DamageDealer>();
         if (damageDealer == null)
         {

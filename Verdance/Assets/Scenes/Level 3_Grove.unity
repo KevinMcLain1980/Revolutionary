@@ -8843,9 +8843,17 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[395].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 4275988122209059215, guid: ca10cd054ed28184681bae2c2ab03a90, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8922057220070123278, guid: ca10cd054ed28184681bae2c2ab03a90, type: 3}
       propertyPath: m_Name
       value: Tiles - Puzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922057220070123278, guid: ca10cd054ed28184681bae2c2ab03a90, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9548,6 +9556,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5103762881990469491, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+      propertyPath: nextLevelScene
+      value: 
+      objectReference: {fileID: 102900000, guid: 60b7b1b6bbe33b644a1f2e8f2c736888, type: 3}
     - target: {fileID: 5292283440566872854, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
       propertyPath: m_Name
       value: UserInterface

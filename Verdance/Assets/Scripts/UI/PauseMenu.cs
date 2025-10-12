@@ -163,11 +163,6 @@ public class PauseMenu : MonoBehaviour
             bool isActive = settingsPanel.activeSelf;
             settingsPanel.SetActive(!isActive);
             Debug.Log($"Settings panel now {(!isActive ? "active" : "inactive")}");
-
-            if (pauseMenuPanel != null && !isActive)
-            {
-                pauseMenuPanel.SetActive(false);
-            }
         }
         else
         {

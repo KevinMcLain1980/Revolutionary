@@ -61,18 +61,10 @@ public class PlayerController2D : MonoBehaviour
     {
         MovePlayer();
         UpdateAnimationStates();
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            Debug.Log("Spacebar pressed via Keyboard.current");
-        }
-
-
     }
 
     public void SetPhaseThrough(bool value)
     {
-        Debug.Log($"Phase-through set to {value}");
-
         gameObject.layer = value ? LayerMask.NameToLayer("Phasing") : LayerMask.NameToLayer("Player");
         animator.SetBool("IsPhasing", value);
     }
@@ -80,7 +72,8 @@ public class PlayerController2D : MonoBehaviour
     private void MovePlayer()
     {
         if (isKnockedBack) return;
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
+        Vector2 newVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
+        rb.linearVelocity = newVelocity;
     }
 
     private void UpdateAnimationStates()
@@ -98,18 +91,10 @@ public class PlayerController2D : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        Debug.Log($"Jump input received: {value.isPressed}");
-
-
-
-
         if (value.isPressed && IsGrounded())
         {
-            Debug.Log($"Jumping! Velocity before: {rb.linearVelocity.y}");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             animator.SetTrigger("IsJumping");
-            Debug.Log($"Velocity after: {rb.linearVelocity.y}");
-            Debug.Log($"Jump input received: {value.isPressed}, IsGrounded: {IsGrounded()}");
         }
     }
 
@@ -151,6 +136,11 @@ public class PlayerController2D : MonoBehaviour
     {
         if (thornbrandHitbox != null)
         {
+            float direction = spriteRenderer.flipX ? -1 : 1;
+            Vector3 localPos = thornbrandHitbox.transform.localPosition;
+            localPos.x = Mathf.Abs(localPos.x) * direction;
+            thornbrandHitbox.transform.localPosition = localPos;
+
             thornbrandHitbox.SetActive(true);
             StartCoroutine(DisableHitboxAfterDelay(0.2f));
         }
@@ -254,4 +244,13 @@ public class PlayerController2D : MonoBehaviour
         animator.SetBool("IsDead", true);
         // Disable movement, input, etc.
     }
+
+    // private void OnCollisionStay2D(Collision2D collision)
+    // {
+    //     Debug.Log($"Colliding with: {collision.gameObject.name}, Layer: {LayerMask.LayerToName(collision.gameObject.layer)}, Contacts: {collision.contactCount}");
+    //     for (int i = 0; i < collision.contactCount; i++)
+    //     {
+    //         Debug.Log($"Contact {i}: Normal: {collision.contacts[i].normal}, Point: {collision.contacts[i].point}");
+    //     }
+    // }
 }
