@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class DamageDealer : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class DamageDealer : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip hitSound;
     [Range(0f, 1f)][SerializeField] private float volume = 0.7f;
+
+    private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
+
+    private void OnEnable()
+    {
+        hitEnemies.Clear();
+    }
 
     public void SetDamage(float damage)
     {
@@ -42,6 +50,13 @@ public class DamageDealer : MonoBehaviour
 
     private void DealDamageToEnemy(Collider2D other)
     {
+        GameObject enemyRoot = other.transform.root.gameObject;
+
+        if (hitEnemies.Contains(enemyRoot))
+        {
+            return;
+        }
+
         IDamageable damageable = other.GetComponentInParent<IDamageable>();
         if (damageable == null)
         {
@@ -50,15 +65,15 @@ public class DamageDealer : MonoBehaviour
 
         if (damageable == null || damageable.IsDead())
         {
-            Debug.Log($"No IDamageable found on {other.name} or already dead");
             return;
         }
 
         if (!other.transform.root.CompareTag("Enemy"))
         {
-            Debug.Log($"{other.transform.root.name} is not tagged as Enemy");
             return;
         }
+
+        hitEnemies.Add(enemyRoot);
 
         Vector2 targetCenter = other.bounds.center;
         Vector2 direction = (targetCenter - (Vector2)transform.position).normalized;
