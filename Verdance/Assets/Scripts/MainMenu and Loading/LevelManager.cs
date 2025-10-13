@@ -122,16 +122,18 @@ public class LevelManager : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        if (nextLevelScene != null)
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            string sceneName = nextLevelScene.name;
-            Debug.Log($"Loading next level: {sceneName}");
-            SceneManager.LoadScene(sceneName);
+            Debug.Log($"Loading scene index:  { nextSceneIndex}");
+            SceneManager.LoadScene(nextSceneIndex);
         }
         else
         {
-            Debug.LogWarning("No next level specified!");
+            Debug.LogWarning("No next scene in build settings");
         }
+
     }
 
     public void ForceCompleteLevel()

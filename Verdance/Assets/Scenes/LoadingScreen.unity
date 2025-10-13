@@ -612,6 +612,18 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4620321364033272767, guid: 61c9558980d598d4db8a0efecbac3b77, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620321364033272767, guid: 61c9558980d598d4db8a0efecbac3b77, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1980
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620321364033272767, guid: 61c9558980d598d4db8a0efecbac3b77, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5594165842323572231, guid: 61c9558980d598d4db8a0efecbac3b77, type: 3}
       propertyPath: m_Name
       value: Loading Screen

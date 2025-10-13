@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1001288386326251329, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -378.49997
+      objectReference: {fileID: 0}
     - target: {fileID: 1156152836908896073, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -138,6 +142,14 @@ PrefabInstance:
     - target: {fileID: 1156152836908896073, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337226085113981375, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -428
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802021161373881571, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -478
       objectReference: {fileID: 0}
     - target: {fileID: 3942548949837984227, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
       propertyPath: m_LocalPosition.x
