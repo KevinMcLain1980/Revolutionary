@@ -204,7 +204,17 @@ public class MainMenu : MonoBehaviour
 
     private void OnNewGame()
     {
+        if (!isTransitioning)
+            StartCoroutine(NewGameTransition());
+    }
+
+    private System.Collections.IEnumerator NewGameTransition()
+    {
+        PlayClickSound();
         isTransitioning = true;
+
+        yield return new WaitForSeconds(0.2f);
+
         SaveSystem.DeleteSave();
 
         // Create new save data with default values
@@ -236,7 +246,17 @@ public class MainMenu : MonoBehaviour
 
     private void LoadSavedGame()
     {
+        if (!isTransitioning)
+            StartCoroutine(LoadGameTransition());
+    }
+
+    private System.Collections.IEnumerator LoadGameTransition()
+    {
+        PlayClickSound();
         isTransitioning = true;
+
+        yield return new WaitForSeconds(0.2f);
+
         GameSaveData data = SaveSystem.LoadGame();
         if (data != null)
         {
