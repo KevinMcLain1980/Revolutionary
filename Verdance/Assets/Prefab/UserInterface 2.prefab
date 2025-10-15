@@ -3616,7 +3616,7 @@ MonoBehaviour:
   restartButton: {fileID: 6335324189658653210}
   settingsButton: {fileID: 2716347937980400272}
   exitButton: {fileID: 7376001459191676247}
-  settingsPanel: {fileID: 6848613348152402646}
+  settingsPanel: {fileID: 2556502085258666704, guid: afb7e9335f061084dae97050cbac7a5f, type: 3}
   settingsMenu: {fileID: 9062169791780708275}
   hoverSound: {fileID: 8300000, guid: 35cf7766e9e2aa542811e896fde57989, type: 3}
   clickSound: {fileID: 8300000, guid: c5cb2ac29e89dbf43a9b644caaad45e6, type: 3}
@@ -7635,17 +7635,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2515246062087058409, guid: afb7e9335f061084dae97050cbac7a5f, type: 3}
   m_PrefabInstance: {fileID: 8967138101906112518}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6848613348152402646 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2556502085258666704, guid: afb7e9335f061084dae97050cbac7a5f, type: 3}
-  m_PrefabInstance: {fileID: 8967138101906112518}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9062169791780708275 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 122415220057530293, guid: afb7e9335f061084dae97050cbac7a5f, type: 3}
   m_PrefabInstance: {fileID: 8967138101906112518}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6848613348152402646}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8020c16d9b39f7b43b5a35ec238ec165, type: 3}
