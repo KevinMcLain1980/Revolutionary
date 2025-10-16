@@ -205,10 +205,10 @@ TextureImporter:
       name: ChatGPT Image Oct 5, 2025, 01_42_08 AM_0
       rect:
         serializedVersion: 2
-        x: 167
-        y: 185
-        width: 686
-        height: 152
+        x: 232
+        y: 197
+        width: 570
+        height: 125
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

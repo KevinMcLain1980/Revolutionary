@@ -66,11 +66,15 @@ public class SettingsMenu : MonoBehaviour
         SetupSliders();
         SetupButtons();
         SetupAudioOutputDropdown();
-        LoadSettings();
         LoadBindingOverrides();
 
         if (rebindingPrompt != null)
             rebindingPrompt.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        LoadSettings();
     }
 
     private void SetupSliders()

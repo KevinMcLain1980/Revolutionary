@@ -1,25 +1,37 @@
 fileFormatVersion: 2
-guid: c9e8d33040b383248a8ffa06bafce05b
+guid: 633d884bb0886ee438e61c3c689710eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4507146844360440850
-    second: Resume_0
+      213: 7866385140471301522
+    second: gamepaused_0
   - first:
-      213: -3251955434481990506
-    second: Resume_1
+      213: 5378706840330485132
+    second: gamepaused_1
   - first:
-      213: -7194707172113063207
-    second: Resume_2
+      213: 6615406686366749977
+    second: gamepaused_2
   - first:
-      213: 1794665619869151825
-    second: Resume_3
+      213: 6950646908741979259
+    second: gamepaused_3
   - first:
-      213: -6479513832269925253
-    second: Resume_4
+      213: -4125896763729771618
+    second: gamepaused_4
   - first:
-      213: 6700595494977418185
-    second: Resume_5
+      213: 3724101092169520210
+    second: gamepaused_5
+  - first:
+      213: 1428880957919101015
+    second: gamepaused_6
+  - first:
+      213: -6532101111087571688
+    second: gamepaused_7
+  - first:
+      213: 2307628639412875701
+    second: gamepaused_8
+  - first:
+      213: 7625247858278991733
+    second: gamepaused_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Resume_0
+      name: gamepaused_0
       rect:
         serializedVersion: 2
-        x: 208
-        y: 457
-        width: 604
-        height: 119
+        x: 38
+        y: 468
+        width: 965
+        height: 142
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +142,108 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21c70a0dc2a9c8e30800000000000000
-      internalID: 4507146844360440850
+      spriteID: 295043c7b930b2d60800000000000000
+      internalID: 7866385140471301522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resume_1
+      name: gamepaused_1
       rect:
         serializedVersion: 2
-        x: 311
-        y: 465
+        x: 144
+        y: 468
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8dbcd8af5105aa40800000000000000
+      internalID: 5378706840330485132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gamepaused_2
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 84
+        width: 136
+        height: 484
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91552a1d455aecb50800000000000000
+      internalID: 6615406686366749977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gamepaused_3
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 470
+        width: 75
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c8bb29988a57060800000000000000
+      internalID: 6950646908741979259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gamepaused_4
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 472
+        width: 93
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9304f9d0ceddb6c0800000000000000
+      internalID: -4125896763729771618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gamepaused_5
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 467
         width: 82
-        height: 110
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +252,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 694cc4e03cbbed2d0800000000000000
-      internalID: -3251955434481990506
+      spriteID: 2549862563aaea330800000000000000
+      internalID: 3724101092169520210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resume_2
+      name: gamepaused_6
       rect:
         serializedVersion: 2
-        x: 399
-        y: 463
-        width: 135
-        height: 556
+        x: 659
+        y: 469
+        width: 93
+        height: 98
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d2ee3732f3472c90800000000000000
-      internalID: -7194707172113063207
+      spriteID: 750861329a764d310800000000000000
+      internalID: 1428880957919101015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resume_3
+      name: gamepaused_7
       rect:
         serializedVersion: 2
-        x: 477
-        y: 464
-        width: 108
-        height: 112
+        x: 758
+        y: 470
+        width: 63
+        height: 97
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +296,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15238ea6fdee7e810800000000000000
-      internalID: 1794665619869151825
+      spriteID: 81dd0b4e5a05955a0800000000000000
+      internalID: -6532101111087571688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resume_4
+      name: gamepaused_8
       rect:
         serializedVersion: 2
-        x: 586
-        y: 465
-        width: 140
-        height: 111
+        x: 830
+        y: 469
+        width: 73
+        height: 98
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b74325edf742416a0800000000000000
-      internalID: -6479513832269925253
+      spriteID: 5b1f8bd6508560020800000000000000
+      internalID: 2307628639412875701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resume_5
+      name: gamepaused_9
       rect:
         serializedVersion: 2
-        x: 732
-        y: 465
-        width: 234
-        height: 458
+        x: 911
+        y: 470
+        width: 93
+        height: 140
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +340,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c336b5f91c4dfc50800000000000000
-      internalID: 6700595494977418185
+      spriteID: 577070dd68252d960800000000000000
+      internalID: 7625247858278991733
       vertices: []
       indices: 
       edges: []
@@ -250,7 +350,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2104860a8ca32694ba338f2f55717ebd
+    spriteID: 42b1d5f48dc08de4d93787536c400e95
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +360,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Resume_0: 4507146844360440850
-      Resume_1: -3251955434481990506
-      Resume_2: -7194707172113063207
-      Resume_3: 1794665619869151825
-      Resume_4: -6479513832269925253
-      Resume_5: 6700595494977418185
+      gamepaused_0: 7866385140471301522
+      gamepaused_1: 5378706840330485132
+      gamepaused_2: 6615406686366749977
+      gamepaused_3: 6950646908741979259
+      gamepaused_4: -4125896763729771618
+      gamepaused_5: 3724101092169520210
+      gamepaused_6: 1428880957919101015
+      gamepaused_7: -6532101111087571688
+      gamepaused_8: 2307628639412875701
+      gamepaused_9: 7625247858278991733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
