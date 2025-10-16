@@ -20,6 +20,7 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private Animator animator;
     private bool canAttack = true;
+    private bool isAttacking = false;
 
     [Header("Magic")]
     [SerializeField] private MagicManager magicManager;
@@ -59,17 +60,39 @@ public class PlayerController2D : MonoBehaviour
 
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
+
+        if (animator != null)
+            animator.applyRootMotion = false;
     }
 
     private void Start()
     {
         currentHealth = maxHealth;
+        Application.targetFrameRate = 30;
     }
 
     private void Update()
     {
         MovePlayer();
         UpdateAnimationStates();
+    }
+
+    private bool IsInState(string stateName)
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+    }
+
+    private bool IsForbiddenState()
+    {
+        AnimatorStateInfo current = animator.GetCurrentAnimatorStateInfo(0);
+
+        if (animator.IsInTransition(0))
+        {
+            AnimatorStateInfo next = animator.GetNextAnimatorStateInfo(0);
+            return next.IsName("Jump") || next.IsName("Run") || next.IsName("Dead");
+        }
+
+        return current.IsName("Jump") || current.IsName("Run") || current.IsName("Dead");
     }
 
     public void SetPhaseThrough(bool value)
@@ -80,30 +103,34 @@ public class PlayerController2D : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (isKnockedBack) return;
+        if (isKnockedBack || isAttacking) return;
         Vector2 newVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
         rb.linearVelocity = newVelocity;
     }
 
     private void UpdateAnimationStates()
     {
+        if (isAttacking && !IsInState("Jump") && !IsInState("Dead")) return;
+
         animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetBool("IsGrounded", IsGrounded());
+
         if (moveInput.x > 0.1f) spriteRenderer.flipX = false;
         else if (moveInput.x < -0.1f) spriteRenderer.flipX = true;
     }
 
     public void OnMove(InputValue value)
     {
-        if (isKnockedBack) return;
+        if (isKnockedBack || isAttacking) return;
         moveInput = value.Get<Vector2>();
     }
 
     public void OnJump(InputValue value)
     {
-        if (value.isPressed && IsGrounded())
+        if (value.isPressed && IsGrounded() && !IsInState("Attack") && !IsInState("Hurt"))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            animator.SetTrigger("IsJumping");
+            animator.SetTrigger("JumpTrigger");
         }
     }
 
@@ -114,7 +141,7 @@ public class PlayerController2D : MonoBehaviour
 
     public void OnAttack(InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && !IsForbiddenState())
         {
             PlayerCombat combat = GetComponent<PlayerCombat>();
             if (combat != null)
@@ -130,15 +157,25 @@ public class PlayerController2D : MonoBehaviour
 
     private void TryAttack()
     {
-        if (!canAttack) return;
+        if (!canAttack || isAttacking || IsForbiddenState()) return;
+
+        isAttacking = true;
         animator.SetTrigger("AttackTrigger");
         canAttack = false;
+
+        float attackDuration = animator.GetCurrentAnimatorStateInfo(0).length;
         Invoke(nameof(ResetAttack), attackCooldown);
+        Invoke(nameof(ResetAttackLockout), attackDuration);
     }
 
     private void ResetAttack()
     {
         canAttack = true;
+    }
+
+    private void ResetAttackLockout()
+    {
+        isAttacking = false;
     }
 
     public void ActivateThornbrandHitbox()
@@ -210,10 +247,9 @@ public class PlayerController2D : MonoBehaviour
 
     public void TakeDamage(int amount, Vector2 knockbackForce)
     {
-        if (isDead || isKnockedBack || isInvincible) return;
+        if (isDead || isKnockedBack || isInvincible || IsInState("Dead")) return;
 
         currentHealth -= amount;
-        animator.SetTrigger("HurtTrigger");
 
         if (hurtSound != null && audioSource != null)
         {
@@ -239,6 +275,13 @@ public class PlayerController2D : MonoBehaviour
     private IEnumerator FlashAndInvincibility()
     {
         isInvincible = true;
+        isKnockedBack = true;
+        isAttacking = true;
+        moveInput = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
+
+        // Optional: switch to a non-collidable layer to avoid re-triggering
+        gameObject.layer = LayerMask.NameToLayer("Phasing");
 
         for (int i = 0; i < flashCount; i++)
         {
@@ -248,8 +291,13 @@ public class PlayerController2D : MonoBehaviour
             yield return new WaitForSeconds(flashDuration);
         }
 
-        yield return new WaitForSeconds(1.5f - (flashCount * flashDuration * 2));
+        yield return new WaitForSeconds(0.2f); // brief pause before regaining control
+
+        gameObject.layer = LayerMask.NameToLayer("Player");
+
         isInvincible = false;
+        isKnockedBack = false;
+        isAttacking = false;
     }
 
     private void Die()
@@ -277,6 +325,12 @@ public class PlayerController2D : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(SpawnInvincibility(2f));
+
+        // Reset movement and attack lockouts
+        isAttacking = false;
+        canAttack = true;
+        moveInput = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
     }
 
     private IEnumerator SpawnInvincibility(float duration)
@@ -285,12 +339,30 @@ public class PlayerController2D : MonoBehaviour
         isInvincible = false;
     }
 
-    // private void OnCollisionStay2D(Collision2D collision)
-    // {
-    //     Debug.Log($"Colliding with: {collision.gameObject.name}, Layer: {LayerMask.LayerToName(collision.gameObject.layer)}, Contacts: {collision.contactCount}");
-    //     for (int i = 0; i < collision.contactCount; i++)
-    //     {
-    //         Debug.Log($"Contact {i}: Normal: {collision.contacts[i].normal}, Point: {collision.contacts[i].point}");
-    //     }
-    // }
+    private void OnDrawGizmosSelected()
+    {
+        if (spriteRenderer != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(spriteRenderer.bounds.center, spriteRenderer.bounds.size);
+        }
+
+        if (thornbrandHitbox != null)
+        {
+            BoxCollider2D hitboxCollider = thornbrandHitbox.GetComponent<BoxCollider2D>();
+            if (hitboxCollider != null)
+            {
+                Gizmos.color = Color.red;
+                Vector3 hitboxWorldPos = thornbrandHitbox.transform.position;
+                Vector3 hitboxSize = hitboxCollider.size;
+                Gizmos.DrawWireCube(hitboxWorldPos, hitboxSize);
+            }
+        }
+
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
 }

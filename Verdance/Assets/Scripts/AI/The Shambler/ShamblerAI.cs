@@ -147,8 +147,12 @@ public class ShamblerAI : MonoBehaviour
                 PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
                 if (playerController != null)
                 {
+                    float knockbackStrength = 12f; // Adjust as needed
                     Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
-                    playerController.TakeDamage((int)meleeDamage, knockbackDirection);
+                    knockbackDirection.y = 0.5f; // Add vertical lift
+                    Vector2 knockbackForce = knockbackDirection.normalized * knockbackStrength;
+
+                    playerController.TakeDamage((int)meleeDamage, knockbackForce);
                 }
 
                 lastAttackTime = Time.time;
@@ -172,8 +176,12 @@ public class ShamblerAI : MonoBehaviour
             PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
             if (playerController != null)
             {
+                float knockbackStrength = 12f; // Adjust as needed
                 Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
-                playerController.TakeDamage((int)meleeDamage, knockbackDirection);
+                knockbackDirection.y = 0.5f; // Add vertical lift
+                Vector2 knockbackForce = knockbackDirection.normalized * knockbackStrength;
+
+                playerController.TakeDamage((int)meleeDamage, knockbackForce);
             }
 
             lastAttackTime = Time.time;
