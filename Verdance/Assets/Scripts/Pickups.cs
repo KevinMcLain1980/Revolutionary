@@ -2,29 +2,20 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class Pickups : MonoBehaviour, IPickup
+public class Pickups : MonoBehaviour
 {
-    public enum PickupType { HealthPotion}
-    public PickupType type = PickupType.HealthPotion;
+    //Only Adds to inventory!
+    public Item item;
 
-    [SerializeField] int healAmount;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(other.CompareTag("Player"))
+        PlayerInventory inventory = GetComponent<PlayerInventory>();
+        if (inventory != null )
         {
-            OnPickup(other.gameObject);
-            Destroy(other.gameObject);
+            inventory.GetItem(1);
+            Destroy(gameObject);
         }
     }
 
-    public void OnPickup(GameObject collector)
-    {
-        //Logic for health pickup goes here
-        //maybe a switch case with type so that
-        //other pickup items can be added with their logic
 
-    }
-
-    
 }

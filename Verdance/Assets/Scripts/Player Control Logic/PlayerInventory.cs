@@ -86,6 +86,12 @@ public class PlayerInventory : MonoBehaviour
             {
                 SelectInventorySlot(2);
             }
+
+            //Use this key to use items
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Instance.UseItem(Instance.selectedSlotIndex);
+            }
         }
     }
 
