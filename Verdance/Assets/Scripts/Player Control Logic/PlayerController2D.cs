@@ -350,6 +350,14 @@ public class PlayerController2D : MonoBehaviour
         {
             audioSource.PlayOneShot(deathSound, sfxVolume);
         }
+
+        // Access LivesSystem and decrement life
+        LivesSystem livesSystem = FindObjectOfType<LivesSystem>();
+        if (livesSystem != null)
+        {
+            livesSystem.LoseLife();
+        }
+
     }
 
     // Reset player state on respawn
