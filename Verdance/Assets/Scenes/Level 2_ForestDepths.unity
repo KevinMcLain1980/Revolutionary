@@ -968,6 +968,47 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+--- !u!1 &407807120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3309770879349917077, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 407807119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &407807121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8036762378607111317, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 407807119}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &407807122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8965136420794537447, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 407807119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &407807123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4346289018988647631, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 407807119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &407807124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6050043201566902989, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 407807119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &407807125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1291074593819944275, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 407807119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &407807126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4651203028689551818, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 407807119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,6 +1638,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: keyImage
+      value: 
+      objectReference: {fileID: 407807120}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: swordImage
+      value: 
+      objectReference: {fileID: 407807123}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: healthPotionImage
+      value: 
+      objectReference: {fileID: 407807122}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: healthPotionCountText
+      value: 
+      objectReference: {fileID: 407807121}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: 'slotSelectedImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 407807126}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: 'slotSelectedImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 407807125}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: 'slotSelectedImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 407807124}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

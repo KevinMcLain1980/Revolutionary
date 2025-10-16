@@ -1021,6 +1021,47 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 8332825002932028610, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
   m_PrefabInstance: {fileID: 431109432}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &431109435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3309770879349917077, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 431109432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &431109436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8036762378607111317, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 431109432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &431109437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8965136420794537447, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 431109432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &431109438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4346289018988647631, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 431109432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &431109439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6050043201566902989, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 431109432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &431109440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1291074593819944275, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 431109432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &431109441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4651203028689551818, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 431109432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &449169184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1154,6 +1195,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: keyImage
+      value: 
+      objectReference: {fileID: 431109435}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: swordImage
+      value: 
+      objectReference: {fileID: 431109438}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: healthPotionImage
+      value: 
+      objectReference: {fileID: 431109437}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: healthPotionCountText
+      value: 
+      objectReference: {fileID: 431109436}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: 'slotSelectedImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 431109441}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: 'slotSelectedImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 431109440}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: 'slotSelectedImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 431109439}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
