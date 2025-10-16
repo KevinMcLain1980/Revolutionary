@@ -194,7 +194,11 @@ MonoBehaviour:
   attackCooldown: 1.5
   detectionRange: 8
   stopChaseRange: 12
+  rotationSpeed: 10
+  separationDistance: 1.5
+  separationForce: 1.5
   meleeDamage: 15
+  playerKnockbackImpulse: 10
   animator: {fileID: 5726225962964023232}
 --- !u!114 &8199211770492758105
 MonoBehaviour:

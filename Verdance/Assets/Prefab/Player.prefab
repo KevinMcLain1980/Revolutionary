@@ -158,9 +158,12 @@ MonoBehaviour:
   flashCount: 3
   knockbackDuration: 0.3
   audioSource: {fileID: 0}
-  hurtSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  sfxVolume: 0.8
+  hurtSound: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+  deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+  jumpSound: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+  runningSound: {fileID: 8300000, guid: df7087e4d8a8bb546bc08ce68632903f, type: 3}
+  sfxVolume: 1
+  runningVolume: 1
   maxHealth: 100
 --- !u!114 &5789065593826317894
 MonoBehaviour:
@@ -284,6 +287,15 @@ MonoBehaviour:
   spell1: {fileID: 0}
   spell2: {fileID: 0}
   spell3: {fileID: 0}
+  slotSelectedImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemImages: []
+  swordImage: {fileID: 0}
+  healthPotionImage: {fileID: 0}
+  keyImage: {fileID: 0}
+  healthPotionCountText: {fileID: 0}
 --- !u!114 &4070535472502993113
 MonoBehaviour:
   m_ObjectHideFlags: 0
