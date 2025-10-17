@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 58a1eba3bd724554facbf53e92651ff9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2905684543172792696
+    second: Shambler_Death_0
+  - first:
+      213: 7516029822794898809
+    second: Shambler_Death_1
+  - first:
+      213: -7481354616880695214
+    second: Shambler_Death_2
+  - first:
+      213: -8890549301614586656
+    second: Shambler_Death_3
+  - first:
+      213: -4858808764070070098
+    second: Shambler_Death_4
+  - first:
+      213: 1794857672286247132
+    second: Shambler_Death_5
+  - first:
+      213: 4123359531286613478
+    second: Shambler_Death_6
+  - first:
+      213: 916066218295752777
+    second: Shambler_Death_7
+  - first:
+      213: 2143468337960829775
+    second: Shambler_Death_8
+  - first:
+      213: -1467720540738717390
+    second: Shambler_Death_9
+  - first:
+      213: -7871687747276449559
+    second: Shambler_Death_10
+  - first:
+      213: 778703764861227994
+    second: Shambler_Death_11
+  - first:
+      213: 5703198587425913356
+    second: Shambler_Death_12
+  - first:
+      213: -2527328048934641604
+    second: Shambler_Death_13
+  - first:
+      213: 7059064693195633426
+    second: Shambler_Death_14
+  - first:
+      213: -5066043810799350214
+    second: Shambler_Death_15
+  - first:
+      213: 1681920436158466181
+    second: Shambler_Death_16
+  - first:
+      213: -5618824005869430586
+    second: Shambler_Death_17
+  - first:
+      213: 2769367819972493757
+    second: Shambler_Death_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shambler_Death_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 391
+        width: 104
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871582172b0135820800000000000000
+      internalID: 2905684543172792696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_1
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 396
+        width: 118
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d9eec5d4d4e4860800000000000000
+      internalID: 7516029822794898809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_2
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 392
+        width: 106
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258f8162d93ec2890800000000000000
+      internalID: -7481354616880695214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_3
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 393
+        width: 128
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e45a2ba38c6e9480800000000000000
+      internalID: -8890549301614586656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 394
+        width: 121
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea87c021c2b029cb0800000000000000
+      internalID: -4858808764070070098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_5
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 389
+        width: 138
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd8910b1b8d98e810800000000000000
+      internalID: 1794857672286247132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 190
+        width: 113
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed4f8fa5ad193930800000000000000
+      internalID: 4123359531286613478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_7
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 191
+        width: 117
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948f04c3f5586bc00800000000000000
+      internalID: 916066218295752777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_8
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 191
+        width: 121
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f43c377c8112fbd10800000000000000
+      internalID: 2143468337960829775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_9
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 192
+        width: 149
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23979bbc1fb91abe0800000000000000
+      internalID: -1467720540738717390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_10
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 190
+        width: 138
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8dac823b522c290800000000000000
+      internalID: -7871687747276449559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_11
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 194
+        width: 108
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad310d9c2f28eca00800000000000000
+      internalID: 778703764861227994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_12
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 191
+        width: 104
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0af70ff5e4d52f40800000000000000
+      internalID: 5703198587425913356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_13
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 82
+        width: 108
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30ae54a7802decd0800000000000000
+      internalID: -2527328048934641604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_14
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 79
+        width: 114
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2137d6c10f5d6f160800000000000000
+      internalID: 7059064693195633426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_15
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 81
+        width: 117
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e0db0cefbc1b9b0800000000000000
+      internalID: -5066043810799350214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_16
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 83
+        width: 140
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58802b9b9b1675710800000000000000
+      internalID: 1681920436158466181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_17
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 72
+        width: 159
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c817b2265de502b0800000000000000
+      internalID: -5618824005869430586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shambler_Death_18
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 75
+        width: 211
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db1cbd90c55ce6620800000000000000
+      internalID: 2769367819972493757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Shambler_Death_0: 2905684543172792696
+      Shambler_Death_1: 7516029822794898809
+      Shambler_Death_10: -7871687747276449559
+      Shambler_Death_11: 778703764861227994
+      Shambler_Death_12: 5703198587425913356
+      Shambler_Death_13: -2527328048934641604
+      Shambler_Death_14: 7059064693195633426
+      Shambler_Death_15: -5066043810799350214
+      Shambler_Death_16: 1681920436158466181
+      Shambler_Death_17: -5618824005869430586
+      Shambler_Death_18: 2769367819972493757
+      Shambler_Death_2: -7481354616880695214
+      Shambler_Death_3: -8890549301614586656
+      Shambler_Death_4: -4858808764070070098
+      Shambler_Death_5: 1794857672286247132
+      Shambler_Death_6: 4123359531286613478
+      Shambler_Death_7: 916066218295752777
+      Shambler_Death_8: 2143468337960829775
+      Shambler_Death_9: -1467720540738717390
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
