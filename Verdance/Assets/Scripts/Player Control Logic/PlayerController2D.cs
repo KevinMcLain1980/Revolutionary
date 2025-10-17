@@ -41,6 +41,13 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private int flashCount = 3; // Number of flashes when damaged
     [SerializeField] private float knockbackDuration = 0.3f; // Duration of knockback state
 
+    [Header("Blood Effect")]
+    [SerializeField] private GameObject bloodBurstPrefab;
+    [SerializeField] private Transform bloodSpawnPoint;
+
+
+
+
     // Audio configuration
     [Header("Audio")]
     private AudioSource audioSource; // Audio source for playing sounds (not serialized - found at runtime)
@@ -317,6 +324,7 @@ public class PlayerController2D : MonoBehaviour
 
         currentHealth -= amount;
         animator.SetTrigger("HurtTrigger");
+        SpawnBloodEffect();
 
         if (hurtSound != null && audioSource != null)
         {
@@ -329,6 +337,18 @@ public class PlayerController2D : MonoBehaviour
         if (currentHealth <= 0)
             Die();
     }
+    private void SpawnBloodEffect()
+    {
+        Debug.Log("SpawnBloodEffect called");
+
+
+        if (bloodBurstPrefab != null && bloodSpawnPoint != null)
+        {
+            Instantiate(bloodBurstPrefab, bloodSpawnPoint.position, Quaternion.identity);
+        }
+    }
+
+
 
     // Apply knockback force and phase through enemies temporarily
     private IEnumerator ApplyKnockback(Vector2 force)
