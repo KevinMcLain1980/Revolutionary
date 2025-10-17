@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LightGate
   - Enemy
+  - Door
   layers:
   - Default
   - TransparentFX

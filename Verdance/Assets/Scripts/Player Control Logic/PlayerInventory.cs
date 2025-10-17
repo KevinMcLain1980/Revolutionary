@@ -41,6 +41,8 @@ public class PlayerInventory : MonoBehaviour
     private SpriteRenderer playerSpriteRenderer;
     private Coroutine healFlashCoroutine;
 
+    private Door nearbyDoor;
+
     public event Action OnInventoryChanged;
 
     private void Awake()
@@ -221,6 +223,7 @@ public class PlayerInventory : MonoBehaviour
                 UseHealthPotion();
                 break;
             case 2:
+                UseKey();
                 break;
         }
     }
@@ -289,6 +292,43 @@ public class PlayerInventory : MonoBehaviour
         SaveInventory();
     }
 
+    private void UseKey()
+    {
+        if (!hasKey)
+        {
+            Debug.Log("Find the key!");
+            return;
+        }
+
+        if (!LevelManager.Instance.CheckLevelCompletion())
+        {
+            Debug.Log("You must defeat all enemies first");
+            return;
+        }
+
+        if (nearbyDoor != null)
+        {
+            nearbyDoor.OpenChest(this);
+            RemoveKey();
+        }
+        else 
+        { 
+            Debug.Log("No chest nearby."); 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Door"))
+        {
+            nearbyDoor = collision.GetComponent<Door>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        nearbyDoor = null;
+    }
     private System.Collections.IEnumerator HealFlashEffect()
     {
         Color originalColor = playerSpriteRenderer.color;

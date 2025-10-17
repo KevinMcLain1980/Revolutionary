@@ -77,17 +77,18 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void CheckLevelCompletion()
+    public bool CheckLevelCompletion()
     {
-        if (levelComplete) return;
+        if (levelComplete) return true;
 
         bool bossConditionMet = !requireBossKill || bossKilled;
         bool enemiesConditionMet = !requireAllEnemiesKilled || remainingEnemies.Count == 0;
+        return bossConditionMet && enemiesConditionMet;
 
-        if (bossConditionMet && enemiesConditionMet)
-        {
-            CompleteLevel();
-        }
+       // if (bossConditionMet && enemiesConditionMet)
+        //{
+       //     CompleteLevel();
+        //}
     }
 
     private void CompleteLevel()
