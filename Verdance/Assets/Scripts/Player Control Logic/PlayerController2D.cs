@@ -345,10 +345,22 @@ public class PlayerController2D : MonoBehaviour
     {
         isDead = true;
         animator.SetBool("IsDead", true);
+        Debug.Log("[PlayerController2D] Player died.");
 
         if (deathSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(deathSound, sfxVolume);
+            Debug.Log("[PlayerController2D] Death sound played.");
+        }
+
+        LivesSystem livesSystem = FindObjectOfType<LivesSystem>();
+        if (livesSystem != null)
+        {
+            livesSystem.LoseLife();
+        }
+        else
+        {
+            Debug.LogWarning("[PlayerController2D] LivesSystem not found.");
         }
     }
 
