@@ -288,7 +288,14 @@ PlayerSettings:
   AndroidAppBundleSizeToValidate: 150
   AndroidReportGooglePlayAppDependencies: 1
   androidSymbolsSizeThreshold: 800
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 631a26201e95bc84b9fbd68ba0acbb50, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: iPhone
     m_Icons:
@@ -919,11 +926,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 23a4b53f-a83f-4b60-aaf0-d4467a707d8e
+  cloudProjectId: a4b2d3d2-4712-4ed8-96d4-bac8971be429
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Verdance
-  organizationId: misscheviousgaming
+  projectName: Verdance 2025-10-01_19-16-38
+  organizationId: kevinmclain
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
