@@ -193,7 +193,8 @@ public class PlayerController2D : MonoBehaviour
     {
         if (value.isPressed && IsGrounded())
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             animator.SetTrigger("IsJumping");
 
             if (jumpSound != null && audioSource != null)
@@ -417,7 +418,8 @@ public class PlayerController2D : MonoBehaviour
 
         animator.SetBool("IsDead", false);
         animator.SetFloat("Speed", 0f);
-        animator.Play("Idle", 0, 0f);
+        animator.Rebind();
+        animator.Update(0F);
         spriteRenderer.color = originalColor;
 
         StopAllCoroutines();

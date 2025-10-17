@@ -10966,9 +10966,13 @@ PrefabInstance:
       propertyPath: bloodBurstPrefab
       value: 
       objectReference: {fileID: 3258406387011997024, guid: 6c0fe92221767534db39173d260bb435, type: 3}
+    - target: {fileID: 5976701086649141502, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a5beb979a539ed342b24cdb7ce00995a, type: 2}
     - target: {fileID: 6565300697740426556, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: respawnDelay
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6565300697740426556, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: respawnSound
