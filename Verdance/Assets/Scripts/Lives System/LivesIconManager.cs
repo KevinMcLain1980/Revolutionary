@@ -9,6 +9,7 @@ public class LivesIconManager : MonoBehaviour
     [SerializeField] private Transform iconContainer;
 
     private List<GameObject> activeIcons = new List<GameObject>();
+    private int previousLives = -1;
 
     private void Start()
     {
@@ -16,8 +17,9 @@ public class LivesIconManager : MonoBehaviour
         if (livesSystem != null)
         {
             livesSystem.OnLivesChanged += UpdateIcons;
-            UpdateIcons(livesSystem.GetLives());
-            Debug.Log($"[LivesIconManager] Initialized with {livesSystem.GetLives()} lives.");
+            int startingLives = livesSystem.GetLives();
+            InitializeIcons(startingLives);
+            previousLives = startingLives;
         }
         else
         {
@@ -25,22 +27,25 @@ public class LivesIconManager : MonoBehaviour
         }
     }
 
-    private void UpdateIcons(int lives)
+    private void InitializeIcons(int lives)
     {
-        // Clear existing icons
-        foreach (var icon in activeIcons)
-        {
-            Destroy(icon);
-        }
-        activeIcons.Clear();
-
-        // Instantiate new icons
         for (int i = 0; i < lives; i++)
         {
             GameObject icon = Instantiate(lifeIconPrefab, iconContainer);
             activeIcons.Add(icon);
         }
+    }
 
-        Debug.Log($"[LivesIconManager] Updated icons. Lives remaining: {lives}");
+    private void UpdateIcons(int currentLives)
+    {
+        if (currentLives < previousLives && activeIcons.Count > 0)
+        {
+            GameObject iconToRemove = activeIcons[activeIcons.Count - 1];
+            activeIcons.RemoveAt(activeIcons.Count - 1);
+            Destroy(iconToRemove);
+            Debug.Log($"[LivesIconManager] Removed one icon. Lives remaining: {currentLives}");
+        }
+
+        previousLives = currentLives;
     }
 }
