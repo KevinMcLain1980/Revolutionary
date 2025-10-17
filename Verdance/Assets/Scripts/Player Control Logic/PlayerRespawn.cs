@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class PlayerRespawn : MonoBehaviour
 {
@@ -9,14 +10,29 @@ public class PlayerRespawn : MonoBehaviour
     [SerializeField] private bool resetSanityOnRespawn = false;
     [SerializeField] private bool resetMagicOnRespawn = false;
 
+    [Header("Lives System")]
+    [SerializeField] private int maxLives = 3;
+    private int currentLives;
+
     [Header("Input")]
     [SerializeField] private bool allowManualReset = true;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip respawnSound;
+    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+
     private Vector3 spawnPoint;
     private bool isDead = false;
+    private AudioSource audioSource;
+
+    public event Action<int> OnLivesChanged;
+    public event Action OnGameOver;
 
     private void Start()
     {
+        currentLives = maxLives;
+        OnLivesChanged?.Invoke(currentLives);
+
         if (PlayerSpawnPoint.Instance != null)
         {
             spawnPoint = PlayerSpawnPoint.Instance.GetSpawnPosition();
@@ -24,6 +40,12 @@ public class PlayerRespawn : MonoBehaviour
         else
         {
             spawnPoint = transform.position;
+        }
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
@@ -44,8 +66,20 @@ public class PlayerRespawn : MonoBehaviour
         if (isDead) return;
 
         isDead = true;
-        Debug.Log("Player died, respawning...");
-        Invoke(nameof(Respawn), respawnDelay);
+        currentLives--;
+        OnLivesChanged?.Invoke(currentLives);
+        Debug.Log($"Player died. Remaning Lives: {currentLives}");
+
+        if (currentLives <= 0)
+        {
+            Debug.Log("No lives remaning. Game Over.");
+            OnGameOver?.Invoke();
+        }
+        else
+        {
+            Invoke(nameof(Respawn), respawnDelay);
+        }
+        
     }
 
     private void Respawn()
@@ -66,6 +100,12 @@ public class PlayerRespawn : MonoBehaviour
         }
 
         ResetPlayerStats();
+
+        if (respawnSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(respawnSound, sfxVolume);
+        }
+
         Debug.Log("Player respawned");
     }
 
@@ -108,5 +148,15 @@ public class PlayerRespawn : MonoBehaviour
     public void SetSpawnPoint(Vector3 position)
     {
         spawnPoint = position;
+    }
+
+    public int GetCurrentLives() => currentLives;
+    public int GetMaxLives() => maxLives;
+
+    public void ResetLives()
+    {
+        currentLives = maxLives;
+        OnLivesChanged?.Invoke(currentLives);
+        Debug.Log($"Lives reset to {currentLives}");
     }
 }
