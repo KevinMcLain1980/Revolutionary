@@ -10,7 +10,6 @@ public class ShamblerAI : MonoBehaviour
     [SerializeField] private float attackCooldown = 1.5f; // Time between attacks
     [SerializeField] private float detectionRange = 8f; // Distance to start chasing
     [SerializeField] private float stopChaseRange = 12f; // Distance to stop chasing
-    [SerializeField] private float rotationSpeed = 10f; // Speed of rotation toward player
     [SerializeField] private float separationDistance = 1f; // Minimum distance from other shamblers
     [SerializeField] private float separationForce = 1.5f; // Force applied to separate from others
     private float lastAttackTime = 0f; // Timestamp of last attack
@@ -256,6 +255,7 @@ public class ShamblerAI : MonoBehaviour
                     playerController.TakeDamage((int)meleeDamage, knockbackDirection * playerKnockbackImpulse);
                 }
 
+                animator.SetTrigger("AttackTrigger");
                 lastAttackTime = Time.time;
                 Debug.Log($"Shambler dealt {meleeDamage} damage to player");
             }
