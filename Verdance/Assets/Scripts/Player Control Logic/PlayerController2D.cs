@@ -136,7 +136,9 @@ public class PlayerController2D : MonoBehaviour
     // Apply horizontal movement based on input
     private void MovePlayer()
     {
-        if (isKnockedBack) return;
+
+
+        if (isDead || isKnockedBack) return;
         Vector2 newVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
         rb.linearVelocity = newVelocity;
     }
@@ -144,6 +146,8 @@ public class PlayerController2D : MonoBehaviour
     // Update animator and flip sprite based on movement
     private void UpdateAnimationStates()
     {
+        if (isDead) return;
+
         animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
         if (moveInput.x > 0.1f) spriteRenderer.flipX = false;
         else if (moveInput.x < -0.1f) spriteRenderer.flipX = true;
@@ -370,14 +374,16 @@ public class PlayerController2D : MonoBehaviour
             Debug.Log("[PlayerController2D] Death sound played.");
         }
 
-        LivesSystem livesSystem = FindObjectOfType<LivesSystem>();
-        if (livesSystem != null)
+        PlayerRespawn respawn = GetComponent<PlayerRespawn>();
         {
-            livesSystem.LoseLife();
-        }
-        else
-        {
-            Debug.LogWarning("[PlayerController2D] LivesSystem not found.");
+            if (respawn != null)
+            {
+                respawn.OnPlayerDeath();
+            }
+            else
+            {
+                Debug.LogWarning("[PlayerController2D] PlayerRespawn not found");
+            }
         }
     }
 
@@ -390,6 +396,8 @@ public class PlayerController2D : MonoBehaviour
         currentHealth = maxHealth;
 
         animator.SetBool("IsDead", false);
+        animator.SetFloat("Speed", 0f);
+        animator.Play("Idle", 0, 0f);
         spriteRenderer.color = originalColor;
 
         StopAllCoroutines();

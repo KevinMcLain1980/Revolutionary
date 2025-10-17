@@ -23,9 +23,19 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TMP_Text bossNameText;
     [SerializeField] private TMP_Text bossHealthText;
 
+    [Header("Lives System")]
+    [SerializeField] private TMP_Text livesText;
+    [SerializeField] private GameObject[] lifeIcons = new GameObject[3];
+
+    [Header("GameOver")]
+    [SerializeField] private GameObject gameeOverScreen;
+    [SerializeField] private AudioSource levelMusicSource;
+    [SerializeField] private AudioSource gameOverMusicSource;
+
     private PlayerStats playerStats;
     private PlayerInventory playerInventory;
     private PlayerController2D playerController;
+    private PlayerRespawn playerRespawn;
 
     private float maxBossHealth = 1000f;
     private float currentBossHealth = 1000f;
@@ -36,6 +46,7 @@ public class PlayerUI : MonoBehaviour
         playerStats = PlayerStats.Instance;
         playerInventory = PlayerInventory.Instance;
         playerController = FindFirstObjectByType<PlayerController2D>();
+        playerRespawn = FindFirstObjectByType<PlayerRespawn>();
 
         if (playerStats != null)
         {
@@ -47,6 +58,13 @@ public class PlayerUI : MonoBehaviour
         if (playerInventory != null)
         {
             playerInventory.OnInventoryChanged += UpdateInventoryUI;
+        }
+
+        if (playerRespawn != null)
+        {
+            playerRespawn.OnLivesChanged += UpdateLivesUI;
+            playerRespawn.OnGameOver += ShowGameOver;
+            UpdateLivesUI(playerRespawn.GetCurrentLives());
         }
 
         InitializeUI();
@@ -66,6 +84,11 @@ public class PlayerUI : MonoBehaviour
 
         if (bossHealthBarPanel != null)
             bossHealthBarPanel.SetActive(false);
+
+        if (gameeOverScreen != null)
+        {
+            gameeOverScreen.SetActive(false);
+        }
     }
 
     private void SetupInventorySlots()
@@ -175,6 +198,43 @@ public class PlayerUI : MonoBehaviour
         HideBossHealthBar();
     }
 
+    private void UpdateLivesUI(int Lives)
+    {
+        if (livesText != null)
+        {
+            livesText.text = $"Lives: {Lives}";
+        }
+
+        for (int i = 0; i < lifeIcons.Length; i++)
+        {
+            if(lifeIcons[i] != null)
+            {
+                lifeIcons[i].SetActive(i < Lives);
+            }
+        }
+    }
+
+    private void ShowGameOver()
+    {
+        if (gameeOverScreen != null)
+        {
+            gameeOverScreen.SetActive(true);
+        }
+
+        Time.timeScale = 0f;
+
+        if (levelMusicSource != null)
+        {
+            levelMusicSource.Stop();
+            levelMusicSource.enabled = false;
+        }
+
+        if (gameOverMusicSource != null)
+        {
+            gameOverMusicSource.Play();
+        }
+    }
+
     private void OnDestroy()
     {
         if (playerStats != null)
@@ -187,6 +247,12 @@ public class PlayerUI : MonoBehaviour
         if (playerInventory != null)
         {
             playerInventory.OnInventoryChanged -= UpdateInventoryUI;
+        }
+
+        if (playerRespawn != null)
+        {
+            playerRespawn.OnLivesChanged -= UpdateLivesUI;
+            playerRespawn.OnGameOver -= ShowGameOver;
         }
     }
 }
