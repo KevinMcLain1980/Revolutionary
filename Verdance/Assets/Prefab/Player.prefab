@@ -281,12 +281,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryWeapon: {fileID: 11400000, guid: b578017ede97f21468c981af0d69842f, type: 2}
-  secondaryWeapon: {fileID: 0}
-  itemSlot1: {fileID: 0}
-  itemSlot2: {fileID: 0}
-  spell1: {fileID: 0}
-  spell2: {fileID: 0}
-  spell3: {fileID: 0}
+  healthPotion: {fileID: 0}
+  key: {fileID: 0}
   slotSelectedImages:
   - {fileID: 0}
   - {fileID: 0}
@@ -332,9 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponHitboxPoint: {fileID: 4725913309588204540}
   primaryWeaponHitbox: {fileID: 3465424050574974981}
-  secondaryWeaponHitbox: {fileID: 2149804455704626037, guid: 37e917a4c0a543f468d6ac73df2a7257, type: 3}
   primaryAttackCooldown: 0.5
-  secondaryAttackCooldown: 0.7
   hitboxActiveDuration: 2
   audioSource: {fileID: 0}
   attackSwingSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}

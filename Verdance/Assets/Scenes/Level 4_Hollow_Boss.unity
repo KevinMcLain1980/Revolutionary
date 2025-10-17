@@ -3027,7 +3027,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7668704510995313098, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2014145113}
   m_SourcePrefab: {fileID: 100100000, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
 --- !u!82 &1867120546 stripped
 AudioSource:
@@ -3155,6 +3158,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3119324473069022796, guid: 56e3e083d9d70df47ab2f2bcdaf8cf3d, type: 3}
   m_PrefabInstance: {fileID: 361861144}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2014145112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7668704510995313098, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 1867120545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2014145113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014145112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c079f3ad70d9ed946bbe986542b20d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelScene: {fileID: 102900000, guid: 5b117dae648444d499c049e876d56acb, type: 3}
+  requireBossKill: 0
+  requireAllEnemiesKilled: 1
+  levelCompleteDelay: 2
+  levelCompleteUI: {fileID: 0}
 --- !u!1001 &2043274230
 PrefabInstance:
   m_ObjectHideFlags: 0

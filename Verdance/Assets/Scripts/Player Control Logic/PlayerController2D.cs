@@ -43,7 +43,7 @@ public class PlayerController2D : MonoBehaviour
 
     // Audio configuration
     [Header("Audio")]
-    [SerializeField] private AudioSource audioSource; // Audio source for playing sounds
+    private AudioSource audioSource; // Audio source for playing sounds (not serialized - found at runtime)
     [SerializeField] private AudioClip hurtSound; // Sound played when damaged
     [SerializeField] private AudioClip deathSound; // Sound played on death
     [SerializeField] private AudioClip jumpSound; // Sound played when jumping
@@ -71,13 +71,31 @@ public class PlayerController2D : MonoBehaviour
         originalColor = spriteRenderer.color;
 
         if (audioSource == null)
+        {
             audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                //Debug.Log("[PlayerController2D] Created new AudioSource in Awake");
+            }
+        }
     }
 
     // Initialize health on start
     private void Start()
     {
         currentHealth = maxHealth;
+
+        // Ensure AudioSource exists after scene reload
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                //Debug.Log("[PlayerController2D] Re-created AudioSource in Start after scene reload");
+            }
+        }
     }
 
     // Main update loop for animations and audio
@@ -180,11 +198,18 @@ public class PlayerController2D : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
-    // Handle attack input, using PlayerCombat if available
+    // Handle attack input - only works when sword slot (0) is selected
     public void OnAttack(InputValue value)
     {
         if (value.isPressed)
         {
+            PlayerInventory inventory = PlayerInventory.Instance;
+            if (inventory != null && inventory.GetSelectedSlotIndex() != 0)
+            {
+                //Debug.Log("Sword not selected. Switch to slot 0 to attack.");
+                return;
+            }
+
             PlayerCombat combat = GetComponent<PlayerCombat>();
             if (combat != null)
             {
@@ -235,15 +260,7 @@ public class PlayerController2D : MonoBehaviour
         thornbrandHitbox.SetActive(false);
     }
 
-    // Use item from inventory
-    public void UseInventoryItem(int slotIndex)
-    {
-        PlayerInventory inventory = PlayerInventory.Instance;
-        if (inventory != null)
-        {
-            inventory.UseItem(slotIndex);
-        }
-    }
+
 
     // Handle WindStep spell cast input
     public void OnCastWindStep(InputValue value)
@@ -376,10 +393,10 @@ public class PlayerController2D : MonoBehaviour
 
     // private void OnCollisionStay2D(Collision2D collision)
     // {
-    //     Debug.Log($"Colliding with: {collision.gameObject.name}, Layer: {LayerMask.LayerToName(collision.gameObject.layer)}, Contacts: {collision.contactCount}");
+    //     //Debug.Log($"Colliding with: {collision.gameObject.name}, Layer: {LayerMask.LayerToName(collision.gameObject.layer)}, Contacts: {collision.contactCount}");
     //     for (int i = 0; i < collision.contactCount; i++)
     //     {
-    //         Debug.Log($"Contact {i}: Normal: {collision.contacts[i].normal}, Point: {collision.contacts[i].point}");
+    //         //Debug.Log($"Contact {i}: Normal: {collision.contacts[i].normal}, Point: {collision.contacts[i].point}");
     //     }
     // }
 }

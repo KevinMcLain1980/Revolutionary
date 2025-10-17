@@ -2694,6 +2694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Settings menu
       objectReference: {fileID: 0}
+    - target: {fileID: 5176923368284967650, guid: ab1e30bb20cbd7f4d84cd11c95cb1c74, type: 3}
+      propertyPath: inputActions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: c97abae7b51c6bb41bc2bad30b6045b7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
