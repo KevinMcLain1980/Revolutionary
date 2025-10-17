@@ -6,56 +6,71 @@ public class PlayerCombat : MonoBehaviour
     [Header("Weapon Slots")]
     [SerializeField] private Transform weaponHitboxPoint;
     [SerializeField] private GameObject primaryWeaponHitbox;
-    [SerializeField] private GameObject secondaryWeaponHitbox;
 
     [Header("Attack Settings")]
     [SerializeField] private float primaryAttackCooldown = 0.5f;
-    [SerializeField] private float secondaryAttackCooldown = 0.7f;
     [SerializeField] private float hitboxActiveDuration = 0.2f;
 
     [Header("Audio")]
-    [SerializeField] private AudioSource audioSource;
+    private AudioSource audioSource; 
     [SerializeField] private AudioClip attackSwingSound;
     [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
 
     private PlayerInventory inventory;
     private Animator animator;
     private bool canAttackPrimary = true;
-    private bool canAttackSecondary = true;
-    private int currentWeaponSlot = 0;
+
+    private void Awake()
+    {
+       // Debug.Log($"[PlayerCombat] Awake called on {gameObject.name}");
+
+        
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+           // Debug.Log("[PlayerCombat] Created new AudioSource in Awake");
+        }
+    }
 
     private void Start()
     {
         inventory = PlayerInventory.Instance;
         animator = GetComponent<Animator>();
 
-        if (audioSource == null)
-            audioSource = GetComponent<AudioSource>();
-
         if (primaryWeaponHitbox != null) primaryWeaponHitbox.SetActive(false);
-        if (secondaryWeaponHitbox != null) secondaryWeaponHitbox.SetActive(false);
+
+        
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+               // Debug.Log("[PlayerCombat] Re-created AudioSource in Start after scene reload");
+            }
+        }
+
+       // Debug.Log($"[PlayerCombat] Start called. AudioSource: {(audioSource != null ? "Found" : "NULL")}, Attack sound: {(attackSwingSound != null ? "Assigned" : "NULL")}");
     }
 
     public void PerformAttack()
     {
-        if (currentWeaponSlot == 0)
-        {
-            AttackPrimary();
-        }
-        else if (currentWeaponSlot == 1)
-        {
-            AttackSecondary();
-        }
+        AttackPrimary();
     }
 
     public void AttackPrimary()
     {
         if (!canAttackPrimary) return;
 
-        Item weapon = inventory?.GetPrimaryWeapon();
-        if (weapon == null)
+       
+        if (inventory != null && !inventory.HasSword())
         {
-            Debug.Log("No primary weapon equipped!");
+            //Debug.Log("No primary weapon equipped!");
             return;
         }
 
@@ -64,51 +79,18 @@ public class PlayerCombat : MonoBehaviour
             animator.SetTrigger("AttackTrigger");
         }
 
-        Weapon weaponData = weapon as Weapon;
-        if (weaponData != null && weaponData.swingSound != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(weaponData.swingSound, weaponData.volume);
-        }
-        else if (attackSwingSound != null && audioSource != null)
+        
+        if (attackSwingSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(attackSwingSound, sfxVolume);
         }
 
-        ActivateWeaponHitbox(primaryWeaponHitbox, weapon);
+        ActivateWeaponHitbox(primaryWeaponHitbox, null);
         canAttackPrimary = false;
         Invoke(nameof(ResetPrimaryAttack), primaryAttackCooldown);
     }
 
-    public void AttackSecondary()
-    {
-        if (!canAttackSecondary) return;
 
-        Item weapon = inventory?.GetSecondaryWeapon();
-        if (weapon == null)
-        {
-            Debug.Log("No secondary weapon equipped!");
-            return;
-        }
-
-        if (animator != null)
-        {
-            animator.SetTrigger("AttackTrigger");
-        }
-
-        Weapon weaponData = weapon as Weapon;
-        if (weaponData != null && weaponData.swingSound != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(weaponData.swingSound, weaponData.volume);
-        }
-        else if (attackSwingSound != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(attackSwingSound, sfxVolume);
-        }
-
-        ActivateWeaponHitbox(secondaryWeaponHitbox, weapon);
-        canAttackSecondary = false;
-        Invoke(nameof(ResetSecondaryAttack), secondaryAttackCooldown);
-    }
 
     private void ActivateWeaponHitbox(GameObject hitbox, Item weapon)
     {
@@ -132,7 +114,7 @@ public class PlayerCombat : MonoBehaviour
         Weapon weaponData = weapon as Weapon;
         if (weaponData != null)
         {
-            // Set damage from weapon data (we'll need to add a public setter to DamageDealer)
+            
         }
 
         hitbox.SetActive(true);
@@ -148,14 +130,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    public void SwitchWeapon(int slotIndex)
-    {
-        if (slotIndex == 0 || slotIndex == 1)
-        {
-            currentWeaponSlot = slotIndex;
-            Debug.Log($"Switched to weapon slot {slotIndex}");
-        }
-    }
+
 
     public void TakeDamage(float damage, Vector2 knockbackDirection)
     {
@@ -173,7 +148,4 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private void ResetPrimaryAttack() => canAttackPrimary = true;
-    private void ResetSecondaryAttack() => canAttackSecondary = true;
-
-    public int GetCurrentWeaponSlot() => currentWeaponSlot;
 }
