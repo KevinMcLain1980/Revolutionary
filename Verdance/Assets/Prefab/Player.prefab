@@ -157,7 +157,8 @@ MonoBehaviour:
   flashDuration: 0.2
   flashCount: 3
   knockbackDuration: 0.3
-  audioSource: {fileID: 0}
+  bloodBurstPrefab: {fileID: 0}
+  bloodSpawnPoint: {fileID: 0}
   hurtSound: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
   deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
   jumpSound: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
@@ -241,7 +242,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a5beb979a539ed342b24cdb7ce00995a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -280,18 +281,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a6f3d2d1aa08642ba3623a57222550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryWeapon: {fileID: 11400000, guid: b578017ede97f21468c981af0d69842f, type: 2}
-  healthPotion: {fileID: 0}
-  key: {fileID: 0}
+  hasSword: 1
+  healthPotionCount: 0
+  hasKey: 1
   slotSelectedImages:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  itemImages: []
   swordImage: {fileID: 0}
   healthPotionImage: {fileID: 0}
   keyImage: {fileID: 0}
   healthPotionCountText: {fileID: 0}
+  audioSource: {fileID: 0}
+  potionPickupSound: {fileID: 8300000, guid: 490bfbc72255342408984f60044487de, type: 3}
+  potionUseSound: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
+  sfxVolume: 0.8
+  healParticleEffect: {fileID: 0}
+  flashPlayerOnHeal: 1
+  healFlashColor: {r: 0.3, g: 1, b: 0.3, a: 1}
+  flashDuration: 0.3
+  flashCount: 2
 --- !u!114 &4070535472502993113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,8 +338,7 @@ MonoBehaviour:
   weaponHitboxPoint: {fileID: 4725913309588204540}
   primaryWeaponHitbox: {fileID: 3465424050574974981}
   primaryAttackCooldown: 0.5
-  hitboxActiveDuration: 2
-  audioSource: {fileID: 0}
+  hitboxActiveDuration: 0.2
   attackSwingSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
   sfxVolume: 0.8
 --- !u!114 &6565300697740426556
@@ -349,7 +357,10 @@ MonoBehaviour:
   resetHealthOnRespawn: 1
   resetSanityOnRespawn: 1
   resetMagicOnRespawn: 1
+  maxLives: 3
   allowManualReset: 1
+  respawnSound: {fileID: 8300000, guid: d654174ef194bd7479bf4b8d8f753318, type: 3}
+  sfxVolume: 0.8
 --- !u!1 &2721386234469404068
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4602294207303498149, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.48
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4602294207303498149, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       propertyPath: m_LocalScale.z
@@ -481,11 +492,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4602294207303498149, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 4602294207303498149, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0166667
+      value: 0.876
       objectReference: {fileID: 0}
     - target: {fileID: 4602294207303498149, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       propertyPath: m_LocalPosition.z

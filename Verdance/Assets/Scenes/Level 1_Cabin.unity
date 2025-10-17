@@ -263,8 +263,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -286,7 +284,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1270,8 +1267,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1293,7 +1288,6 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1487,8 +1481,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1510,7 +1502,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1922,6 +1913,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7668704510995313098, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 354255149}
+    - targetCorrespondingSourceObject: {fileID: 1186048526435647555, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835083889}
   m_SourcePrefab: {fileID: 100100000, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
 --- !u!1 &354255148 stripped
 GameObject:
@@ -4567,6 +4561,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1186048526435647555, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
   m_PrefabInstance: {fileID: 354255147}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &835083889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835083885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d963de8dd761b4fa9f0f98c2eb584a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restartButton: {fileID: 1143317974}
+  settingsButton: {fileID: 1083363620}
+  mainMenuButton: {fileID: 911589676}
+  settingsPanel: {fileID: 2124960499}
+  mainMenuSceneName: MainMenu
+  hoverScale: 1.1
+  hoverAnimationSpeed: 0.15
+  hoverTintColor: {r: 1, g: 1, b: 0.7, a: 1}
 --- !u!1001 &843650004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4778,6 +4792,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &911589676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2939734626493018676, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 354255147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &921708951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7874725832004310558, guid: 5ef91fdf0f4faac44b124ce311ac5e90, type: 3}
@@ -5411,6 +5436,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8033497453438154412, guid: b2bfb7ccd9418d243a3243588b472c00, type: 3}
   m_PrefabInstance: {fileID: 1080990664}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1083363620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7591238733568965037, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 354255147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1096547353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4346289018988647631, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
@@ -5730,6 +5766,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c7cf0e8fac5d344912d014d0216db6, type: 3}
+--- !u!114 &1143317974 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 939431110344780688, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 354255147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1147889504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6551,8 +6598,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6574,7 +6619,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -6609,7 +6653,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5928060521681796494, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
   m_PrefabInstance: {fileID: 354255147}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2124960499}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8020c16d9b39f7b43b5a35ec238ec165, type: 3}
@@ -8267,8 +8311,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8290,7 +8332,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -9377,8 +9418,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9400,7 +9439,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -9819,8 +9857,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9842,7 +9878,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -10470,8 +10505,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10493,7 +10526,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -10523,6 +10555,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2124960499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5007721594680767422, guid: 716623e76f64c2043b30d936270aab7c, type: 3}
+  m_PrefabInstance: {fileID: 354255147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2126219773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10694,8 +10731,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10717,7 +10752,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -11033,42 +11067,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3465424050574974981, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725913309588204540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725913309588204540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725913309588204540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.876
-      objectReference: {fileID: 0}
-    - target: {fileID: 5071909340112339714, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 171334761}
-    - target: {fileID: 5071909340112339714, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: hitboxActiveDuration
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5637883133361353540, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 171334761}
-    - target: {fileID: 6565300697740426556, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: respawnDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6565300697740426556, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: respawnSound
-      value: 
-      objectReference: {fileID: 8300000, guid: d654174ef194bd7479bf4b8d8f753318, type: 3}
     - target: {fileID: 7535306133530936840, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11110,10 +11108,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: hasKey
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: keyImage
       value: 
       objectReference: {fileID: 632014644}
@@ -11126,17 +11120,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 171334761}
     - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: potionUseSound
-      value: 
-      objectReference: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
-    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: healthPotionImage
       value: 
       objectReference: {fileID: 380473780}
-    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
-      propertyPath: potionPickupSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 490bfbc72255342408984f60044487de, type: 3}
     - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: healthPotionCountText
       value: 
@@ -44154,8 +44140,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -44177,7 +44161,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
