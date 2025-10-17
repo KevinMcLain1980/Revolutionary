@@ -257,7 +257,7 @@ public class ShamblerAI : MonoBehaviour
 
                 animator.SetTrigger("AttackTrigger");
                 lastAttackTime = Time.time;
-                Debug.Log($"Shambler dealt {meleeDamage} damage to player");
+                //Debug.Log($"Shambler dealt {meleeDamage} damage to player");
             }
         }
     }
@@ -291,7 +291,7 @@ public class ShamblerAI : MonoBehaviour
                 }
 
                 lastAttackTime = Time.time;
-                Debug.Log($"Shambler dealt {meleeDamage} damage to player");
+                //Debug.Log($"Shambler dealt {meleeDamage} damage to player");
             }
         }
     }

@@ -71,6 +71,6 @@ public class ShamblerSpriteSlicer : EditorWindow
 
         importer.SaveAndReimport();
 
-        Debug.Log($"Sliced {cols * rows} frames from {texture.name} with pivot {pivot}");
+        //Debug.Log($"Sliced {cols * rows} frames from {texture.name} with pivot {pivot}");
     }
 }

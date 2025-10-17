@@ -58,7 +58,7 @@ public class PauseMenu : MonoBehaviour
         // Toggle pause menu when ESC is pressed
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            Debug.Log("ESC pressed");
+            //Debug.Log("ESC pressed");
             if (isPaused)
                 Resume();
             else
@@ -71,46 +71,46 @@ public class PauseMenu : MonoBehaviour
     {
         if (resumeButton != null)
         {
-            Debug.Log("Setting up Resume button");
+            //Debug.Log("Setting up Resume button");
             resumeButton.onClick.AddListener(Resume);
             AddHoverSound(resumeButton);
         }
         else
         {
-            Debug.LogError("Resume button is null!");
+            //Debug.LogError("Resume button is null!");
         }
 
         if (restartButton != null)
         {
-            Debug.Log("Setting up Restart button");
+            //Debug.Log("Setting up Restart button");
             restartButton.onClick.AddListener(Restart);
             AddHoverSound(restartButton);
         }
         else
         {
-            Debug.LogError("Restart button is null!");
+            //Debug.LogError("Restart button is null!");
         }
 
         if (settingsButton != null)
         {
-            Debug.Log("Setting up Settings button");
+            //Debug.Log("Setting up Settings button");
             settingsButton.onClick.AddListener(ToggleSettings);
             AddHoverSound(settingsButton);
         }
         else
         {
-            Debug.LogError("Settings button is null!");
+            //Debug.LogError("Settings button is null!");
         }
 
         if (exitButton != null)
         {
-            Debug.Log("Setting up Exit button");
+            //Debug.Log("Setting up Exit button");
             exitButton.onClick.AddListener(ExitToMainMenu);
             AddHoverSound(exitButton);
         }
         else
         {
-            Debug.LogError("Exit button is null!");
+            //Debug.LogError("Exit button is null!");
         }
     }
 
@@ -199,17 +199,17 @@ public class PauseMenu : MonoBehaviour
     // Pause the game and show the pause menu
     public void Pause()
     {
-        Debug.Log("Pause() called");
+        //Debug.Log("Pause() called");
         isPaused = true;
         if (pauseMenuPanel != null)
         {
-            Debug.Log("Setting pause panel active");
+            //Debug.Log("Setting pause panel active");
             pauseMenuPanel.SetActive(true);
-            Debug.Log("Pause panel active state: " + pauseMenuPanel.activeSelf);
+            //Debug.Log("Pause panel active state: " + pauseMenuPanel.activeSelf);
         }
         else
         {
-            Debug.LogError("pauseMenuPanel is null!");
+            //Debug.LogError("pauseMenuPanel is null!");
         }
         Time.timeScale = 0f; // Freeze game time
     }
@@ -217,7 +217,7 @@ public class PauseMenu : MonoBehaviour
     // Resume the game and hide the pause menu
     public void Resume()
     {
-        Debug.Log("Resume button clicked");
+        //Debug.Log("Resume button clicked");
         isPaused = false;
         if (pauseMenuPanel != null)
             pauseMenuPanel.SetActive(false);
@@ -229,7 +229,7 @@ public class PauseMenu : MonoBehaviour
     // Restart the current level
     private void Restart()
     {
-        Debug.Log("Restart button clicked");
+        //Debug.Log("Restart button clicked");
         PlayClickSound();
         Time.timeScale = 1f; // Reset time scale before loading scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -237,18 +237,18 @@ public class PauseMenu : MonoBehaviour
 
     private void ToggleSettings()
     {
-        Debug.Log("Settings button clicked");
+        //Debug.Log("Settings button clicked");
         PlayClickSound();
 
         if (settingsPanel != null)
         {
             bool isActive = settingsPanel.activeSelf;
             settingsPanel.SetActive(!isActive);
-            Debug.Log($"Settings panel now {(!isActive ? "active" : "inactive")}");
+            //Debug.Log($"Settings panel now {(!isActive ? "active" : "inactive")}");
         }
         else
         {
-            Debug.LogError("Settings panel not assigned!");
+            //Debug.LogError("Settings panel not assigned!");
         }
     }
 
@@ -264,7 +264,7 @@ public class PauseMenu : MonoBehaviour
     // Exit to the main menu (scene 0)
     private void ExitToMainMenu()
     {
-        Debug.Log("Exit button clicked");
+        //Debug.Log("Exit button clicked");
         PlayClickSound();
         Time.timeScale = 1f; // Reset time scale before loading scene
         SceneManager.LoadScene(0);

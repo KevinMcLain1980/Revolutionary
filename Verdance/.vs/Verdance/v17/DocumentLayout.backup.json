@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "E:\\Unity_Projects\\Revolutionary\\Verdance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\ui\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|e:\\unity_projects\\revolutionary\\verdance\\assets\\scripts\\editor\\shamblerspriteslicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shamblerspriteslicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|e:\\unity_projects\\revolutionary\\verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\the shambler\\shamblerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playerhurt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playerhurt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\mainmenu and loading\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu and loading\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playerrespawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playerrespawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\environment\\pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environment\\pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,24 +27,44 @@
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\environment\\pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environment\\pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playerrespawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playerrespawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Lives System\\LivesUIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Lives System\\LivesUIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\mainmenu and loading\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu and loading\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Lives System\\LivesSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Lives System\\LivesSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\playerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Lives System\\LivesIconManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Lives System\\LivesIconManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\ui\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameOverUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\UI\\GameOverUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playerhurt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playerhurt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player control logic\\playercontroller2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameOverUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\UI\\GameOverUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shamblerslicerandanimate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shamblerslicerandanimate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\mainmenu and loading\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu and loading\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|E:\\Unity_Projects\\Revolutionary\\Verdance\\assets\\scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -110,43 +118,68 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "LivesUIManager.cs",
-              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Lives System\\LivesUIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Lives System\\LivesUIManager.cs",
-              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Lives System\\LivesUIManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Lives System\\LivesUIManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ShamblerSpriteSlicer.cs",
+              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
+              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T04:27:46.491Z"
+              "WhenOpened": "2025-10-17T22:27:41.186Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "LivesSystem.cs",
-              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Lives System\\LivesSystem.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Lives System\\LivesSystem.cs",
-              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Lives System\\LivesSystem.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Lives System\\LivesSystem.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "Door.cs",
+              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Door.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Door.cs",
+              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Door.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Door.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T04:27:43.585Z"
+              "WhenOpened": "2025-10-17T22:42:13.554Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "LivesIconManager.cs",
-              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Lives System\\LivesIconManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Lives System\\LivesIconManager.cs",
-              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Lives System\\LivesIconManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Lives System\\LivesIconManager.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "LevelManager.cs",
+              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\LevelManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\LevelManager.cs",
+              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\LevelManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainMenu and Loading\\LevelManager.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAlwEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T04:27:40.897Z"
+              "WhenOpened": "2025-10-17T22:36:45.281Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
+              "Title": "ShamblerSlicerAndAnimate.cs",
+              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
+              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Editor\\ShamblerSlicerAndAnimate.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAkwD0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T22:26:05.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ShamblerAI.cs",
+              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
+              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AI\\The Shambler\\ShamblerAI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMBAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T22:17:00.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "GameOverUI.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\GameOverUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\GameOverUI.cs",
@@ -158,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "PlayerController2D.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
@@ -166,12 +199,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Player Control Logic\\PlayerController2D.cs",
               "ViewState": "AgIAAJIBAAAAAAAAAAAkwKUBAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T21:47:45.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T21:47:45.132Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "PlayerHurt.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerHurt.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerHurt.cs",
@@ -182,12 +214,8 @@
               "WhenOpened": "2025-10-17T19:50:18.246Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "PauseMenu.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\PauseMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\PauseMenu.cs",
@@ -195,24 +223,39 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\PauseMenu.cs",
               "ViewState": "AgIAAPcAAAAAAAAAAAAqwB0BAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T06:40:35.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T06:40:35.09Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
+              "Title": "playerui.cs",
+              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\playerui.cs",
+              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\playerui.cs",
+              "ViewState": "AgIAAM4AAAAAAAAAAAAAAOkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T20:45:35.781Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\MainMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu and Loading\\MainMenu.cs",
               "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\MainMenu and Loading\\MainMenu.cs",
               "RelativeToolTip": "Assets\\Scripts\\MainMenu and Loading\\MainMenu.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T06:39:15.513Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "PlayerRespawn.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerRespawn.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerRespawn.cs",
@@ -225,18 +268,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "playerui.cs",
-              "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\playerui.cs",
-              "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\UI\\playerui.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\playerui.cs",
-              "ViewState": "AgIAAM4AAAAAAAAAAAAAAOkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T20:45:35.781Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "PlayerCombat.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerCombat.cs",
@@ -248,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Weapon.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Interfaces\\Weapon.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Interfaces\\Weapon.cs",
@@ -260,25 +291,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "PlayerInventory.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerInventory.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player Control Logic\\PlayerInventory.cs",
               "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Player Control Logic\\PlayerInventory.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player Control Logic\\PlayerInventory.cs",
-              "ViewState": "AgIAAJgBAAAAAAAAAAAkwMsBAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAANYBAAAAAAAAAAAIwPoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T02:25:50.079Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "Pickup.cs",
               "DocumentMoniker": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\Pickup.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Environment\\Pickup.cs",
               "ToolTip": "E:\\Unity_Projects\\Revolutionary\\Verdance\\Assets\\Scripts\\Environment\\Pickup.cs",
               "RelativeToolTip": "Assets\\Scripts\\Environment\\Pickup.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAUwFUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAUwEsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T02:21:52.332Z"
             }
