@@ -20,7 +20,7 @@ public class Weapon : Item
 
     public override void Use()
     {
-        Debug.Log($"Attacking with {itemName} - Damage: {damage}");
+       // Debug.Log($"Attacking with {itemName} - Damage: {damage}");
     }
 
     public override bool IsUsable()

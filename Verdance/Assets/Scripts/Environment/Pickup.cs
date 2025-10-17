@@ -3,23 +3,31 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Pickup : MonoBehaviour
 {
-    public enum PickupType { Health, Magic, Sanity, Item, MagicSpell, PrimaryWeapon, SecondaryWeapon }
+    public enum PickupType { Health, Magic, Sanity, HealthPotion, Key }
 
     [Header("Pickup Settings")]
     public PickupType type = PickupType.Health;
     public float amount = 25f;
     public bool consumeIfFull = false;
 
-    [Header("Item/Weapon/Spell")]
-    public Item itemData;
-    public MagicSpell spellData;
-    public int targetSlot = 0;
+    [Header("Potion Settings")]
+    public int potionAmount = 1;
+
+    private void Start()
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        if (col == null)
+        {
+            Debug.LogError($"[Pickup] {gameObject.name} has no Collider2D!");
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var playerRoot = other.transform.root;
+        // Check both the colliding object and its root for Player tag
+        bool isPlayer = other.CompareTag("Player") || other.transform.root.CompareTag("Player");
 
-        if (!playerRoot.CompareTag("Player")) return;
+        if (!isPlayer) return;
 
         bool consumed = false;
         PlayerStats stats = PlayerStats.Instance;
@@ -54,34 +62,18 @@ public class Pickup : MonoBehaviour
                 }
                 break;
 
-            case PickupType.Item:
-                if (inventory != null && itemData != null)
+            case PickupType.HealthPotion:
+                if (inventory != null)
                 {
-                    inventory.PickupItem(itemData, targetSlot);
+                    inventory.PickupHealthPotion(potionAmount);
                     consumed = true;
                 }
                 break;
 
-            case PickupType.PrimaryWeapon:
-                if (inventory != null && itemData != null)
+            case PickupType.Key:
+                if (inventory != null)
                 {
-                    inventory.PickupWeapon(itemData, true);
-                    consumed = true;
-                }
-                break;
-
-            case PickupType.SecondaryWeapon:
-                if (inventory != null && itemData != null)
-                {
-                    inventory.PickupWeapon(itemData, false);
-                    consumed = true;
-                }
-                break;
-
-            case PickupType.MagicSpell:
-                if (inventory != null && spellData != null)
-                {
-                    inventory.PickupMagicSpell(spellData, targetSlot);
+                    inventory.PickupKey();
                     consumed = true;
                 }
                 break;
