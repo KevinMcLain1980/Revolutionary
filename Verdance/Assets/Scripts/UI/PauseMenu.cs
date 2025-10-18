@@ -23,7 +23,20 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private AudioClip clickSound; // Sound when clicking buttons
     [SerializeField] private AudioSource audioSource;
 
+    [Header("Hover Visual Feedback")]
+    [SerializeField] private float hoverScale = 1.1f;
+    [SerializeField] private float hoverAnimationSpeed = 0.15f;
+    [SerializeField] private Color hoverTintColor = new Color(1f, 1f, 0.7f, 1f);
+
     private bool isPaused = false; // Tracks if the game is currently paused
+    private System.Collections.Generic.Dictionary<Button, ButtonState> buttonOriginalStates = new System.Collections.Generic.Dictionary<Button, ButtonState>();
+    private System.Collections.Generic.Dictionary<Button, Coroutine> activeButtonCoroutines = new System.Collections.Generic.Dictionary<Button, Coroutine>();
+
+    private struct ButtonState
+    {
+        public Color originalColor;
+        public Vector3 originalScale;
+    }
 
     private void Start()
     {
@@ -45,7 +58,7 @@ public class PauseMenu : MonoBehaviour
         // Toggle pause menu when ESC is pressed
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            Debug.Log("ESC pressed");
+            //Debug.Log("ESC pressed");
             if (isPaused)
                 Resume();
             else
@@ -58,76 +71,145 @@ public class PauseMenu : MonoBehaviour
     {
         if (resumeButton != null)
         {
-            Debug.Log("Setting up Resume button");
+            //Debug.Log("Setting up Resume button");
             resumeButton.onClick.AddListener(Resume);
             AddHoverSound(resumeButton);
         }
         else
         {
-            Debug.LogError("Resume button is null!");
+            //Debug.LogError("Resume button is null!");
         }
 
         if (restartButton != null)
         {
-            Debug.Log("Setting up Restart button");
+            //Debug.Log("Setting up Restart button");
             restartButton.onClick.AddListener(Restart);
             AddHoverSound(restartButton);
         }
         else
         {
-            Debug.LogError("Restart button is null!");
+            //Debug.LogError("Restart button is null!");
         }
 
         if (settingsButton != null)
         {
-            Debug.Log("Setting up Settings button");
+            //Debug.Log("Setting up Settings button");
             settingsButton.onClick.AddListener(ToggleSettings);
             AddHoverSound(settingsButton);
         }
         else
         {
-            Debug.LogError("Settings button is null!");
+            //Debug.LogError("Settings button is null!");
         }
 
         if (exitButton != null)
         {
-            Debug.Log("Setting up Exit button");
+            //Debug.Log("Setting up Exit button");
             exitButton.onClick.AddListener(ExitToMainMenu);
             AddHoverSound(exitButton);
         }
         else
         {
-            Debug.LogError("Exit button is null!");
+            //Debug.LogError("Exit button is null!");
         }
     }
 
     // Add hover sound effect to a button using EventTrigger
     private void AddHoverSound(Button button)
     {
+        Image buttonImage = button.GetComponent<Image>();
+        ButtonState originalState = new ButtonState
+        {
+            originalColor = buttonImage != null ? buttonImage.color : Color.white,
+            originalScale = button.transform.localScale
+        };
+        buttonOriginalStates[button] = originalState;
+
         EventTrigger trigger = button.gameObject.GetComponent<EventTrigger>();
         if (trigger == null)
             trigger = button.gameObject.AddComponent<EventTrigger>();
 
-        EventTrigger.Entry entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerEnter;
-        entry.callback.AddListener((data) => { PlayHoverSound(); });
-        trigger.triggers.Add(entry);
+        EventTrigger.Entry hoverEntry = new EventTrigger.Entry();
+        hoverEntry.eventID = EventTriggerType.PointerEnter;
+        hoverEntry.callback.AddListener((data) => { OnButtonHoverEnter(button); });
+        trigger.triggers.Add(hoverEntry);
+
+        EventTrigger.Entry exitEntry = new EventTrigger.Entry();
+        exitEntry.eventID = EventTriggerType.PointerExit;
+        exitEntry.callback.AddListener((data) => { OnButtonHoverExit(button); });
+        trigger.triggers.Add(exitEntry);
+    }
+
+    private void OnButtonHoverEnter(Button button)
+    {
+        if (!button.interactable || !gameObject.activeInHierarchy) return;
+
+        PlayHoverSound();
+
+        if (activeButtonCoroutines.ContainsKey(button) && activeButtonCoroutines[button] != null)
+            StopCoroutine(activeButtonCoroutines[button]);
+
+        activeButtonCoroutines[button] = StartCoroutine(AnimateButtonHover(button, true));
+    }
+
+    private void OnButtonHoverExit(Button button)
+    {
+        if (!button.interactable || !gameObject.activeInHierarchy) return;
+
+        if (activeButtonCoroutines.ContainsKey(button) && activeButtonCoroutines[button] != null)
+            StopCoroutine(activeButtonCoroutines[button]);
+
+        activeButtonCoroutines[button] = StartCoroutine(AnimateButtonHover(button, false));
+    }
+
+    private System.Collections.IEnumerator AnimateButtonHover(Button button, bool isHovering)
+    {
+        if (!buttonOriginalStates.ContainsKey(button)) yield break;
+
+        Transform buttonTransform = button.transform;
+        Image buttonImage = button.GetComponent<Image>();
+        ButtonState originalState = buttonOriginalStates[button];
+
+        Vector3 targetScale = isHovering ? originalState.originalScale * hoverScale : originalState.originalScale;
+        Color targetColor = isHovering ? hoverTintColor : originalState.originalColor;
+
+        Vector3 startScale = buttonTransform.localScale;
+        Color startColor = buttonImage != null ? buttonImage.color : originalState.originalColor;
+
+        float elapsed = 0f;
+
+        while (elapsed < hoverAnimationSpeed)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = elapsed / hoverAnimationSpeed;
+
+            buttonTransform.localScale = Vector3.Lerp(startScale, targetScale, t);
+
+            if (buttonImage != null)
+                buttonImage.color = Color.Lerp(startColor, targetColor, t);
+
+            yield return null;
+        }
+
+        buttonTransform.localScale = targetScale;
+        if (buttonImage != null)
+            buttonImage.color = targetColor;
     }
 
     // Pause the game and show the pause menu
     public void Pause()
     {
-        Debug.Log("Pause() called");
+        //Debug.Log("Pause() called");
         isPaused = true;
         if (pauseMenuPanel != null)
         {
-            Debug.Log("Setting pause panel active");
+            //Debug.Log("Setting pause panel active");
             pauseMenuPanel.SetActive(true);
-            Debug.Log("Pause panel active state: " + pauseMenuPanel.activeSelf);
+            //Debug.Log("Pause panel active state: " + pauseMenuPanel.activeSelf);
         }
         else
         {
-            Debug.LogError("pauseMenuPanel is null!");
+            //Debug.LogError("pauseMenuPanel is null!");
         }
         Time.timeScale = 0f; // Freeze game time
     }
@@ -135,7 +217,7 @@ public class PauseMenu : MonoBehaviour
     // Resume the game and hide the pause menu
     public void Resume()
     {
-        Debug.Log("Resume button clicked");
+        //Debug.Log("Resume button clicked");
         isPaused = false;
         if (pauseMenuPanel != null)
             pauseMenuPanel.SetActive(false);
@@ -147,7 +229,7 @@ public class PauseMenu : MonoBehaviour
     // Restart the current level
     private void Restart()
     {
-        Debug.Log("Restart button clicked");
+        //Debug.Log("Restart button clicked");
         PlayClickSound();
         Time.timeScale = 1f; // Reset time scale before loading scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -155,18 +237,18 @@ public class PauseMenu : MonoBehaviour
 
     private void ToggleSettings()
     {
-        Debug.Log("Settings button clicked");
+        //Debug.Log("Settings button clicked");
         PlayClickSound();
 
         if (settingsPanel != null)
         {
             bool isActive = settingsPanel.activeSelf;
             settingsPanel.SetActive(!isActive);
-            Debug.Log($"Settings panel now {(!isActive ? "active" : "inactive")}");
+            //Debug.Log($"Settings panel now {(!isActive ? "active" : "inactive")}");
         }
         else
         {
-            Debug.LogError("Settings panel not assigned!");
+            //Debug.LogError("Settings panel not assigned!");
         }
     }
 
@@ -182,7 +264,7 @@ public class PauseMenu : MonoBehaviour
     // Exit to the main menu (scene 0)
     private void ExitToMainMenu()
     {
-        Debug.Log("Exit button clicked");
+        //Debug.Log("Exit button clicked");
         PlayClickSound();
         Time.timeScale = 1f; // Reset time scale before loading scene
         SceneManager.LoadScene(0);

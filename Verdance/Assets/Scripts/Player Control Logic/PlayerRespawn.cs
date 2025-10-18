@@ -68,11 +68,11 @@ public class PlayerRespawn : MonoBehaviour
         isDead = true;
         currentLives--;
         OnLivesChanged?.Invoke(currentLives);
-        Debug.Log($"Player died. Remaning Lives: {currentLives}");
+        //Debug.Log($"Player died. Remaning Lives: {currentLives}");
 
         if (currentLives <= 0)
         {
-            Debug.Log("No lives remaning. Game Over.");
+            //Debug.Log("No lives remaning. Game Over.");
             OnGameOver?.Invoke();
         }
         else
@@ -106,7 +106,7 @@ public class PlayerRespawn : MonoBehaviour
             audioSource.PlayOneShot(respawnSound, sfxVolume);
         }
 
-        Debug.Log("Player respawned");
+        //Debug.Log("Player respawned");
     }
 
     public void ResetPlayer()
@@ -120,7 +120,7 @@ public class PlayerRespawn : MonoBehaviour
         }
 
         ResetPlayerStats();
-        Debug.Log("Player reset to spawn point");
+        //Debug.Log("Player reset to spawn point");
     }
 
     private void ResetPlayerStats()
@@ -157,6 +157,6 @@ public class PlayerRespawn : MonoBehaviour
     {
         currentLives = maxLives;
         OnLivesChanged?.Invoke(currentLives);
-        Debug.Log($"Lives reset to {currentLives}");
+        //Debug.Log($"Lives reset to {currentLives}");
     }
 }

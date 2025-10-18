@@ -18,7 +18,7 @@ public class Pickup : MonoBehaviour
         Collider2D col = GetComponent<Collider2D>();
         if (col == null)
         {
-            Debug.LogError($"[Pickup] {gameObject.name} has no Collider2D!");
+            //Debug.LogError($"[Pickup] {gameObject.name} has no Collider2D!");
         }
     }
 

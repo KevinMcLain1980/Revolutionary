@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.U2D.Sprites;
+using System.Linq;
 
 public class ShamblerSpriteSlicer : EditorWindow
 {
@@ -42,28 +44,33 @@ public class ShamblerSpriteSlicer : EditorWindow
         int frameWidth = texture.width / cols;
         int frameHeight = texture.height / rows;
 
-        SpriteMetaData[] slices = new SpriteMetaData[cols * rows];
+        var factory = new SpriteDataProviderFactories();
+        factory.Init();
+        var dataProvider = factory.GetSpriteEditorDataProviderFromObject(importer);
+        dataProvider.InitSpriteEditorDataProvider();
+
+        var spriteRects = new SpriteRect[cols * rows];
 
         for (int y = 0; y < rows; y++)
         {
             for (int x = 0; x < cols; x++)
             {
                 int index = y * cols + x;
-                SpriteMetaData slice = new SpriteMetaData
+                spriteRects[index] = new SpriteRect
                 {
                     name = $"shambler_{index}",
                     rect = new Rect(x * frameWidth, texture.height - (y + 1) * frameHeight, frameWidth, frameHeight),
                     pivot = pivot,
-                    alignment = (int)SpriteAlignment.Custom
+                    alignment = SpriteAlignment.Custom
                 };
-                slices[index] = slice;
             }
         }
 
-        importer.spritesheet = slices;
-        EditorUtility.SetDirty(importer);
+        dataProvider.SetSpriteRects(spriteRects);
+        dataProvider.Apply();
+
         importer.SaveAndReimport();
 
-        Debug.Log($"Sliced {cols * rows} frames from {texture.name} with pivot {pivot}");
+        //Debug.Log($"Sliced {cols * rows} frames from {texture.name} with pivot {pivot}");
     }
 }
