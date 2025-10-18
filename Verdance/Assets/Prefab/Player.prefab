@@ -65,6 +65,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -86,8 +88,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 1134010557
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -705815066, guid: 1b07534d87f1cfa4eadb00c3b651e887, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -283,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasSword: 1
   healthPotionCount: 0
-  hasKey: 1
+  hasKey: 0
   slotSelectedImages:
   - {fileID: 0}
   - {fileID: 0}
@@ -540,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5646629921380889180, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7967610825700699216, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       propertyPath: damageAmount
@@ -553,9 +556,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5646629921380889180, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7339962898912071940}
-    - targetCorrespondingSourceObject: {fileID: 5646629921380889180, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8708564220466871502}
   m_SourcePrefab: {fileID: 100100000, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
 --- !u!1 &3465424050574974981 stripped
 GameObject:
@@ -599,27 +599,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.08, y: 1.38}
   m_Size: {x: 0.89, y: 4.21}
   m_Direction: 0
---- !u!114 &8708564220466871502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3465424050574974981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6018be7dd3f7794899ec47e0b67ba6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dealerType: 0
-  damageAmount: 50
-  knockbackStrength: 6
-  knockbackLift: 4
-  targetLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  hitSound: {fileID: 0}
-  volume: 0.7
 --- !u!4 &4725913309588204540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4602294207303498149, guid: 1950b43a14bdd29428b6de561f946fcc, type: 3}
