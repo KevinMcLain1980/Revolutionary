@@ -65,8 +65,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -88,9 +86,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1134010557
-  m_SortingLayer: 6
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -705815066, guid: 1b07534d87f1cfa4eadb00c3b651e887, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -286,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasSword: 1
   healthPotionCount: 0
-  hasKey: 0
+  hasKey: 1
   slotSelectedImages:
   - {fileID: 0}
   - {fileID: 0}
