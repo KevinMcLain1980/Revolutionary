@@ -44,9 +44,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Platforms
-    uniqueID: 2772913759
-    locked: 0
   - name: Sky
     uniqueID: 3128911047
     locked: 0
@@ -56,11 +53,17 @@ TagManager:
   - name: Foreground
     uniqueID: 1929030029
     locked: 0
+  - name: Platforms
+    uniqueID: 2772913759
+    locked: 0
   - name: Enemies
     uniqueID: 3912450891
     locked: 0
   - name: Player
     uniqueID: 1134010557
+    locked: 0
+  - name: Items
+    uniqueID: 1625624099
     locked: 0
   m_RenderingLayers:
   - Default

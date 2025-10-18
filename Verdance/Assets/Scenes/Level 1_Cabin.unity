@@ -2826,11 +2826,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7506407237624098496, guid: eac5f9b0c701d5247b7b584d50c87a76, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7506407237624098496, guid: eac5f9b0c701d5247b7b584d50c87a76, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1134010557
+      value: -1522053537
       objectReference: {fileID: 0}
     - target: {fileID: 8076964993169817389, guid: eac5f9b0c701d5247b7b584d50c87a76, type: 3}
       propertyPath: m_Name
@@ -5326,6 +5326,14 @@ PrefabInstance:
     - target: {fileID: 4476208225153281896, guid: bf6df4c26f690b54d8c7142dee0513ad, type: 3}
       propertyPath: m_Name
       value: Health Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614349241855902051, guid: bf6df4c26f690b54d8c7142dee0513ad, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614349241855902051, guid: bf6df4c26f690b54d8c7142dee0513ad, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1625624099
       objectReference: {fileID: 0}
     - target: {fileID: 8607046330065174194, guid: bf6df4c26f690b54d8c7142dee0513ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9735,8 +9743,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1625624099
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 269cf6447493b8c42941e5f49a44aff8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11073,8 +11081,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1625624099
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 269cf6447493b8c42941e5f49a44aff8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11437,6 +11445,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
+      propertyPath: hasKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874539085239954241, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: keyImage
       value: 
       objectReference: {fileID: 632014644}
@@ -11524,6 +11536,14 @@ PrefabInstance:
     - target: {fileID: 5658152573856806822, guid: 497021d6c09a6c24fa78c58e059c3bc5, type: 3}
       propertyPath: m_Name
       value: Door/Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692132750436149672, guid: 497021d6c09a6c24fa78c58e059c3bc5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692132750436149672, guid: 497021d6c09a6c24fa78c58e059c3bc5, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1625624099
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44610,8 +44630,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1625624099
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 269cf6447493b8c42941e5f49a44aff8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -44728,6 +44748,14 @@ PrefabInstance:
     - target: {fileID: 81630760559442404, guid: cc23e825aa754124db1e0d640922fed7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956393192996281668, guid: cc23e825aa754124db1e0d640922fed7, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956393192996281668, guid: cc23e825aa754124db1e0d640922fed7, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1625624099
       objectReference: {fileID: 0}
     - target: {fileID: 7143771160917546756, guid: cc23e825aa754124db1e0d640922fed7, type: 3}
       propertyPath: m_Name
