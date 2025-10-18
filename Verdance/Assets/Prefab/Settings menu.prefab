@@ -4788,6 +4788,7 @@ GameObject:
   - component: {fileID: 2584681822846200200}
   - component: {fileID: 5375856919928351845}
   - component: {fileID: 5176923368284967650}
+  - component: {fileID: 565736620248365764}
   m_Layer: 5
   m_Name: Settings Panel
   m_TagString: Untagged
@@ -4905,6 +4906,19 @@ MonoBehaviour:
   rebindingPrompt: {fileID: 0}
   rebindingText: {fileID: 0}
   inputActions: {fileID: 0}
+--- !u!114 &565736620248365764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5828664792321662162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a8fddd83f50e749b3ff1e2f3d9ee96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsManager
+  audioMixer: {fileID: 24100000, guid: 552b8cce3a689cb4ebbe2fde42d25b04, type: 2}
 --- !u!1 &5897092784261388731
 GameObject:
   m_ObjectHideFlags: 0

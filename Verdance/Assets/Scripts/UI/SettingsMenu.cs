@@ -211,6 +211,7 @@ public class SettingsMenu : MonoBehaviour
         if (SettingsManager.Instance != null)
         {
             SettingsManager.Instance.SetMasterVolume(value);
+            SettingsManager.Instance.SaveSettings();
         }
         UpdateVolumeText(masterVolumeText, value);
     }
@@ -220,6 +221,7 @@ public class SettingsMenu : MonoBehaviour
         if (SettingsManager.Instance != null)
         {
             SettingsManager.Instance.SetMusicVolume(value);
+            SettingsManager.Instance.SaveSettings();
         }
         UpdateVolumeText(musicVolumeText, value);
     }
@@ -229,6 +231,7 @@ public class SettingsMenu : MonoBehaviour
         if (SettingsManager.Instance != null)
         {
             SettingsManager.Instance.SetSFXVolume(value);
+            SettingsManager.Instance.SaveSettings();
         }
         UpdateVolumeText(sfxVolumeText, value);
     }
@@ -238,6 +241,7 @@ public class SettingsMenu : MonoBehaviour
         if (SettingsManager.Instance != null)
         {
             SettingsManager.Instance.SetUIVolume(value);
+            SettingsManager.Instance.SaveSettings();
         }
         UpdateVolumeText(uiVolumeText, value);
     }
