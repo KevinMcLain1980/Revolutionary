@@ -13,9 +13,16 @@ public class Door : MonoBehaviour
             if (!LevelManager.Instance.CheckEnemiesAndBossDefeated())
             {
                // Debug.Log("You must defeat all enemies first");
+               int remainingEnemies = LevelManager.Instance.GetRemainingEnemyCount();
+                PlayerUI playerUI = FindFirstObjectByType<PlayerUI>();
+                if (playerUI != null)
+                {
+                    playerUI.ShowMessage($"There are {remainingEnemies} remaining enemies");
+                }
                 return;
             }
 
+            inventory.RemoveKey();
             LevelManager.Instance.OnKeyUsed();
 
             if (LevelManager.Instance.CheckLevelCompletion())

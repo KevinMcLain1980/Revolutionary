@@ -32,6 +32,10 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private AudioSource levelMusicSource;
     [SerializeField] private AudioSource gameOverMusicSource;
 
+    [Header("Message Popup")]
+    [SerializeField] private GameObject messagePopup;
+    [SerializeField] private TMP_Text messageText;
+
     private PlayerStats playerStats;
     private PlayerInventory playerInventory;
     private PlayerController2D playerController;
@@ -88,6 +92,30 @@ public class PlayerUI : MonoBehaviour
         if (gameeOverScreen != null)
         {
             gameeOverScreen.SetActive(false);
+        }
+
+        if (messagePopup != null)
+        {
+            messagePopup.SetActive(false); 
+        }
+    }
+
+    public void ShowMessage(string message, float duration = 3f)
+    {
+        if (message != null && messageText != null)
+        {
+            messageText.text = message;
+            messagePopup.SetActive(true);
+            StartCoroutine(HideMessageAfterDelay(duration));
+        }
+    }
+
+    private IEnumerator HideMessageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (messagePopup != null)
+        {
+            messagePopup.SetActive(false);
         }
     }
 

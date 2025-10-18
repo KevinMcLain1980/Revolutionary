@@ -103,6 +103,10 @@ public class LevelManager : MonoBehaviour
         return bossConditionMet && enemiesConditionMet;
     }
 
+    public int GetRemainingEnemyCount()
+    {
+        return remainingEnemies.Count;
+    }
     public void OnKeyUsed()
     {
         keyUsed = true;
