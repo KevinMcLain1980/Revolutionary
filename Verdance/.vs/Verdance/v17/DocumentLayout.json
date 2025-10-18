@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{792036BC-BB12-82AE-EA0E-D09B12A9BB13}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\platformcollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|C:\\Users\\lokig\\source\\repos\\Revolutionary\\Verdance\\assets\\scripts\\editor\\shamblerspriteslicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|c:\\users\\lokig\\source\\repos\\revolutionary\\verdance\\assets\\scripts\\editor\\shamblerspriteslicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC5140A2-8A7D-8AAE-18E8-53116D6B3059}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\shamblerspriteslicer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -115,7 +115,8 @@
               "RelativeToolTip": "Assets\\Scripts\\Editor\\ShamblerSpriteSlicer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T22:27:41.186Z"
+              "WhenOpened": "2025-10-17T22:27:41.186Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
