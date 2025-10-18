@@ -27,7 +27,7 @@ public class LevelTransition : MonoBehaviour
         }
         else
         {
-            Debug.Log("No more levels! Game complete!");
+            //Debug.Log("No more levels! Game complete!");
         }
     }
 

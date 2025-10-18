@@ -51,7 +51,7 @@ public class BossManager : MonoBehaviour
         {
             currentPhaseIndex++;
             phases[currentPhaseIndex].ActivatePhase();
-            Debug.Log($"Boss transitioned to phase {currentPhaseIndex}");
+            //Debug.Log($"Boss transitioned to phase {currentPhaseIndex}");
         }
     }
 
@@ -60,7 +60,7 @@ public class BossManager : MonoBehaviour
         animator?.SetTrigger(deathTrigger);
         if (deathSound != null) AudioSource.PlayClipAtPoint(deathSound, transform.position);
         if (arenaGate != null) arenaGate.SetActive(false); // unlock arena
-        Debug.Log("Boss defeated");
+        //Debug.Log("Boss defeated");
         Destroy(gameObject, 3f); // optional cleanup
     }
 }

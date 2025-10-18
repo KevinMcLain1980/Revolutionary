@@ -34,7 +34,7 @@ public class SettingsManager : MonoBehaviour
             {
                 string json = File.ReadAllText(SettingsPath);
                 currentSettings = JsonUtility.FromJson<SettingsData>(json);
-                Debug.Log("Settings loaded");
+                //Debug.Log("Settings loaded");
             }
             else
             {
@@ -44,9 +44,9 @@ public class SettingsManager : MonoBehaviour
 
             ApplySettings();
         }
-        catch (System.Exception e)
+        catch
         {
-            Debug.LogError($"Failed to load settings: {e.Message}");
+            //Debug.LogError($"Failed to load settings: {e.Message}");
             currentSettings = SettingsData.GetDefault();
         }
     }
@@ -57,11 +57,11 @@ public class SettingsManager : MonoBehaviour
         {
             string json = JsonUtility.ToJson(currentSettings, true);
             File.WriteAllText(SettingsPath, json);
-            Debug.Log("Settings saved");
+            //Debug.Log("Settings saved");
         }
-        catch (System.Exception e)
+        catch 
         {
-            Debug.LogError($"Failed to save settings: {e.Message}");
+            //Debug.LogError($"Failed to save settings: {e.Message}");
         }
     }
 
@@ -119,7 +119,7 @@ public class SettingsManager : MonoBehaviour
         currentSettings = SettingsData.GetDefault();
         ApplySettings();
         SaveSettings();
-        Debug.Log("Settings reset to defaults");
+        //Debug.Log("Settings reset to defaults");
     }
 
     public SettingsData GetCurrentSettings() => currentSettings;

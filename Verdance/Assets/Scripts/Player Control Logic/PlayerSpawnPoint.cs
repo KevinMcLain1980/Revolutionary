@@ -21,7 +21,7 @@ public class PlayerSpawnPoint : MonoBehaviour
         if (spawnOnStart)
         {
             SpawnPlayer();
-            Debug.Log($"SpawnPoint active at {transform.position}, spawnOnStart = {spawnOnStart}");
+            //Debug.Log($"SpawnPoint active at {transform.position}, spawnOnStart = {spawnOnStart}");
         }
     }
 
@@ -33,16 +33,16 @@ public class PlayerSpawnPoint : MonoBehaviour
         {
             existingPlayer.transform.position = transform.position;
             existingPlayer.transform.rotation = transform.rotation;
-            Debug.Log("Player repositioned to spawn point");
+            //Debug.Log("Player repositioned to spawn point");
         }
         else if (playerPrefab != null)
         {
             GameObject player = Instantiate(playerPrefab, transform.position, transform.rotation);
-            Debug.Log("Player spawned at spawn point");
+            //Debug.Log("Player spawned at spawn point");
         }
         else
         {
-            Debug.LogWarning("No player found and no player prefab assigned!");
+            //Debug.LogWarning("No player found and no player prefab assigned!");
         }
     }
 

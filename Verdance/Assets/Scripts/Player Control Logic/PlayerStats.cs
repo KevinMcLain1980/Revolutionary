@@ -131,7 +131,7 @@ public class PlayerStats : MonoBehaviour
             AudioSource.PlayClipAtPoint(deathSound, transform.position, sfxVolume);
         }
 
-        Debug.Log("Player died!");
+        //Debug.Log("Player died!");
 
         PlayerRespawn respawn = GetComponent<PlayerRespawn>();
         if (respawn != null)

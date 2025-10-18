@@ -30,11 +30,11 @@ public class DamageDealer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"DamageDealer hit: {other.gameObject.name}, Tag: {other.tag}, Layer: {LayerMask.LayerToName(other.gameObject.layer)}, DealerType: {dealerType}");
+        //Debug.Log($"DamageDealer hit: {other.gameObject.name}, Tag: {other.tag}, Layer: {LayerMask.LayerToName(other.gameObject.layer)}, DealerType: {dealerType}");
 
         if (targetLayers != 0 && ((1 << other.gameObject.layer) & targetLayers) == 0)
         {
-            Debug.Log($"Ignoring {other.name} - not in target layers");
+            //Debug.Log($"Ignoring {other.name} - not in target layers");
             return;
         }
 
@@ -79,7 +79,7 @@ public class DamageDealer : MonoBehaviour
         Vector2 direction = (targetCenter - (Vector2)transform.position).normalized;
         Vector2 knockback = new Vector2(direction.x * knockbackStrength, knockbackLift);
 
-        Debug.Log($"Dealing {damageAmount} damage to {other.transform.root.name}");
+        //Debug.Log($"Dealing {damageAmount} damage to {other.transform.root.name}");
 
         if (hitSound != null)
         {
