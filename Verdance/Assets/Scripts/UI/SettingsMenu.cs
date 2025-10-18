@@ -263,14 +263,14 @@ public class SettingsMenu : MonoBehaviour
     {
         if (inputActions == null)
         {
-            Debug.LogError("Input Actions asset not assigned to SettingsMenu!");
+            //Debug.LogError("Input Actions asset not assigned to SettingsMenu!");
             return;
         }
 
         InputAction action = GetInputActionFromDisplayName(displayName);
         if (action == null)
         {
-            Debug.LogError($"Could not find input action for {displayName}");
+            //Debug.LogError($"Could not find input action for {displayName}");
             return;
         }
 
@@ -295,7 +295,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void RebindComplete()
     {
-        Debug.Log($"Rebind completed for {currentActionToRebind.name}");
+        //Debug.Log($"Rebind completed for {currentActionToRebind.name}");
 
         currentActionToRebind.Enable();
         rebindingOperation.Dispose();
@@ -309,7 +309,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void RebindCancelled()
     {
-        Debug.Log("Rebind cancelled");
+        //Debug.Log("Rebind cancelled");
 
         currentActionToRebind.Enable();
         rebindingOperation.Dispose();
@@ -436,7 +436,7 @@ public class SettingsMenu : MonoBehaviour
         }
 
         ResetAllBindings();
-        Debug.Log("Settings reset to defaults");
+        //Debug.Log("Settings reset to defaults");
     }
 
     private void OnApplyClicked()
@@ -445,7 +445,7 @@ public class SettingsMenu : MonoBehaviour
         {
             SettingsManager.Instance.SaveSettings();
         }
-        Debug.Log("Settings applied and saved");
+        //Debug.Log("Settings applied and saved");
     }
 
     private void OnCloseClicked()
@@ -486,8 +486,8 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetInt("AudioOutputDevice", deviceIndex);
         PlayerPrefs.Save();
 
-        Debug.Log($"Audio output device changed to index: {deviceIndex}");
-        Debug.Log("Note: Windows audio output is controlled through Windows Sound Settings");
+        //Debug.Log($"Audio output device changed to index: {deviceIndex}");
+        //Debug.Log("Note: Windows audio output is controlled through Windows Sound Settings");
     }
 
     private void OnDestroy()

@@ -12,6 +12,6 @@ public class MagicSpell : ScriptableObject
 
     public virtual void Cast(Vector3 position, Vector3 direction)
     {
-        Debug.Log($"Casting {spellName}");
+        //Debug.Log($"Casting {spellName}");
     }
 }

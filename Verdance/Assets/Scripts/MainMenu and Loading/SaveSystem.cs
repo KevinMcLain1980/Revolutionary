@@ -11,11 +11,11 @@ public static class SaveSystem
         {
             string json = JsonUtility.ToJson(data, true);
             File.WriteAllText(SavePath, json);
-            Debug.Log($"Game saved to: {SavePath}");
+            //Debug.Log($"Game saved to: {SavePath}");
         }
-        catch (System.Exception e)
+        catch (System.Exception)
         {
-            Debug.LogError($"Failed to save game: {e.Message}");
+            //Debug.LogError($"Failed to save game:");
         }
     }
 
@@ -27,18 +27,18 @@ public static class SaveSystem
             {
                 string json = File.ReadAllText(SavePath);
                 GameSaveData data = JsonUtility.FromJson<GameSaveData>(json);
-                Debug.Log("Game loaded successfully");
+                //Debug.Log("Game loaded successfully");
                 return data;
             }
             else
             {
-                Debug.Log("No save file found");
+                //Debug.Log("No save file found");
                 return null;
             }
         }
-        catch (System.Exception e)
+        catch 
         {
-            Debug.LogError($"Failed to load game: {e.Message}");
+            //Debug.LogError($"Failed to load game: {e.Message}");
             return null;
         }
     }
@@ -53,7 +53,7 @@ public static class SaveSystem
         if (File.Exists(SavePath))
         {
             File.Delete(SavePath);
-            Debug.Log("Save file deleted");
+            //Debug.Log("Save file deleted");
         }
     }
 }

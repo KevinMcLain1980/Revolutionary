@@ -114,14 +114,14 @@ public class EndCredits : MonoBehaviour
         if (isSkipping) return;
 
         isSkipping = true;
-        Debug.Log("Credits skipped");
+        ////Debug.Log("Credits skipped");
         StartCoroutine(FadeOutAndReturn());
     }
 
     private void OnCreditsComplete()
     {
         creditsComplete = true;
-        Debug.Log("Credits complete");
+        ////Debug.Log("Credits complete");
 
         if (skipText != null)
         {
@@ -281,7 +281,7 @@ public class EndCredits : MonoBehaviour
 
     private void ReturnToMainMenu()
     {
-        Debug.Log($"Returning to {mainMenuSceneName}");
+        //Debug.Log($"Returning to {mainMenuSceneName}");
         SceneManager.LoadScene(mainMenuSceneName);
     }
 

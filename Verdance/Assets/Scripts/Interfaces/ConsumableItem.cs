@@ -17,24 +17,24 @@ public class ConsumableItem : Item
         if (healthRestore > 0)
         {
             stats.Heal(healthRestore);
-            Debug.Log($"Restored {healthRestore} health");
+            //Debug.Log($"Restored {healthRestore} health");
         }
 
         if (sanityRestore > 0)
         {
             stats.RestoreSanity(sanityRestore);
-            Debug.Log($"Restored {sanityRestore} sanity");
+            //Debug.Log($"Restored {sanityRestore} sanity");
         }
 
         if (magicRestore > 0)
         {
             stats.SetMagic(stats.GetCurrentMagic() + magicRestore);
-            Debug.Log($"Restored {magicRestore} magic");
+            //Debug.Log($"Restored {magicRestore} magic");
         }
 
         if (singleUse)
         {
-            Debug.Log($"{itemName} consumed");
+            //Debug.Log($"{itemName} consumed");
         }
     }
 

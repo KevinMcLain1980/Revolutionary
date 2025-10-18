@@ -22,6 +22,6 @@ public class BossArenaTrigger : MonoBehaviour
         if (arenaLockSound != null)
             AudioSource.PlayClipAtPoint(arenaLockSound, transform.position);
 
-        Debug.Log("Ember Stag Arena activated");
+        //Debug.Log("Ember Stag Arena activated");
     }
 }
