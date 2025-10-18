@@ -300,26 +300,20 @@ public class PlayerInventory : MonoBehaviour
             return;
         }
 
-        if (!LevelManager.Instance.CheckLevelCompletion())
-        {
-            Debug.Log("You must defeat all enemies first");
-            return;
-        }
-
         if (nearbyDoor != null)
         {
             nearbyDoor.OpenChest(this);
             RemoveKey();
         }
-        else 
-        { 
-            Debug.Log("No chest nearby."); 
+        else
+        {
+            Debug.Log("No chest nearby.");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Door"))
+        if (collision.CompareTag("Door"))
         {
             nearbyDoor = collision.GetComponent<Door>();
         }
@@ -452,46 +446,46 @@ public class PlayerInventory : MonoBehaviour
 
     private void SaveInventory()
     {
-            InventoryData data = new InventoryData
-            {
-                hasSword = this.hasSword,
-                healthPotionCount = this.healthPotionCount,
-                hasKey = this.hasKey,
-                selectedSlotIndex = this.selectedSlotIndex,
-                version = 1
-            };
+        InventoryData data = new InventoryData
+        {
+            hasSword = this.hasSword,
+            healthPotionCount = this.healthPotionCount,
+            hasKey = this.hasKey,
+            selectedSlotIndex = this.selectedSlotIndex,
+            version = 1
+        };
 
-            string json = JsonUtility.ToJson(data);
-            PlayerPrefs.SetString("PlayerInventory", json);
-            PlayerPrefs.Save();
-        
+        string json = JsonUtility.ToJson(data);
+        PlayerPrefs.SetString("PlayerInventory", json);
+        PlayerPrefs.Save();
+
     }
 
     private void LoadInventory()
     {
-            if (PlayerPrefs.HasKey("PlayerInventory"))
+        if (PlayerPrefs.HasKey("PlayerInventory"))
+        {
+            string json = PlayerPrefs.GetString("PlayerInventory");
+            InventoryData data = JsonUtility.FromJson<InventoryData>(json);
+
+            if (data.version == 1)
             {
-                string json = PlayerPrefs.GetString("PlayerInventory");
-                InventoryData data = JsonUtility.FromJson<InventoryData>(json);
+                this.hasSword = data.hasSword;
+                this.healthPotionCount = data.healthPotionCount;
+                this.hasKey = data.hasKey;
+                this.selectedSlotIndex = data.selectedSlotIndex;
 
-                if (data.version == 1)
-                {
-                    this.hasSword = data.hasSword;
-                    this.healthPotionCount = data.healthPotionCount;
-                    this.hasKey = data.hasKey;
-                    this.selectedSlotIndex = data.selectedSlotIndex;
-
-                    //////Debug.Log("Inventory loaded successfully.");
-                }
-                else
-                {
-                    ////Debug.LogWarning("Unknown save version. Using defaults.");
-                }
+                //////Debug.Log("Inventory loaded successfully.");
             }
             else
             {
-                ////Debug.Log("No save file found. Using default inventory.");
+                ////Debug.LogWarning("Unknown save version. Using defaults.");
             }
+        }
+        else
+        {
+            ////Debug.Log("No save file found. Using default inventory.");
+        }
     }
 
     public void ResetInventory()
@@ -506,7 +500,7 @@ public class PlayerInventory : MonoBehaviour
         OnInventoryChanged?.Invoke();
         SaveInventory();
 
-       
+
     }
 
 }

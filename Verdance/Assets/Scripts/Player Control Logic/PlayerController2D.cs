@@ -83,7 +83,7 @@ public class PlayerController2D : MonoBehaviour
             if (audioSource == null)
             {
                 audioSource = gameObject.AddComponent<AudioSource>();
-                //Debug.Log("[PlayerController2D] Created new AudioSource in Awake");
+                ////Debug.Log("[PlayerController2D] Created new AudioSource in Awake");
             }
         }
     }
@@ -100,7 +100,7 @@ public class PlayerController2D : MonoBehaviour
             if (audioSource == null)
             {
                 audioSource = gameObject.AddComponent<AudioSource>();
-                //Debug.Log("[PlayerController2D] Re-created AudioSource in Start after scene reload");
+                ////Debug.Log("[PlayerController2D] Re-created AudioSource in Start after scene reload");
             }
         }
     }
@@ -218,7 +218,7 @@ public class PlayerController2D : MonoBehaviour
             PlayerInventory inventory = PlayerInventory.Instance;
             if (inventory != null && inventory.GetSelectedSlotIndex() != 0)
             {
-                //Debug.Log("Sword not selected. Switch to slot 0 to attack.");
+                ////Debug.Log("Sword not selected. Switch to slot 0 to attack.");
                 return;
             }
 
@@ -340,7 +340,7 @@ public class PlayerController2D : MonoBehaviour
     }
     private void SpawnBloodEffect()
     {
-        Debug.Log("SpawnBloodEffect called");
+        //Debug.Log("SpawnBloodEffect called");
 
 
         if (bloodBurstPrefab != null && bloodSpawnPoint != null)
@@ -387,12 +387,12 @@ public class PlayerController2D : MonoBehaviour
     {
         isDead = true;
         animator.SetBool("IsDead", true);
-        Debug.Log("[PlayerController2D] Player died.");
+        //Debug.Log("[PlayerController2D] Player died.");
 
         if (deathSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(deathSound, sfxVolume);
-            Debug.Log("[PlayerController2D] Death sound played.");
+            //Debug.Log("[PlayerController2D] Death sound played.");
         }
 
         PlayerRespawn respawn = GetComponent<PlayerRespawn>();
@@ -403,7 +403,7 @@ public class PlayerController2D : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("[PlayerController2D] PlayerRespawn not found");
+                //Debug.LogWarning("[PlayerController2D] PlayerRespawn not found");
             }
         }
     }
@@ -435,10 +435,10 @@ public class PlayerController2D : MonoBehaviour
 
     // private void OnCollisionStay2D(Collision2D collision)
     // {
-    //     //Debug.Log($"Colliding with: {collision.gameObject.name}, Layer: {LayerMask.LayerToName(collision.gameObject.layer)}, Contacts: {collision.contactCount}");
+    //     ////Debug.Log($"Colliding with: {collision.gameObject.name}, Layer: {LayerMask.LayerToName(collision.gameObject.layer)}, Contacts: {collision.contactCount}");
     //     for (int i = 0; i < collision.contactCount; i++)
     //     {
-    //         //Debug.Log($"Contact {i}: Normal: {collision.contacts[i].normal}, Point: {collision.contacts[i].point}");
+    //         ////Debug.Log($"Contact {i}: Normal: {collision.contacts[i].normal}, Point: {collision.contacts[i].point}");
     //     }
     // }
 }

@@ -10,14 +10,23 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Object nextLevelScene;
     [SerializeField] private bool requireBossKill = false;
     [SerializeField] private bool requireAllEnemiesKilled = true;
+    [SerializeField] private bool requireKeyUsed = false;
     [SerializeField] private float levelCompleteDelay = 2f;
 
     [Header("References")]
     [SerializeField] private GameObject levelCompleteUI;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip victorySFX;
+    [SerializeField] private float victoryPlayDuration = 7f;
+    [SerializeField] private float victoryFadeOutTime = 2f;
+    [SerializeField] private AudioSource levelMusicSource;
+
     private HashSet<GameObject> remainingEnemies = new HashSet<GameObject>();
     private GameObject boss;
     private bool bossKilled = false;
+    private bool keyUsed = false;
     private bool levelComplete = false;
 
     private void Awake()
@@ -48,13 +57,13 @@ public class LevelManager : MonoBehaviour
             remainingEnemies.Add(enemy);
         }
 
-        Debug.Log($"Level started with {remainingEnemies.Count} enemies");
+        //Debug.Log($"Level started with {remainingEnemies.Count} enemies");
     }
 
     public void RegisterBoss(GameObject bossObject)
     {
         boss = bossObject;
-        Debug.Log($"Boss registered: {boss.name}");
+        //Debug.Log($"Boss registered: {boss.name}");
     }
 
     public void OnEnemyKilled(GameObject enemy)
@@ -62,7 +71,7 @@ public class LevelManager : MonoBehaviour
         if (remainingEnemies.Contains(enemy))
         {
             remainingEnemies.Remove(enemy);
-            Debug.Log($"Enemy killed. Remaining: {remainingEnemies.Count}");
+            //Debug.Log($"Enemy killed. Remaining: {remainingEnemies.Count}");
             CheckLevelCompletion();
         }
     }
@@ -72,7 +81,7 @@ public class LevelManager : MonoBehaviour
         if (bossObject == boss)
         {
             bossKilled = true;
-            Debug.Log("Boss killed!");
+            //Debug.Log("Boss killed!");
             CheckLevelCompletion();
         }
     }
@@ -83,24 +92,65 @@ public class LevelManager : MonoBehaviour
 
         bool bossConditionMet = !requireBossKill || bossKilled;
         bool enemiesConditionMet = !requireAllEnemiesKilled || remainingEnemies.Count == 0;
-        return bossConditionMet && enemiesConditionMet;
+        bool keyConditionMet = !requireKeyUsed || keyUsed;
+        return bossConditionMet && enemiesConditionMet && keyConditionMet;
+    }
 
-       // if (bossConditionMet && enemiesConditionMet)
-        //{
-       //     CompleteLevel();
-        //}
+    public bool CheckEnemiesAndBossDefeated()
+    {
+        bool bossConditionMet = !requireBossKill || bossKilled;
+        bool enemiesConditionMet = !requireAllEnemiesKilled || remainingEnemies.Count == 0;
+        return bossConditionMet && enemiesConditionMet;
+    }
+
+    public void OnKeyUsed()
+    {
+        keyUsed = true;
+        //Debug.Log("Key used on door!");
+        CheckLevelCompletion();
     }
 
     private void CompleteLevel()
     {
         levelComplete = true;
-        Debug.Log("Level Complete!");
+        //Debug.Log("Level Complete!");
 
         if (levelCompleteUI != null)
             levelCompleteUI.SetActive(true);
 
+        if (levelMusicSource != null)
+        {
+            levelMusicSource.Stop();
+            levelMusicSource.enabled = false;
+        }
+
+        if (victorySFX != null && audioSource != null)
+        {
+            audioSource.clip = victorySFX;
+            audioSource.Play();
+            StartCoroutine(FadeOutAudio(audioSource, victoryPlayDuration, victoryFadeOutTime));
+        }
+
         SaveGame();
         Invoke(nameof(LoadNextLevel), levelCompleteDelay);
+    }
+
+    private System.Collections.IEnumerator FadeOutAudio(AudioSource source, float playDuration, float fadeOutTime)
+    {
+        float startVolume = source.volume;
+
+        yield return new WaitForSeconds(playDuration);
+
+        float elapsed = 0f;
+        while (elapsed < fadeOutTime)
+        {
+            elapsed += Time.deltaTime;
+            source.volume = Mathf.Lerp(startVolume, 0f, elapsed / fadeOutTime);
+            yield return null;
+        }
+
+        source.Stop();
+        source.volume = startVolume;
     }
 
     private void SaveGame()
@@ -118,7 +168,7 @@ public class LevelManager : MonoBehaviour
         };
 
         SaveSystem.SaveGame(saveData);
-        Debug.Log("Game saved!");
+        //Debug.Log("Game saved!");
     }
 
     private void LoadNextLevel()
@@ -127,12 +177,12 @@ public class LevelManager : MonoBehaviour
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            Debug.Log($"Loading scene index:  { nextSceneIndex}");
+            //Debug.Log($"Loading scene index:  {nextSceneIndex}");
             SceneManager.LoadScene(nextSceneIndex);
         }
         else
         {
-            Debug.LogWarning("No next scene in build settings");
+            //Debug.LogWarning("No next scene in build settings");
         }
 
     }
