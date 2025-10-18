@@ -123,6 +123,6 @@ public class ShamblerSlicerAndAnimator : EditorWindow
         }
 
         AssetDatabase.SaveAssets();
-        Debug.Log("Shambler animations generated.");
+        //Debug.Log("Shambler animations generated.");
     }
 }

@@ -19,7 +19,7 @@ public class LightPulse : MonoBehaviour
             enemy?.Stun(2f); // Stun for 2 seconds
         }
 
-        Debug.Log("Light Pulse activated");
+        //Debug.Log("Light Pulse activated");
     }
 
     private void OnDrawGizmosSelected()

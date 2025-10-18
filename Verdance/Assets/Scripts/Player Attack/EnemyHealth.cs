@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
 
-        Debug.Log($"{gameObject.name} initialized with {currentHealth}/{maxHealth} health");
+        //Debug.Log($"{gameObject.name} initialized with {currentHealth}/{maxHealth} health");
     }
 
     public void TakeDamage(float damage, Vector2 knockbackDirection = default)
@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (isDead) return;
 
         currentHealth -= damage;
-        Debug.Log($"{gameObject.name} took {damage} damage. Health: {currentHealth}/{maxHealth}");
+        //Debug.Log($"{gameObject.name} took {damage} damage. Health: {currentHealth}/{maxHealth}");
 
         if (knockbackDirection != Vector2.zero && rb != null)
         {
@@ -75,7 +75,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     protected virtual void Die()
     {
         isDead = true;
-        Debug.Log($"{gameObject.name} died!");
+        //Debug.Log($"{gameObject.name} died!");
 
         if (deathSound != null && audioSource != null)
         {

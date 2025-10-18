@@ -31,7 +31,7 @@ public class CameraFollowController : MonoBehaviour
         if (player != null)
         {
             vcam.Follow = player.transform;
-            Debug.Log("Cinemachine camera now following player");
+            //Debug.Log("Cinemachine camera now following player");
         }
     }
 }

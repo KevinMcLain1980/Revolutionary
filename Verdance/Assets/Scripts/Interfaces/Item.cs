@@ -8,7 +8,7 @@ public class Item : ScriptableObject
 
     public virtual void Use()
     {
-        Debug.Log($"Using {itemName}");
+        //Debug.Log($"Using {itemName}");
     }
 
     public virtual bool IsUsable()

@@ -45,7 +45,7 @@ public class BossSpawnTrigger : MonoBehaviour
     {
         if (bossPrefab == null || spawnPosition == null)
         {
-            Debug.LogError("Boss prefab or spawn position not assigned!");
+            //Debug.LogError("Boss prefab or spawn position not assigned!");
             return;
         }
 
@@ -68,6 +68,6 @@ public class BossSpawnTrigger : MonoBehaviour
             musicSource.Play();
         }
 
-        Debug.Log($"Boss '{bossName}' spawned at {spawnPosition.position}");
+        //Debug.Log($"Boss '{bossName}' spawned at {spawnPosition.position}");
     }
 }

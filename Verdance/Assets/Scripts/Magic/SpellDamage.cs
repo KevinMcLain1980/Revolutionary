@@ -14,7 +14,7 @@ public class SpellDamage : MonoBehaviour
             if (damageable != null)
             {
                 damageable.TakeDamage(damage);
-                Debug.Log($"Spell dealt {damage} damage to {other.name}");
+                //Debug.Log($"Spell dealt {damage} damage to {other.name}");
             }
 
             if (destroyOnHit)
