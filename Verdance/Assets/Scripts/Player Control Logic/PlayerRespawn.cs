@@ -159,4 +159,9 @@ public class PlayerRespawn : MonoBehaviour
         OnLivesChanged?.Invoke(currentLives);
         //Debug.Log($"Lives reset to {currentLives}");
     }
+
+    public void ResetOnRestart()
+    {
+        isDead = false;
+    }
 }

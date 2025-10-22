@@ -95,6 +95,9 @@ public class PlayerController2D : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("IsDead", false);
+            animator.SetFloat("Speed", 0f);
+            animator.Rebind();
+            animator.Update(0f);
         }
 
         // Ensure AudioSource exists after scene reload
@@ -107,6 +110,13 @@ public class PlayerController2D : MonoBehaviour
                 ////Debug.Log("[PlayerController2D] Re-created AudioSource in Start after scene reload");
             }
         }
+
+        // Reset critical states
+        isDead = false;
+        isKnockedBack = false;
+        isInvincible = false;
+        spriteRenderer.color = originalColor;
+        rb.linearVelocity = Vector2.zero;
     }
 
     // Main update loop for animations and audio
@@ -378,6 +388,7 @@ public class PlayerController2D : MonoBehaviour
         isKnockedBack = true;
         SetPhaseThrough(true);
         rb.linearVelocity = Vector2.zero;
+        force.y = Mathf.Max(force.y, 0f);
         rb.AddForce(force, ForceMode2D.Impulse);
         yield return new WaitForSeconds(knockbackDuration);
         isKnockedBack = false;
