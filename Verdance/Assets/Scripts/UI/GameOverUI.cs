@@ -153,6 +153,12 @@ public class GameOverUI : MonoBehaviour
             stats.SetMagic(stats.GetMaxMagic());
         }
 
+        PlayerInventory inventory = PlayerInventory.Instance;
+        if (inventory != null)
+        {
+            inventory.ResetInventory();
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

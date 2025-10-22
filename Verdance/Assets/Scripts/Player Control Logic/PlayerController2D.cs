@@ -66,8 +66,7 @@ public class PlayerController2D : MonoBehaviour
     private bool isKnockedBack = false; // Whether player is in knockback state
     private bool isInvincible = false; // Whether player is invincible (i-frames)
     private bool isDead = false; // Whether player is dead
-    private int currentHealth; // Current health points
-    [SerializeField] private int maxHealth = 5; // Maximum health points
+    private PlayerStats playerStats; //Refrence to Player Stats for health
 
     // Initialize components on awake
     private void Awake()
@@ -88,10 +87,15 @@ public class PlayerController2D : MonoBehaviour
         }
     }
 
-    // Initialize health on start
+    // Initialize on start
     private void Start()
     {
-        currentHealth = maxHealth;
+        playerStats = PlayerStats.Instance;
+
+        if (animator != null)
+        {
+            animator.SetBool("IsDead", false);
+        }
 
         // Ensure AudioSource exists after scene reload
         if (audioSource == null)
@@ -146,8 +150,16 @@ public class PlayerController2D : MonoBehaviour
 
 
         if (isDead || isKnockedBack) return;
-        Vector2 newVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
-        rb.linearVelocity = newVelocity;
+        if (moveInput.x == 0 && IsGrounded() && rb.linearVelocity.y <= 0.5f)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+        else
+        {
+            Vector2 newVelocity = new Vector2(moveInput.x * moveSpeed * currentSpeedMultiplier, rb.linearVelocity.y);
+            rb.linearVelocity = newVelocity;
+        }
+        
     }
 
     // Update animator and flip sprite based on movement
@@ -155,7 +167,7 @@ public class PlayerController2D : MonoBehaviour
     {
         if (isDead) return;
 
-        animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetFloat("Speed", Mathf.Abs(moveInput.x));
         if (moveInput.x > 0.1f) spriteRenderer.flipX = false;
         else if (moveInput.x < -0.1f) spriteRenderer.flipX = true;
     }
@@ -163,7 +175,7 @@ public class PlayerController2D : MonoBehaviour
     // Play or stop running sound based on movement state
     private void HandleRunningSound()
     {
-        bool isMoving = Mathf.Abs(rb.linearVelocity.x) > 0.1f && IsGrounded() && !isKnockedBack && !isDead;
+        bool isMoving = Mathf.Abs(moveInput.x) > 0.1f && IsGrounded() && !isKnockedBack && !isDead;
 
         if (isMoving && !isPlayingRunSound && runningSound != null && audioSource != null)
         {
@@ -185,7 +197,16 @@ public class PlayerController2D : MonoBehaviour
     public void OnMove(InputValue value)
     {
         if (isKnockedBack) return;
-        moveInput = value.Get<Vector2>();
+        Vector2 input = value.Get<Vector2>();
+        if (input.magnitude < 0.1f)
+        {
+            moveInput = Vector2.zero;
+        }
+        else
+        {
+            moveInput = input;
+        }
+        
     }
 
     // Handle jump input and play jump sound
@@ -323,7 +344,7 @@ public class PlayerController2D : MonoBehaviour
     {
         if (isDead || isKnockedBack || isInvincible) return;
 
-        currentHealth -= amount;
+        playerStats.TakeDamage((float)amount);
         animator.SetTrigger("HurtTrigger");
         SpawnBloodEffect();
 
@@ -335,7 +356,7 @@ public class PlayerController2D : MonoBehaviour
         StartCoroutine(ApplyKnockback(knockbackForce));
         StartCoroutine(FlashAndInvincibility());
 
-        if (currentHealth <= 0)
+        if (playerStats.GetCurrentHealth() <= 0)
             Die();
     }
     private void SpawnBloodEffect()
@@ -395,17 +416,7 @@ public class PlayerController2D : MonoBehaviour
             //Debug.Log("[PlayerController2D] Death sound played.");
         }
 
-        PlayerRespawn respawn = GetComponent<PlayerRespawn>();
-        {
-            if (respawn != null)
-            {
-                respawn.OnPlayerDeath();
-            }
-            else
-            {
-                //Debug.LogWarning("[PlayerController2D] PlayerRespawn not found");
-            }
-        }
+        //Respawn is handled by player stats
     }
 
     // Reset player state on respawn
@@ -414,12 +425,11 @@ public class PlayerController2D : MonoBehaviour
         isDead = false;
         isKnockedBack = false;
         isInvincible = true;
-        currentHealth = maxHealth;
 
         animator.SetBool("IsDead", false);
         animator.SetFloat("Speed", 0f);
         animator.Rebind();
-        animator.Update(0F);
+        animator.Update(1F);
         spriteRenderer.color = originalColor;
 
         StopAllCoroutines();
