@@ -240,14 +240,7 @@ public class ShamblerAI : MonoBehaviour
             // Attack if cooldown has elapsed
             if (Time.time >= lastAttackTime + attackCooldown)
             {
-                // Deal damage to player stats
-                PlayerStats playerStats = PlayerStats.Instance;
-                if (playerStats != null)
-                {
-                    playerStats.TakeDamage(meleeDamage);
-                }
-
-                // Apply knockback to player
+                // Apply damage and knockback to player
                 PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
                 if (playerController != null)
                 {
@@ -275,14 +268,7 @@ public class ShamblerAI : MonoBehaviour
             // Attack if cooldown has elapsed
             if (Time.time >= lastAttackTime + attackCooldown)
             {
-                // Deal damage to player stats
-                PlayerStats playerStats = PlayerStats.Instance;
-                if (playerStats != null)
-                {
-                    playerStats.TakeDamage(meleeDamage);
-                }
-
-                // Apply knockback to player
+                // Apply damage and knockback to player
                 PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
                 if (playerController != null)
                 {

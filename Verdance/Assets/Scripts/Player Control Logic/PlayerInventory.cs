@@ -296,18 +296,17 @@ public class PlayerInventory : MonoBehaviour
     {
         if (!hasKey)
         {
-            Debug.Log("Find the key!");
+            //Debug.Log("Find the key!");
             return;
         }
 
         if (nearbyDoor != null)
         {
             nearbyDoor.OpenChest(this);
-            RemoveKey();
         }
         else
         {
-            Debug.Log("No chest nearby.");
+            //Debug.Log("No chest nearby.");
         }
     }
 

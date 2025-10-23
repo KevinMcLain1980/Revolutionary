@@ -91,12 +91,18 @@ public class PlayerRespawn : MonoBehaviour
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
+            rb.gravityScale = 1.5f;
         }
 
         PlayerController2D controller = GetComponent<PlayerController2D>();
         if (controller != null)
         {
             controller.ResetOnRespawn();
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.Play("Idle", -1, 0f);
+            }
         }
 
         ResetPlayerStats();
@@ -158,5 +164,10 @@ public class PlayerRespawn : MonoBehaviour
         currentLives = maxLives;
         OnLivesChanged?.Invoke(currentLives);
         //Debug.Log($"Lives reset to {currentLives}");
+    }
+
+    public void ResetOnRestart()
+    {
+        isDead = false;
     }
 }

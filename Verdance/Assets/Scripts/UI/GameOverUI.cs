@@ -134,7 +134,6 @@ public class GameOverUI : MonoBehaviour
         if (buttonImage != null)
             buttonImage.color = targetColor;
     }
-
     private void OnRestart()
     {
         Time.timeScale = 1f;
@@ -143,6 +142,7 @@ public class GameOverUI : MonoBehaviour
         if (respawn != null)
         {
             respawn.ResetLives();
+            respawn.ResetOnRestart();
         }
 
         PlayerStats stats = PlayerStats.Instance;
@@ -151,6 +151,25 @@ public class GameOverUI : MonoBehaviour
             stats.SetHealth(stats.GetMaxHealth());
             stats.SetSanity(stats.GetMaxSanity());
             stats.SetMagic(stats.GetMaxMagic());
+        }
+
+        PlayerInventory inventory = PlayerInventory.Instance;
+        if (inventory != null)
+        {
+            inventory.ResetInventory();
+        }
+
+        // Explicitly reset player position and state
+        PlayerSpawnPoint spawnPoint = PlayerSpawnPoint.Instance;
+        if (spawnPoint != null)
+        {
+            spawnPoint.SpawnPlayer();
+        }
+
+        PlayerController2D controller = FindFirstObjectByType<PlayerController2D>();
+        if (controller != null)
+        {
+            controller.ResetOnRespawn();
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
