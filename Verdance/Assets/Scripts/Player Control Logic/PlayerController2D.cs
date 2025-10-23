@@ -379,20 +379,20 @@ public class PlayerController2D : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.linearVelocity = Vector2.zero;
         // Adjust collider for dead pose
-        CapsuleCollider2D cc = GetComponent<CapsuleCollider2D>(); // Adjust if using BoxCollider2D
+        CapsuleCollider2D cc = GetComponent<CapsuleCollider2D>(); 
         if (cc != null)
         {
-            cc.offset = new Vector2(originalColliderOffset.x, -0.3f); // Shift down to match collapse
-            cc.size = new Vector2(originalColliderSize.x, 0.6f); // Shrink height for flat pose
+            cc.offset = new Vector2(originalColliderOffset.x, -0.3f); 
+            cc.size = new Vector2(originalColliderSize.x, 0.6f); 
         }
         // Wait for animation to finish
         StartCoroutine(HoldDeadAnimation());
     }
     private IEnumerator HoldDeadAnimation()
     {
-        yield return new WaitForSeconds(0.666f + 0.1f); // Full clip + buffer
-        animator.SetBool("IsDead", true); // Hold state
-        Debug.Log("[PlayerController2D] Dead animation completed");
+        yield return new WaitForSeconds(0.666f + 0.1f); 
+        animator.SetBool("IsDead", true); 
+        //Debug.Log("[PlayerController2D] Dead animation completed");
     }
     // Reset player state on respawn
     public void ResetOnRespawn()
@@ -402,16 +402,14 @@ public class PlayerController2D : MonoBehaviour
         isInvincible = true;
         if (animator != null)
         {
-            animator.SetBool("IsDead", false); // Return to Idle
+            animator.SetBool("IsDead", false); 
             animator.SetFloat("Speed", 0f);
-            animator.Play("Idle", -1, 0f);  // Force to Idle on base layer
+            animator.Play("Idle", -1, 0f); 
         }
         spriteRenderer.color = originalColor;
-        // Re-enable physics for movement
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = originalGravityScale;
-        // Reset collider to alive state
         CapsuleCollider2D cc = GetComponent<CapsuleCollider2D>();
         if (cc != null)
         {
