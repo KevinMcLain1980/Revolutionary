@@ -20,11 +20,20 @@ public class ShamblerAI : MonoBehaviour
     private bool isStunned = false; // Whether shambler is stunned
     private bool isDead = false; // Whether shambler is dead
     private bool isChasing = false; // Whether shambler is actively chasing player
+    private bool isInvincible = false; // Whether shambler is invincible
 
     // Combat configuration
     [Header("Combat")]
     [SerializeField] private float meleeDamage = 15f; // Damage dealt per attack
     [SerializeField] private float playerKnockbackImpulse = 10f; // Knockback force applied to player
+
+    // Damage Feedback
+    [Header("Damage Feedback")]
+    [SerializeField] private SpriteRenderer spriteRenderer; // Sprite renderer for color flashing
+    [SerializeField] private Color flashColor = Color.red; // Color to flash when damaged
+    [SerializeField] private float flashDuration = 0.1f; // Duration of each flash
+    [SerializeField] private int flashCount = 3; // Number of flashes when damaged
+    [SerializeField] private float knockbackDuration = 0.3f; // Duration of knockback state
 
     // Animation configuration
     [Header("Animation")]
@@ -162,7 +171,7 @@ public class ShamblerAI : MonoBehaviour
     // Called when shambler takes damage
     public void OnHurt()
     {
-        if (isDead) return;
+        if (isDead || isInvincible) return;
 
         // Trigger hurt animation
         if (animator != null)
@@ -172,6 +181,26 @@ public class ShamblerAI : MonoBehaviour
 
         // Stun the shambler briefly
         StartCoroutine(StunForSeconds(0.5f));
+        StartCoroutine(FlashAndInvincibility());
+    }
+
+    // Flash sprite color and provide invincibility frames
+    private IEnumerator FlashAndInvincibility()
+    {
+        isInvincible = true;
+
+        Color originalColor = spriteRenderer.color;
+
+        for (int i = 0; i < flashCount; i++)
+        {
+            spriteRenderer.color = flashColor;
+            yield return new WaitForSeconds(flashDuration);
+            spriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(flashDuration);
+        }
+
+        yield return new WaitForSeconds(1.5f - (flashCount * flashDuration * 2));
+        isInvincible = false;
     }
 
     // Apply knockback force to the shambler
@@ -179,7 +208,7 @@ public class ShamblerAI : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(force, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(knockbackDuration);
     }
 
     // Stun the shambler for a specified duration
@@ -240,7 +269,14 @@ public class ShamblerAI : MonoBehaviour
             // Attack if cooldown has elapsed
             if (Time.time >= lastAttackTime + attackCooldown)
             {
-                // Apply damage and knockback to player
+                // Deal damage to player stats
+                PlayerStats playerStats = PlayerStats.Instance;
+                if (playerStats != null)
+                {
+                    playerStats.TakeDamage(meleeDamage);
+                }
+
+                // Apply knockback to player
                 PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
                 if (playerController != null)
                 {
@@ -268,7 +304,14 @@ public class ShamblerAI : MonoBehaviour
             // Attack if cooldown has elapsed
             if (Time.time >= lastAttackTime + attackCooldown)
             {
-                // Apply damage and knockback to player
+                // Deal damage to player stats
+                PlayerStats playerStats = PlayerStats.Instance;
+                if (playerStats != null)
+                {
+                    playerStats.TakeDamage(meleeDamage);
+                }
+
+                // Apply knockback to player
                 PlayerController2D playerController = collision.gameObject.GetComponent<PlayerController2D>();
                 if (playerController != null)
                 {
