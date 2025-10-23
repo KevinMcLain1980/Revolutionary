@@ -97,6 +97,11 @@ public class PlayerRespawn : MonoBehaviour
         if (controller != null)
         {
             controller.ResetOnRespawn();
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.Play("Idle", -1, 0f);
+            }
         }
 
         ResetPlayerStats();
