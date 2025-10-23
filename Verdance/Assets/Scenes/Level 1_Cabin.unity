@@ -11146,11 +11146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070535472502993113, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: maxHealth
-      value: 15
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4070535472502993113, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: currentHealth
-      value: 15
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5976701086649141502, guid: 7f67216fa6fa7d24e825871b4029e496, type: 3}
       propertyPath: m_Size.y
