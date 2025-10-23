@@ -167,8 +167,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -382516405
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1104058110318623145, guid: c0061fb8897821c499a1f87f00a42264, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -201,6 +201,11 @@ MonoBehaviour:
   separationForce: 1.5
   meleeDamage: 15
   playerKnockbackImpulse: 10
+  spriteRenderer: {fileID: 3476161586707072955}
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
+  flashCount: 3
+  knockbackDuration: 0.3
   animator: {fileID: 5726225962964023232}
 --- !u!114 &8199211770492758105
 MonoBehaviour:
