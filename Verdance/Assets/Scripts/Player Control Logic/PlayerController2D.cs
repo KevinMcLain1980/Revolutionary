@@ -71,8 +71,8 @@ public class PlayerController2D : MonoBehaviour
             originalColliderOffset = cc.offset;
             originalColliderSize = cc.size;
         }
-       // originalGravityScale = rb.gravityScale;
-        rb.gravityScale = 3f;
+        originalGravityScale = rb.gravityScale;
+        rb.gravityScale = originalGravityScale;
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();

@@ -91,6 +91,7 @@ public class PlayerRespawn : MonoBehaviour
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
+            rb.gravityScale = 1.5f;
         }
 
         PlayerController2D controller = GetComponent<PlayerController2D>();
