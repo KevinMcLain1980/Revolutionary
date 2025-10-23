@@ -181,13 +181,13 @@ public class ShamblerAI : MonoBehaviour
 
         // Stun the shambler briefly
         StartCoroutine(StunForSeconds(0.5f));
-        StartCoroutine(FlashAndInvincibility());
+        StartCoroutine(Flash());
     }
 
     // Flash sprite color and provide invincibility frames
-    private IEnumerator FlashAndInvincibility()
+    private IEnumerator Flash()
     {
-        isInvincible = true;
+        
 
         Color originalColor = spriteRenderer.color;
 
@@ -200,7 +200,7 @@ public class ShamblerAI : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1.5f - (flashCount * flashDuration * 2));
-        isInvincible = false;
+        
     }
 
     // Apply knockback force to the shambler
