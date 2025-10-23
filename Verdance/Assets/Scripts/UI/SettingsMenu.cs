@@ -470,7 +470,7 @@ public class SettingsMenu : MonoBehaviour
         string[] devices = new string[] { "Default" };
 
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
-
+        
         devices = new string[] { "Default (Use Windows Settings)" };
 #endif
 
