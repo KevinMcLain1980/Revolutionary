@@ -45,8 +45,7 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private AudioClip deathSound; // Sound played on death
     [SerializeField] private AudioClip jumpSound; // Sound played when jumping
     [SerializeField] private AudioClip runningSound; // Looping sound for running
-    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f; // Volume for sound effects
-    [Range(0f, 1f)][SerializeField] private float runningVolume = 0.5f; // Volume for running sound
+    // SFX volume controlled by SettingsManager
     private bool isPlayingRunSound = false; // Whether running sound is currently playing
     // Component and state references
     private Rigidbody2D rb; // Rigidbody for physics movement
@@ -75,11 +74,19 @@ public class PlayerController2D : MonoBehaviour
         rb.gravityScale = originalGravityScale;
         if (audioSource == null)
         {
-            audioSource = GetComponent<AudioSource>();
+            GameObject sfxObject = GameObject.Find("SFX");
+            if (sfxObject != null)
+            {
+                audioSource = sfxObject.GetComponent<AudioSource>();
+            }
             if (audioSource == null)
             {
-                audioSource = gameObject.AddComponent<AudioSource>();
-                ////Debug.Log("[PlayerController2D] Created new AudioSource in Awake");
+                audioSource = GetComponent<AudioSource>();
+                if (audioSource == null)
+                {
+                    audioSource = gameObject.AddComponent<AudioSource>();
+                    ////Debug.Log("[PlayerController2D] Created new AudioSource in Awake");
+                }
             }
         }
     }
@@ -126,7 +133,9 @@ public class PlayerController2D : MonoBehaviour
             animator.SetTrigger("IsJumping");
             if (jumpSound != null && audioSource != null)
             {
-                audioSource.PlayOneShot(jumpSound, sfxVolume);
+                audioSource.volume = 1f;
+                float volume = SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer() ? 1f : (SettingsManager.Instance?.GetSFXVolume() ?? 0.8f);
+                audioSource.PlayOneShot(jumpSound, volume);
             }
         }
 
@@ -209,7 +218,14 @@ public class PlayerController2D : MonoBehaviour
         {
             audioSource.clip = runningSound;
             audioSource.loop = true;
-            audioSource.volume = runningVolume;
+            if (SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer())
+            {
+                audioSource.volume = 1f;
+            }
+            else
+            {
+                audioSource.volume = SettingsManager.Instance?.GetSFXVolume() ?? 0.8f;
+            }
             audioSource.Play();
             isPlayingRunSound = true;
         }
@@ -307,7 +323,9 @@ public class PlayerController2D : MonoBehaviour
         SpawnBloodEffect();
         if (hurtSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(hurtSound, sfxVolume);
+            audioSource.volume = 1f;
+            float volume = SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer() ? 1f : (SettingsManager.Instance?.GetSFXVolume() ?? 0.8f);
+            audioSource.PlayOneShot(hurtSound, volume);
         }
         StartCoroutine(ApplyKnockback(knockbackForce));
         StartCoroutine(FlashAndInvincibility());
@@ -363,7 +381,9 @@ public class PlayerController2D : MonoBehaviour
         animator.Play("Dead", -1, 0f);
         if (deathSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(deathSound, sfxVolume);
+            audioSource.volume = 1f;
+            float volume = SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer() ? 1f : (SettingsManager.Instance?.GetSFXVolume() ?? 0.8f);
+            audioSource.PlayOneShot(deathSound, volume);
         }
         // Disable physics to prevent sinking
         rb.bodyType = RigidbodyType2D.Kinematic;
