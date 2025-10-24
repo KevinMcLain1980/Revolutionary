@@ -226,12 +226,20 @@ public class MainMenu : MonoBehaviour
             playerSanity = 100f,
             playerMagic = 100f,
             saveTime = System.DateTime.Now.ToString(),
-            levelsCompleted = 0
+            levelsCompleted = 0,
+            initialHealthPotionCount = 0,
         };
 
         SaveSystem.SaveGame(saveData);
+
+        PlayerInventory inventory = PlayerInventory.Instance;
+        if(inventory != null )
+        {
+            inventory.ResetInventory();
+        }
         SceneManager.LoadScene(1);
     }
+
 
     private void OnContinue()
     {

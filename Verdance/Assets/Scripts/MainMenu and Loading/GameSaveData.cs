@@ -10,4 +10,5 @@ public class GameSaveData
     public float playerMagic;
     public string saveTime;
     public int levelsCompleted;
+    public int initialHealthPotionCount;
 }
