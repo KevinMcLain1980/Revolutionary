@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Collections.Generic;
 
 // Manages settings menu UI, audio volume controls, and keybind rebinding
 public class SettingsMenu : MonoBehaviour
 {
+    public static SettingsMenu Instance;
     [Header("Audio Sliders")]
     [SerializeField] private Slider masterVolumeSlider;
     [SerializeField] private Slider uiVolumeSlider;
@@ -61,13 +63,43 @@ public class SettingsMenu : MonoBehaviour
     private InputAction currentActionToRebind;
     private int bindingIndex;
 
+    private Dictionary<string, KeyCode> controls = new Dictionary<string, KeyCode>();
+    private bool isWaitingForKey = false;
+    private string keyToChange = "";
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         SetupSliders();
         SetupButtons();
         SetupAudioOutputDropdown();
+        LoadDefaultControls();
+        LoadControls();
         LoadBindingOverrides();
         LoadSettings();
+
+        // Disable actions that are handled by custom input
+        var moveAction = inputActions.FindAction("Move");
+        if (moveAction != null) moveAction.Disable();
+
+        var jumpAction = inputActions.FindAction("Jump");
+        if (jumpAction != null) jumpAction.Disable();
+
+        var attackAction = inputActions.FindAction("Attack");
+        if (attackAction != null) attackAction.Disable();
+
+        // WindStep is still used by Input System
 
         if (rebindingPrompt != null)
             rebindingPrompt.SetActive(false);
@@ -76,6 +108,30 @@ public class SettingsMenu : MonoBehaviour
     private void OnEnable()
     {
         LoadSettings();
+    }
+
+    private void Update()
+    {
+        if (isWaitingForKey)
+        {
+            foreach (KeyCode key in System.Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKeyDown(key) && key != KeyCode.Escape)
+                {
+                    ChangeKey(keyToChange, key);
+                    isWaitingForKey = false;
+                    keyToChange = "";
+                    if (rebindingPrompt != null) rebindingPrompt.SetActive(false);
+                    break;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                isWaitingForKey = false;
+                keyToChange = "";
+                if (rebindingPrompt != null) rebindingPrompt.SetActive(false);
+            }
+        }
     }
 
     private void SetupSliders()
@@ -113,16 +169,16 @@ public class SettingsMenu : MonoBehaviour
             closeButton.onClick.AddListener(OnCloseClicked);
 
         if (moveLeftKeybindButton != null)
-            moveLeftKeybindButton.onClick.AddListener(() => StartRebinding("Move Left"));
+            moveLeftKeybindButton.onClick.AddListener(() => StartKeyChange("Left"));
 
         if (moveRightKeybindButton != null)
-            moveRightKeybindButton.onClick.AddListener(() => StartRebinding("Move Right"));
+            moveRightKeybindButton.onClick.AddListener(() => StartKeyChange("Right"));
 
         if (jumpKeybindButton != null)
-            jumpKeybindButton.onClick.AddListener(() => StartRebinding("Jump"));
+            jumpKeybindButton.onClick.AddListener(() => StartKeyChange("Jump"));
 
         if (attackKeybindButton != null)
-            attackKeybindButton.onClick.AddListener(() => StartRebinding("Attack"));
+            attackKeybindButton.onClick.AddListener(() => StartKeyChange("Attack"));
 
         if (inventory1KeybindButton != null)
             inventory1KeybindButton.onClick.AddListener(() => StartRebinding("Inventory Slot 1"));
@@ -163,32 +219,10 @@ public class SettingsMenu : MonoBehaviour
     // Update keybind display text to show current bindings
     private void UpdateKeybindTexts()
     {
-        if (inputActions != null)
-        {
-            if (moveLeftKeybindText != null)
-            {
-                var moveAction = inputActions.FindAction("Move");
-                moveLeftKeybindText.text = moveAction != null ? GetBindingDisplayString(moveAction, 0) : "Left Arrow";
-            }
-
-            if (moveRightKeybindText != null)
-            {
-                var moveAction = inputActions.FindAction("Move");
-                moveRightKeybindText.text = moveAction != null ? GetBindingDisplayString(moveAction, 0) : "Right Arrow";
-            }
-
-            if (jumpKeybindText != null)
-            {
-                var jumpAction = inputActions.FindAction("Jump");
-                jumpKeybindText.text = jumpAction != null ? GetBindingDisplayString(jumpAction, 0) : "Space";
-            }
-
-            if (attackKeybindText != null)
-            {
-                var attackAction = inputActions.FindAction("Attack");
-                attackKeybindText.text = attackAction != null ? GetBindingDisplayString(attackAction, 0) : "Attack Key";
-            }
-        }
+        if (moveLeftKeybindText != null) moveLeftKeybindText.text = controls.ContainsKey("Left") ? controls["Left"].ToString() : "A";
+        if (moveRightKeybindText != null) moveRightKeybindText.text = controls.ContainsKey("Right") ? controls["Right"].ToString() : "D";
+        if (jumpKeybindText != null) jumpKeybindText.text = controls.ContainsKey("Jump") ? controls["Jump"].ToString() : "Space";
+        if (attackKeybindText != null) attackKeybindText.text = controls.ContainsKey("Attack") ? controls["Attack"].ToString() : "LeftCtrl";
 
         if (inventory1KeybindText != null) inventory1KeybindText.text = "1";
         if (inventory2KeybindText != null) inventory2KeybindText.text = "2";
@@ -298,20 +332,17 @@ public class SettingsMenu : MonoBehaviour
     {
         //Debug.Log($"Rebind completed for {currentActionToRebind.name}");
 
-        // Remove all other bindings for this action to prevent multiple keys from working
-        var indicesToErase = new System.Collections.Generic.List<int>();
-        for (int i = 0; i < currentActionToRebind.bindings.Count; i++)
-        {
-            if (i != bindingIndex && !currentActionToRebind.bindings[i].isComposite)
-            {
-                indicesToErase.Add(i);
-            }
-        }
-        indicesToErase.Sort((a, b) => b.CompareTo(a)); // Sort descending
-        foreach (var i in indicesToErase)
+        // Get the new binding path
+        string newPath = currentActionToRebind.bindings[bindingIndex].effectivePath;
+
+        // Erase all bindings
+        for (int i = currentActionToRebind.bindings.Count - 1; i >= 0; i--)
         {
             currentActionToRebind.ChangeBinding(i).Erase();
         }
+
+        // Add the new binding
+        currentActionToRebind.AddBinding(newPath);
 
         currentActionToRebind.Enable();
         rebindingOperation.Dispose();
@@ -429,22 +460,14 @@ public class SettingsMenu : MonoBehaviour
             }
         }
 
-        // For Attack, add default binding if none
-        var attackAction = inputActions.FindAction("Attack");
-        if (attackAction != null && attackAction.bindings.Count == 0)
-        {
-            string attackKey = $"InputBinding_{attackAction.name}_0";
-            string path = "<Keyboard>/leftCtrl";
-            if (PlayerPrefs.HasKey(attackKey))
-            {
-                string overridePath = PlayerPrefs.GetString(attackKey);
-                if (!string.IsNullOrEmpty(overridePath))
-                {
-                    path = overridePath;
-                }
-            }
-            attackAction.AddBinding(path);
-        }
+
+    }
+
+    void ResetToDefaults()
+    {
+        LoadDefaultControls();
+        SaveControls();
+        UpdateKeybindTexts();
     }
 
     // Reset all keybinds to defaults
@@ -468,16 +491,7 @@ public class SettingsMenu : MonoBehaviour
             }
         }
 
-        // For Attack, clear runtime bindings and add default
-        var attackAction = inputActions.FindAction("Attack");
-        if (attackAction != null)
-        {
-            for (int i = attackAction.bindings.Count - 1; i >= 0; i--)
-            {
-                attackAction.ChangeBinding(i).Erase();
-            }
-            attackAction.AddBinding("<Keyboard>/leftCtrl");
-        }
+
 
         PlayerPrefs.Save();
         UpdateKeybindTexts();
@@ -503,6 +517,7 @@ public class SettingsMenu : MonoBehaviour
             LoadSettings();
         }
 
+        ResetToDefaults();
         ResetAllBindings();
         //Debug.Log("Settings reset to defaults");
     }
@@ -556,6 +571,99 @@ public class SettingsMenu : MonoBehaviour
 
         //Debug.Log($"Audio output device changed to index: {deviceIndex}");
         //Debug.Log("Note: Windows audio output is controlled through Windows Sound Settings");
+    }
+
+    void LoadDefaultControls()
+    {
+        controls["Left"] = KeyCode.A;
+        controls["Right"] = KeyCode.D;
+        controls["Forward"] = KeyCode.W;
+        controls["Back"] = KeyCode.S;
+        controls["Jump"] = KeyCode.Space;
+        controls["Attack"] = KeyCode.LeftControl;
+    }
+
+    void LoadControls()
+    {
+        List<string> keys = new List<string>(controls.Keys);
+        foreach (string action in keys)
+        {
+            if (PlayerPrefs.HasKey("Control_" + action))
+            {
+                KeyCode savedKey = (KeyCode)PlayerPrefs.GetInt("Control_" + action);
+                controls[action] = savedKey;
+            }
+        }
+    }
+
+    void SaveControls()
+    {
+        foreach (var control in controls)
+        {
+            PlayerPrefs.SetInt("Control_" + control.Key, (int)control.Value);
+        }
+        PlayerPrefs.Save();
+    }
+
+    public void StartKeyChange(string action)
+    {
+        isWaitingForKey = true;
+        keyToChange = action;
+        if (rebindingPrompt != null) rebindingPrompt.SetActive(true);
+        if (rebindingText != null) rebindingText.text = $"Press any key for {action}...\n(ESC to cancel)";
+    }
+
+    void ChangeKey(string action, KeyCode newKey)
+    {
+        controls[action] = newKey;
+        SaveControls();
+        UpdateKeybindTexts();
+    }
+
+    TMP_Text GetControlText(string action)
+    {
+        switch (action)
+        {
+            case "Left": return moveLeftKeybindText;
+            case "Right": return moveRightKeybindText;
+            case "Jump": return jumpKeybindText;
+            case "Attack": return attackKeybindText;
+            default: return null;
+        }
+    }
+
+    public bool GetKey(string action)
+    {
+        return controls.ContainsKey(action) && Input.GetKey(controls[action]);
+    }
+
+    public bool GetKeyDown(string action)
+    {
+        return controls.ContainsKey(action) && Input.GetKeyDown(controls[action]);
+    }
+
+    public bool GetKeyUp(string action)
+    {
+        return controls.ContainsKey(action) && Input.GetKeyUp(controls[action]);
+    }
+
+    public float GetAxis(string action)
+    {
+        if (action == "Horizontal")
+        {
+            float horizontal = 0f;
+            if (GetKey("Right")) horizontal += 1f;
+            if (GetKey("Left")) horizontal -= 1f;
+            return horizontal;
+        }
+        else if (action == "Vertical")
+        {
+            float vertical = 0f;
+            if (GetKey("Forward")) vertical += 1f;
+            if (GetKey("Back")) vertical -= 1f;
+            return vertical;
+        }
+        return 0f;
     }
 
     private void OnDestroy()
