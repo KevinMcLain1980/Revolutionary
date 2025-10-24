@@ -27,7 +27,7 @@ public class ShamblerAI : MonoBehaviour
     [SerializeField] private float meleeDamage = 15f; // Damage dealt per attack
     [SerializeField] private float playerKnockbackImpulse = 10f; // Knockback force applied to player
 
-    // Damage Feedback
+    // Damage Feedback //Added by Kevin
     [Header("Damage Feedback")]
     [SerializeField] private SpriteRenderer spriteRenderer; // Sprite renderer for color flashing
     [SerializeField] private Color flashColor = Color.red; // Color to flash when damaged
@@ -43,6 +43,7 @@ public class ShamblerAI : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.mass = 10f; //Makes it harder for the player to push the shambler
     }
 
     // Find player reference on start
@@ -187,7 +188,7 @@ public class ShamblerAI : MonoBehaviour
     // Flash sprite color and provide invincibility frames
     private IEnumerator Flash()
     {
-        
+
 
         Color originalColor = spriteRenderer.color;
 
@@ -200,7 +201,7 @@ public class ShamblerAI : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1.5f - (flashCount * flashDuration * 2));
-        
+
     }
 
     // Apply knockback force to the shambler

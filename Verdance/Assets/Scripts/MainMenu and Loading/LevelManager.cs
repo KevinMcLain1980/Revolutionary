@@ -168,7 +168,8 @@ public class LevelManager : MonoBehaviour
             playerHealth = PlayerStats.Instance?.GetCurrentHealth() ?? 100f,
             playerSanity = PlayerStats.Instance?.GetCurrentSanity() ?? 100f,
             playerMagic = PlayerStats.Instance?.GetCurrentMagic() ?? 100f,
-            saveTime = System.DateTime.Now.ToString()
+            saveTime = System.DateTime.Now.ToString(),
+            initialHealthPotionCount = PlayerInventory.Instance?.GetHealthPotionCount() ?? 0
         };
 
         SaveSystem.SaveGame(saveData);

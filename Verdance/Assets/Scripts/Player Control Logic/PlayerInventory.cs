@@ -40,6 +40,7 @@ public class PlayerInventory : MonoBehaviour
     private int selectedSlotIndex = 0;
     private SpriteRenderer playerSpriteRenderer;
     private Coroutine healFlashCoroutine;
+    private bool inputEnabled = true;
 
     private Door nearbyDoor;
 
@@ -78,6 +79,7 @@ public class PlayerInventory : MonoBehaviour
                     Instance.audioSource = Instance.gameObject.AddComponent<AudioSource>();
                 }
             }
+
 
             // Update UI to show current inventory state with new references
             Instance.UpdateAllUI();
@@ -171,6 +173,8 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.IsGamePaused) return;
+
         if (Keyboard.current != null)
         {
             if (Keyboard.current.digit1Key.wasPressedThisFrame)
@@ -186,7 +190,7 @@ public class PlayerInventory : MonoBehaviour
                 SelectInventorySlot(2);
             }
 
-            if (Keyboard.current.leftCtrlKey.wasPressedThisFrame)
+            if (SettingsMenu.Instance != null && SettingsMenu.Instance.GetKeyDown("Attack"))
             {
                 UseSelectedItem();
             }
@@ -415,6 +419,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+
     private void UpdateKeyUI()
     {
         if (keyImage != null)
@@ -487,6 +492,11 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void SetInputEnabled(bool enabled)
+    {
+        inputEnabled = enabled;
+    }
+
     public void ResetInventory()
     {
         hasSword = true;
@@ -502,4 +512,16 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
+    public void ResetForRestart(int initialPotions)
+    {
+        hasSword = true;
+        healthPotionCount = initialPotions;
+        hasKey = false;
+        selectedSlotIndex = 0;
+
+        UpdateAllUI();
+        SelectInventorySlot(0);
+        OnInventoryChanged?.Invoke();
+        SaveInventory();
+    }
 }

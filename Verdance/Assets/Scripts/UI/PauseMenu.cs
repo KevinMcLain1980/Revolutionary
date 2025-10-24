@@ -29,6 +29,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Color hoverTintColor = new Color(1f, 1f, 0.7f, 1f);
 
     private bool isPaused = false; // Tracks if the game is currently paused
+    public static bool IsGamePaused { get; private set; } = false;
     private System.Collections.Generic.Dictionary<Button, ButtonState> buttonOriginalStates = new System.Collections.Generic.Dictionary<Button, ButtonState>();
     private System.Collections.Generic.Dictionary<Button, Coroutine> activeButtonCoroutines = new System.Collections.Generic.Dictionary<Button, Coroutine>();
 
@@ -55,6 +56,8 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f) return;
+
         // Toggle pause menu when ESC is pressed
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
@@ -201,17 +204,18 @@ public class PauseMenu : MonoBehaviour
     {
         //Debug.Log("Pause() called");
         isPaused = true;
-        if (pauseMenuPanel != null)
-        {
-            //Debug.Log("Setting pause panel active");
-            pauseMenuPanel.SetActive(true);
-            //Debug.Log("Pause panel active state: " + pauseMenuPanel.activeSelf);
-        }
-        else
-        {
-            //Debug.LogError("pauseMenuPanel is null!");
-        }
-        Time.timeScale = 0f; // Freeze game time
+            IsGamePaused = true;
+            if (pauseMenuPanel != null)
+            {
+                //Debug.Log("Setting pause panel active");
+                pauseMenuPanel.SetActive(true);
+                //Debug.Log("Pause panel active state: " + pauseMenuPanel.activeSelf);
+            }
+            else
+            {
+                //Debug.LogError("pauseMenuPanel is null!");
+            }
+            Time.timeScale = 0f; // Freeze game time
     }
 
     // Resume the game and hide the pause menu
@@ -219,11 +223,12 @@ public class PauseMenu : MonoBehaviour
     {
         //Debug.Log("Resume button clicked");
         isPaused = false;
-        if (pauseMenuPanel != null)
-            pauseMenuPanel.SetActive(false);
-        if (settingsPanel != null)
-            settingsPanel.SetActive(false);
-        Time.timeScale = 1f; // Resume game time
+            IsGamePaused = false;
+            if (pauseMenuPanel != null)
+                pauseMenuPanel.SetActive(false);
+            if (settingsPanel != null)
+                settingsPanel.SetActive(false);
+            Time.timeScale = 1f; // Resume game time
     }
 
     // Restart the current level
@@ -232,6 +237,15 @@ public class PauseMenu : MonoBehaviour
         //Debug.Log("Restart button clicked");
         PlayClickSound();
         Time.timeScale = 1f; // Reset time scale before loading scene
+
+        PlayerInventory inventory = PlayerInventory.Instance;
+        if (inventory != null)
+        {
+            GameSaveData saveData = SaveSystem.LoadGame();
+            int initialPotions = saveData != null ? saveData.initialHealthPotionCount : 0;
+            inventory.ResetForRestart(initialPotions);
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

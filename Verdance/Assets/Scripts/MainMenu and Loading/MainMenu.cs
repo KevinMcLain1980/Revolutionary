@@ -8,7 +8,6 @@ public class MainMenu : MonoBehaviour
     // Button references for menu navigation
     [Header("Menu Buttons")]
     [SerializeField] private Button newGameButton;
-    [SerializeField] private Button loadGameButton;
     [SerializeField] private Button continueButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button exitButton;
@@ -64,12 +63,6 @@ public class MainMenu : MonoBehaviour
         {
             newGameButton.onClick.AddListener(OnNewGame);
             AddHoverSound(newGameButton);
-        }
-
-        if (loadGameButton != null)
-        {
-            loadGameButton.onClick.AddListener(OnLoadGame);
-            AddHoverSound(loadGameButton);
         }
 
         if (continueButton != null)
@@ -192,14 +185,20 @@ public class MainMenu : MonoBehaviour
 
     private void UpdateButtonStates()
     {
-        bool hasSave = SaveSystem.HasSaveFile();
+        // Check if player has passed level 1
+        bool canContinue = false;
+        if (SaveSystem.HasSaveFile())
+        {
+            GameSaveData data = SaveSystem.LoadGame();
+            if (data != null && data.levelsCompleted > 0)
+            {
+                canContinue = true;
+            }
+        }
 
-        // Disable continue/load buttons if no save exists
+        // Disable continue button unless player has passed level 1
         if (continueButton != null)
-            continueButton.interactable = hasSave;
-
-        if (loadGameButton != null)
-            loadGameButton.interactable = hasSave;
+            continueButton.interactable = canContinue;
     }
 
     private void OnNewGame()
@@ -227,17 +226,20 @@ public class MainMenu : MonoBehaviour
             playerSanity = 100f,
             playerMagic = 100f,
             saveTime = System.DateTime.Now.ToString(),
-            levelsCompleted = 0
+            levelsCompleted = 0,
+            initialHealthPotionCount = 0,
         };
 
         SaveSystem.SaveGame(saveData);
+
+        PlayerInventory inventory = PlayerInventory.Instance;
+        if(inventory != null )
+        {
+            inventory.ResetInventory();
+        }
         SceneManager.LoadScene(1);
     }
 
-    private void OnLoadGame()
-    {
-        LoadSavedGame();
-    }
 
     private void OnContinue()
     {
