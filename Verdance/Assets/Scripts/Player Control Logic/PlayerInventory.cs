@@ -80,6 +80,7 @@ public class PlayerInventory : MonoBehaviour
                 }
             }
 
+
             // Update UI to show current inventory state with new references
             Instance.UpdateAllUI();
             Instance.SelectInventorySlot(Instance.selectedSlotIndex);
@@ -418,6 +419,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+
     private void UpdateKeyUI()
     {
         if (keyImage != null)
@@ -510,4 +512,16 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
+    public void ResetForRestart(int initialPotions)
+    {
+        hasSword = true;
+        healthPotionCount = initialPotions;
+        hasKey = false;
+        selectedSlotIndex = 0;
+
+        UpdateAllUI();
+        SelectInventorySlot(0);
+        OnInventoryChanged?.Invoke();
+        SaveInventory();
+    }
 }

@@ -237,6 +237,15 @@ public class PauseMenu : MonoBehaviour
         //Debug.Log("Restart button clicked");
         PlayClickSound();
         Time.timeScale = 1f; // Reset time scale before loading scene
+
+        PlayerInventory inventory = PlayerInventory.Instance;
+        if (inventory != null)
+        {
+            GameSaveData saveData = SaveSystem.LoadGame();
+            int initialPotions = saveData != null ? saveData.initialHealthPotionCount : 0;
+            inventory.ResetForRestart(initialPotions);
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

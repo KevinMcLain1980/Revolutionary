@@ -19,7 +19,8 @@ public class LevelTransition : MonoBehaviour
                 playerSanity = PlayerStats.Instance?.GetCurrentSanity() ?? 100f,
                 playerMagic = PlayerStats.Instance?.GetCurrentMagic() ?? 100f,
                 saveTime = System.DateTime.Now.ToString(),
-                levelsCompleted = currentSceneIndex
+                levelsCompleted = currentSceneIndex,
+                initialHealthPotionCount = PlayerInventory.Instance?.GetHealthPotionCount() ?? 0
             };
 
             SaveSystem.SaveGame(saveData);
@@ -44,7 +45,8 @@ public class LevelTransition : MonoBehaviour
                 playerSanity = PlayerStats.Instance?.GetCurrentSanity() ?? 100f,
                 playerMagic = PlayerStats.Instance?.GetCurrentMagic() ?? 100f,
                 saveTime = System.DateTime.Now.ToString(),
-                levelsCompleted = levelIndex - 1
+                levelsCompleted = levelIndex - 1,
+                initialHealthPotionCount = PlayerInventory.Instance?.GetHealthPotionCount() ?? 0
             };
 
             SaveSystem.SaveGame(saveData);

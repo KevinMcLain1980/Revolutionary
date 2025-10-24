@@ -156,7 +156,9 @@ public class GameOverUI : MonoBehaviour
         PlayerInventory inventory = PlayerInventory.Instance;
         if (inventory != null)
         {
-            inventory.ResetInventory();
+            GameSaveData saveData = SaveSystem.LoadGame();
+            int initialPotions = saveData != null ? saveData.initialHealthPotionCount : 0;
+            inventory.ResetForRestart(initialPotions);
         }
 
         // Explicitly reset player position and state
