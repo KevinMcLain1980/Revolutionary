@@ -81,7 +81,7 @@ public class LoadingScreen : MonoBehaviour
     {
         string[] controlsMessages = new string[]
         {
-            "Use Left and Right Arrow Keys to Move",
+            "Use A and D Keys to Move, But these can be changed in settings",
             "Press Space to Jump",
             "Press Left CTRL to Attack/Use items",
             "Press 1-3 for Inventory",

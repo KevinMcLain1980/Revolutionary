@@ -333,6 +333,10 @@ public class PlayerController2D : MonoBehaviour
         yield return new WaitForSeconds(knockbackDuration);
         isKnockedBack = false;
         SetPhaseThrough(false);
+        if (Mathf.Approximately(moveInput.x, 0f))
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        }
     }
     // Flash sprite color and provide invincibility frames
     private IEnumerator FlashAndInvincibility()
