@@ -40,6 +40,7 @@ public class PlayerInventory : MonoBehaviour
     private int selectedSlotIndex = 0;
     private SpriteRenderer playerSpriteRenderer;
     private Coroutine healFlashCoroutine;
+    private bool inputEnabled = true;
 
     private Door nearbyDoor;
 
@@ -171,6 +172,8 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.IsGamePaused) return;
+
         if (Keyboard.current != null)
         {
             if (Keyboard.current.digit1Key.wasPressedThisFrame)
@@ -485,6 +488,11 @@ public class PlayerInventory : MonoBehaviour
         {
             ////Debug.Log("No save file found. Using default inventory.");
         }
+    }
+
+    public void SetInputEnabled (bool enabled)
+    {
+        inputEnabled = enabled;
     }
 
     public void ResetInventory()

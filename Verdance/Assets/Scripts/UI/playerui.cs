@@ -131,6 +131,19 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // Disable inventory slot interactions when game is paused
+        bool isInteractable = !PauseMenu.IsGamePaused;
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i] != null)
+            {
+                inventorySlots[i].interactable = isInteractable;
+            }
+        }
+    }
+
     private void OnInventorySlotClicked(int slotIndex)
     {
         if (playerInventory != null && slotIndex >= 0 && slotIndex < 3)

@@ -411,6 +411,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3165268708982794736}
     m_Modifications:
+    - target: {fileID: 3407930850583895376, guid: 96cd692b1ef86c84289010c55a6645f0, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.52
+      objectReference: {fileID: 0}
     - target: {fileID: 4514445988035044936, guid: 96cd692b1ef86c84289010c55a6645f0, type: 3}
       propertyPath: m_Name
       value: loadingbarfill
@@ -637,10 +641,10 @@ PrefabInstance:
       addedObject: {fileID: 7776993515193578857}
     - targetCorrespondingSourceObject: {fileID: 515117248382603835, guid: 61c9558980d598d4db8a0efecbac3b77, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 78510434993850880}
+      addedObject: {fileID: 2485589637714335026}
     - targetCorrespondingSourceObject: {fileID: 515117248382603835, guid: 61c9558980d598d4db8a0efecbac3b77, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2485589637714335026}
+      addedObject: {fileID: 78510434993850880}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5594165842323572231, guid: 61c9558980d598d4db8a0efecbac3b77, type: 3}
       insertIndex: -1
