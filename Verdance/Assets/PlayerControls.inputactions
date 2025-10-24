@@ -1,157 +1,156 @@
 {
-  "version": 1,
-  "name": "PlayerControls",
-  "maps": [
-    {
-      "name": "Player",
-      "id": "868d3a0f-eeae-443d-ba61-495593364894",
-      "actions": [
+    "version": 1,
+    "name": "PlayerControls",
+    "maps": [
         {
-          "name": "Move",
-          "type": "Value",
-          "id": "b40901b8-08c3-4248-bc47-b2f27760730b",
-          "expectedControlType": "Vector2",
-          "processors": "",
-          "interactions": "",
-          "initialStateCheck": true
+            "name": "Player",
+            "id": "868d3a0f-eeae-443d-ba61-495593364894",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "b40901b8-08c3-4248-bc47-b2f27760730b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "112f91f8-b452-4713-be29-e9d1455bd8d9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "8259c795-5fea-4031-a919-6719921fe5fe",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "WindStep",
+                    "type": "Button",
+                    "id": "edf29667-4391-4f9e-8420-a36d07c4e6e1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b844ff6d-7c83-43fc-8d2e-087c154f0405",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "082bf546-09aa-4f8f-ab0a-9bdb7b67b41e",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "866bd037-bd11-4566-80e9-ca3f71b121ce",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "cfd0ea32-9fe5-4fbd-ba63-6ca036ddf315",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "77aeed9a-67d8-4562-b4ea-82a247e63a1a",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "27bb03a9-6250-46e1-a19f-f1e4a39f1525",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "3e742ad2-9e92-4b2e-8658-131deb579b76",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WindStep",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         },
         {
-          "name": "Jump",
-          "type": "Button",
-          "id": "112f91f8-b452-4713-be29-e9d1455bd8d9",
-          "expectedControlType": "",
-          "processors": "",
-          "interactions": "",
-          "initialStateCheck": false
-        },
-        {
-          "name": "Attack",
-          "type": "Button",
-          "id": "8259c795-5fea-4031-a919-6719921fe5fe",
-          "expectedControlType": "",
-          "processors": "",
-          "interactions": "",
-          "initialStateCheck": false
-        },
-        {
-          "name": "WindStep",
-          "type": "Button",
-          "id": "edf29667-4391-4f9e-8420-a36d07c4e6e1",
-          "expectedControlType": "",
-          "processors": "",
-          "interactions": "",
-          "initialStateCheck": false
+            "name": "UI",
+            "id": "de05a6ab-1b29-4191-acad-8928db34f572",
+            "actions": [
+                {
+                    "name": "Navigate",
+                    "type": "Value",
+                    "id": "1c2982a0-99e8-4977-80dc-9faa6ad01e65",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a21c310e-cf8f-419f-bf9a-d5f7c12d569e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
-      ],
-      "bindings": [
-        {
-          "name": "",
-          "id": "b844ff6d-7c83-43fc-8d2e-087c154f0405",
-          "path": "<Keyboard>/space",
-          "interactions": "",
-          "processors": "",
-          "groups": "",
-          "action": "Jump",
-          "isComposite": false,
-          "isPartOfComposite": false
-        },
-        {
-          "name": "2D Vector",
-          "id": "082bf546-09aa-4f8f-ab0a-9bdb7b67b41e",
-          "path": "2DVector",
-          "interactions": "",
-          "processors": "",
-          "groups": "",
-          "action": "Move",
-          "isComposite": true,
-          "isPartOfComposite": false
-        },
-        {
-          "name": "up",
-          "id": "866bd037-bd11-4566-80e9-ca3f71b121ce",
-          "path": "",
-          "interactions": "",
-          "processors": "",
-          "groups": "",
-          "action": "Move",
-          "isComposite": false,
-          "isPartOfComposite": true
-        },
-        {
-          "name": "down",
-          "id": "cfd0ea32-9fe5-4fbd-ba63-6ca036ddf315",
-          "path": "",
-          "interactions": "",
-          "processors": "",
-          "groups": "",
-          "action": "Move",
-          "isComposite": false,
-          "isPartOfComposite": true
-        },
-        {
-          "name": "left",
-          "id": "77aeed9a-67d8-4562-b4ea-82a247e63a1a",
-          "path": "<Keyboard>/leftArrow",
-          "interactions": "",
-          "processors": "",
-          "groups": "",
-          "action": "Move",
-          "isComposite": false,
-          "isPartOfComposite": true
-        },
-        {
-          "name": "right",
-          "id": "27bb03a9-6250-46e1-a19f-f1e4a39f1525",
-          "path": "<Keyboard>/rightArrow",
-          "interactions": "",
-          "processors": "",
-          "groups": "",
-          "action": "Move",
-          "isComposite": false,
-          "isPartOfComposite": true
-        },
-
-        {
-          "name": "",
-          "id": "3e742ad2-9e92-4b2e-8658-131deb579b76",
-          "path": "<Keyboard>/leftShift",
-          "interactions": "",
-          "processors": "",
-          "groups": "",
-          "action": "WindStep",
-          "isComposite": false,
-          "isPartOfComposite": false
-        }
-      ]
-    },
-    {
-      "name": "UI",
-      "id": "de05a6ab-1b29-4191-acad-8928db34f572",
-      "actions": [
-        {
-          "name": "Navigate",
-          "type": "Value",
-          "id": "1c2982a0-99e8-4977-80dc-9faa6ad01e65",
-          "expectedControlType": "Vector2",
-          "processors": "",
-          "interactions": "",
-          "initialStateCheck": true
-        }
-      ],
-      "bindings": [
-        {
-          "name": "",
-          "id": "a21c310e-cf8f-419f-bf9a-d5f7c12d569e",
-          "path": "",
-          "interactions": "",
-          "processors": "",
-          "groups": "",
-          "action": "Navigate",
-          "isComposite": false,
-          "isPartOfComposite": false
-        }
-      ]
-    }
-  ],
-  "controlSchemes": []
+    ],
+    "controlSchemes": []
 }

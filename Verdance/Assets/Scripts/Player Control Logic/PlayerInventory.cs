@@ -190,7 +190,7 @@ public class PlayerInventory : MonoBehaviour
                 SelectInventorySlot(2);
             }
 
-            if (Keyboard.current.leftCtrlKey.wasPressedThisFrame)
+            if (SettingsMenu.Instance != null && SettingsMenu.Instance.GetKeyDown("Attack"))
             {
                 UseSelectedItem();
             }
@@ -492,7 +492,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void SetInputEnabled (bool enabled)
+    public void SetInputEnabled(bool enabled)
     {
         inputEnabled = enabled;
     }
