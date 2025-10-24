@@ -19,7 +19,7 @@ public class PlayerRespawn : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioClip respawnSound;
-    
+    // SFX volume controlled by SettingsManager
 
     private Vector3 spawnPoint;
     private bool isDead = false;
@@ -42,8 +42,16 @@ public class PlayerRespawn : MonoBehaviour
             spawnPoint = transform.position;
         }
 
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource != null)
+        GameObject sfxObject = GameObject.Find("SFX");
+        if (sfxObject != null)
+        {
+            audioSource = sfxObject.GetComponent<AudioSource>();
+        }
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+        if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
@@ -79,7 +87,7 @@ public class PlayerRespawn : MonoBehaviour
         {
             Invoke(nameof(Respawn), respawnDelay);
         }
-        
+
     }
 
     private void Respawn()
@@ -109,7 +117,9 @@ public class PlayerRespawn : MonoBehaviour
 
         if (respawnSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(respawnSound, SettingsManager.Instance.GetSFXVolume());
+            audioSource.volume = 1f;
+            float volume = SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer() ? 1f : (SettingsManager.Instance?.GetSFXVolume() ?? 0.8f);
+            audioSource.PlayOneShot(respawnSound, volume);
         }
 
         //Debug.Log("Player respawned");

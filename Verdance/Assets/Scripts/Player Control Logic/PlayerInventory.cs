@@ -28,7 +28,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip potionPickupSound;
     [SerializeField] private AudioClip potionUseSound;
-   
+    // SFX volume controlled by SettingsManager
 
     [Header("Visual Effects")]
     [SerializeField] private ParticleSystem healParticleEffect;
@@ -94,10 +94,18 @@ public class PlayerInventory : MonoBehaviour
         // Get AudioSource if not assigned
         if (audioSource == null)
         {
-            audioSource = GetComponent<AudioSource>();
+            GameObject sfxObject = GameObject.Find("SFX");
+            if (sfxObject != null)
+            {
+                audioSource = sfxObject.GetComponent<AudioSource>();
+            }
             if (audioSource == null)
             {
-                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource = GetComponent<AudioSource>();
+                if (audioSource == null)
+                {
+                    audioSource = gameObject.AddComponent<AudioSource>();
+                }
             }
         }
 
@@ -261,7 +269,9 @@ public class PlayerInventory : MonoBehaviour
         // Play use sound
         if (potionUseSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(potionUseSound, SettingsManager.Instance.GetSFXVolume());
+            audioSource.volume = 1f;
+            float volume = SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer() ? 1f : (SettingsManager.Instance?.GetSFXVolume() ?? 0.8f);
+            audioSource.PlayOneShot(potionUseSound, volume);
         }
 
         // Play particle effect
@@ -356,7 +366,9 @@ public class PlayerInventory : MonoBehaviour
         // Play pickup sound
         if (potionPickupSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(potionPickupSound, SettingsManager.Instance.GetSFXVolume());
+            audioSource.volume = 1f;
+            float volume = SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer() ? 1f : (SettingsManager.Instance?.GetSFXVolume() ?? 0.8f);
+            audioSource.PlayOneShot(potionPickupSound, volume);
         }
 
         //Debug.Log($"[PlayerInventory] Picked up {amount} potion(s). Total now: {healthPotionCount}");
