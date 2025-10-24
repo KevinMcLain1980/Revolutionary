@@ -43,6 +43,7 @@ public class ShamblerAI : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.mass = 10f; //Makes it harder for the player to push the shambler
     }
 
     // Find player reference on start

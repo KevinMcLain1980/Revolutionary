@@ -198,17 +198,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""06f8808e-591d-4514-86e6-ba7ca0bd78cb"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3e742ad2-9e92-4b2e-8658-131deb579b76"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",

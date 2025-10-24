@@ -1693,11 +1693,11 @@ Transform:
   m_GameObject: {fileID: 254993840}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960, y: -540, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 356.77112, y: -5.077423, z: -53103.44}
+  m_LocalScale: {x: 0.5112545, y: 0.5112545, z: 0.5112545}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 765442264}
+  m_Father: {fileID: 998744270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299853402
 GameObject:
@@ -4006,11 +4006,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763483756}
   m_CullTransparentMesh: 1
---- !u!224 &765442264 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1325606003693171290, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
-  m_PrefabInstance: {fileID: 8270388390898074665}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &779097327
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,7 +4899,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameButton: {fileID: 1904224281}
-  loadGameButton: {fileID: 0}
   continueButton: {fileID: 873772732}
   settingsButton: {fileID: 148106185}
   exitButton: {fileID: 1948162575}
@@ -7695,8 +7689,8 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 8608140870729516283, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1325606003693171290, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
-      insertIndex: 0
+    - targetCorrespondingSourceObject: {fileID: 815380792240423437, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 254993843}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1365087497969053348, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}

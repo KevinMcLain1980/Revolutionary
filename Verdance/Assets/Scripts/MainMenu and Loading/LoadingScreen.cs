@@ -86,7 +86,7 @@ public class LoadingScreen : MonoBehaviour
             "Press Left CTRL to Attack/Use items",
             "Press 1-3 for Inventory",
             "The Shambler is a demonic creature who has taken over the forest.",
-            "Tip: Inorder to complete each level kill all enemies, find the key and use it on the chest"
+            "Tip: In order to complete each level kill all enemies, find the key and use it on the chest"
         };
 
         int index = 0;
@@ -101,28 +101,17 @@ public class LoadingScreen : MonoBehaviour
             string message = controlsMessages[index];
             controlsText.text = "";
             canvasGroup.alpha = 1f; // Ensure visible for typing
+            controlsText.color = new Color(0x93 / 255f, 0xA1 / 255f, 0x83 / 255f); // Set to specified hex color
 
-            // Type out the message with color animation
+            // Type out the message
             foreach (char c in message)
             {
                 controlsText.text += c;
-                // Animate color during typing
-                float hue = (Time.time * 0.2f) % 1f;
-                controlsText.color = Color.HSVToRGB(hue, 1f, 1f);
                 yield return new WaitForSeconds(0.05f); // Typing speed
             }
 
-            // Display duration with color animation
-            float displayTime = 2f;
-            float elapsedDisplay = 0f;
-            while (elapsedDisplay < displayTime)
-            {
-                elapsedDisplay += Time.deltaTime;
-                // Animate color gradient (rainbow effect)
-                float hue = (Time.time * 0.2f) % 1f;
-                controlsText.color = Color.HSVToRGB(hue, 1f, 1f);
-                yield return null;
-            }
+            // Display duration
+            yield return new WaitForSeconds(2f);
 
             // Fade out
             float time = 0f;

@@ -73,6 +73,11 @@ public class SettingsMenu : MonoBehaviour
             rebindingPrompt.SetActive(false);
     }
 
+    private void Update()
+    {
+        LoadSettings();
+    }
+
     private void OnEnable()
     {
         LoadSettings();
