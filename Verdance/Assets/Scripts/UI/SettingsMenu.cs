@@ -73,11 +73,6 @@ public class SettingsMenu : MonoBehaviour
             rebindingPrompt.SetActive(false);
     }
 
-    private void Update()
-    {
-        LoadSettings();
-    }
-
     private void OnEnable()
     {
         LoadSettings();
@@ -328,11 +323,15 @@ public class SettingsMenu : MonoBehaviour
         UpdateKeybindTexts();
 
         // Refresh PlayerInput to apply the new binding
-        PlayerInput playerInput = FindFirstObjectByType<PlayerInput>();
-        if (playerInput != null)
+        PlayerController2D controller = FindFirstObjectByType<PlayerController2D>();
+        if (controller != null)
         {
-            playerInput.enabled = false;
-            playerInput.enabled = true;
+            PlayerInput playerInput = controller.GetComponent<PlayerInput>();
+            if (playerInput != null)
+            {
+                playerInput.enabled = false;
+                playerInput.enabled = true;
+            }
         }
     }
 
@@ -484,11 +483,15 @@ public class SettingsMenu : MonoBehaviour
         UpdateKeybindTexts();
 
         // Refresh PlayerInput to apply the reset bindings
-        PlayerInput playerInput = FindFirstObjectByType<PlayerInput>();
-        if (playerInput != null)
+        PlayerController2D controller = FindFirstObjectByType<PlayerController2D>();
+        if (controller != null)
         {
-            playerInput.enabled = false;
-            playerInput.enabled = true;
+            PlayerInput playerInput = controller.GetComponent<PlayerInput>();
+            if (playerInput != null)
+            {
+                playerInput.enabled = false;
+                playerInput.enabled = true;
+            }
         }
     }
 

@@ -1,17 +1,17 @@
 using UnityEngine;
-using System.IO;
 
 public static class SaveSystem
 {
-    private static string SavePath => Path.Combine(Application.persistentDataPath, "gamesave.json");
+    private static string SaveKey = "GameSave";
 
     public static void SaveGame(GameSaveData data)
     {
         try
         {
             string json = JsonUtility.ToJson(data, true);
-            File.WriteAllText(SavePath, json);
-            //Debug.Log($"Game saved to: {SavePath}");
+            PlayerPrefs.SetString(SaveKey, json);
+            PlayerPrefs.Save();
+            //Debug.Log($"Game saved to PlayerPrefs");
         }
         catch (System.Exception)
         {
@@ -23,9 +23,9 @@ public static class SaveSystem
     {
         try
         {
-            if (File.Exists(SavePath))
+            if (PlayerPrefs.HasKey(SaveKey))
             {
-                string json = File.ReadAllText(SavePath);
+                string json = PlayerPrefs.GetString(SaveKey);
                 GameSaveData data = JsonUtility.FromJson<GameSaveData>(json);
                 //Debug.Log("Game loaded successfully");
                 return data;
@@ -36,7 +36,7 @@ public static class SaveSystem
                 return null;
             }
         }
-        catch 
+        catch
         {
             //Debug.LogError($"Failed to load game: {e.Message}");
             return null;
@@ -45,15 +45,13 @@ public static class SaveSystem
 
     public static bool HasSaveFile()
     {
-        return File.Exists(SavePath);
+        return PlayerPrefs.HasKey(SaveKey);
     }
 
     public static void DeleteSave()
     {
-        if (File.Exists(SavePath))
-        {
-            File.Delete(SavePath);
-            //Debug.Log("Save file deleted");
-        }
+        PlayerPrefs.DeleteKey(SaveKey);
+        PlayerPrefs.Save();
+        //Debug.Log("Save file deleted");
     }
 }
