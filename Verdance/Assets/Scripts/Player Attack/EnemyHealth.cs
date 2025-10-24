@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioSource audioSource;
-    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+   
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -68,7 +68,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         if (hurtSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(hurtSound, sfxVolume);
+            audioSource.PlayOneShot(hurtSound, SettingsManager.Instance.GetSFXVolume());
         }
     }
 
@@ -79,7 +79,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         if (deathSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(deathSound, sfxVolume);
+            audioSource.PlayOneShot(deathSound, SettingsManager.Instance.GetSFXVolume());
         }
 
         if (LevelManager.Instance != null)

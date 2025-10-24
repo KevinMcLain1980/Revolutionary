@@ -19,7 +19,7 @@ public class PlayerRespawn : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioClip respawnSound;
-    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+    
 
     private Vector3 spawnPoint;
     private bool isDead = false;
@@ -109,7 +109,7 @@ public class PlayerRespawn : MonoBehaviour
 
         if (respawnSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(respawnSound, sfxVolume);
+            audioSource.PlayOneShot(respawnSound, SettingsManager.Instance.GetSFXVolume());
         }
 
         //Debug.Log("Player respawned");

@@ -14,7 +14,7 @@ public class PlayerCombat : MonoBehaviour
     [Header("Audio")]
     private AudioSource audioSource; 
     [SerializeField] private AudioClip attackSwingSound;
-    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+    
 
     private PlayerInventory inventory;
     private Animator animator;
@@ -82,7 +82,7 @@ public class PlayerCombat : MonoBehaviour
         
         if (attackSwingSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(attackSwingSound, sfxVolume);
+            audioSource.PlayOneShot(attackSwingSound, SettingsManager.Instance.GetSFXVolume());
         }
 
         ActivateWeaponHitbox(primaryWeaponHitbox, null);

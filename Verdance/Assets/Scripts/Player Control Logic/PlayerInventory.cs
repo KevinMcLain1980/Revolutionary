@@ -28,7 +28,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip potionPickupSound;
     [SerializeField] private AudioClip potionUseSound;
-    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+   
 
     [Header("Visual Effects")]
     [SerializeField] private ParticleSystem healParticleEffect;
@@ -261,7 +261,7 @@ public class PlayerInventory : MonoBehaviour
         // Play use sound
         if (potionUseSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(potionUseSound, sfxVolume);
+            audioSource.PlayOneShot(potionUseSound, SettingsManager.Instance.GetSFXVolume());
         }
 
         // Play particle effect
@@ -356,7 +356,7 @@ public class PlayerInventory : MonoBehaviour
         // Play pickup sound
         if (potionPickupSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(potionPickupSound, sfxVolume);
+            audioSource.PlayOneShot(potionPickupSound, SettingsManager.Instance.GetSFXVolume());
         }
 
         //Debug.Log($"[PlayerInventory] Picked up {amount} potion(s). Total now: {healthPotionCount}");

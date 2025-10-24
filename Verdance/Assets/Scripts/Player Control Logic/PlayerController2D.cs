@@ -45,8 +45,8 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private AudioClip deathSound; // Sound played on death
     [SerializeField] private AudioClip jumpSound; // Sound played when jumping
     [SerializeField] private AudioClip runningSound; // Looping sound for running
-    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f; // Volume for sound effects
-    [Range(0f, 1f)][SerializeField] private float runningVolume = 0.5f; // Volume for running sound
+   
+
     private bool isPlayingRunSound = false; // Whether running sound is currently playing
     // Component and state references
     private Rigidbody2D rb; // Rigidbody for physics movement
@@ -126,7 +126,7 @@ public class PlayerController2D : MonoBehaviour
             animator.SetTrigger("IsJumping");
             if (jumpSound != null && audioSource != null)
             {
-                audioSource.PlayOneShot(jumpSound, sfxVolume);
+                audioSource.PlayOneShot(jumpSound, SettingsManager.Instance.GetSFXVolume());
             }
         }
 
@@ -209,7 +209,7 @@ public class PlayerController2D : MonoBehaviour
         {
             audioSource.clip = runningSound;
             audioSource.loop = true;
-            audioSource.volume = runningVolume;
+            audioSource.volume = SettingsManager.Instance.GetSFXVolume();
             audioSource.Play();
             isPlayingRunSound = true;
         }
@@ -307,7 +307,7 @@ public class PlayerController2D : MonoBehaviour
         SpawnBloodEffect();
         if (hurtSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(hurtSound, sfxVolume);
+            audioSource.PlayOneShot(hurtSound, SettingsManager.Instance.GetSFXVolume());
         }
         StartCoroutine(ApplyKnockback(knockbackForce));
         StartCoroutine(FlashAndInvincibility());
@@ -359,7 +359,7 @@ public class PlayerController2D : MonoBehaviour
         animator.Play("Dead", -1, 0f);
         if (deathSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(deathSound, sfxVolume);
+            audioSource.PlayOneShot(deathSound, SettingsManager.Instance.GetSFXVolume());
         }
         // Disable physics to prevent sinking
         rb.bodyType = RigidbodyType2D.Kinematic;
