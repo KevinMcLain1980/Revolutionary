@@ -3267,17 +3267,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508253049}
   m_CullTransparentMesh: 1
---- !u!114 &541071115 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4110732131687425883, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
-  m_PrefabInstance: {fileID: 8270388390898074665}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &559627516
 GameObject:
   m_ObjectHideFlags: 0
@@ -4915,7 +4904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameButton: {fileID: 1904224281}
-  loadGameButton: {fileID: 541071115}
+  loadGameButton: {fileID: 0}
   continueButton: {fileID: 873772732}
   settingsButton: {fileID: 148106185}
   exitButton: {fileID: 1948162575}
@@ -7634,9 +7623,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1145414414751401912, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -193.50003
+      objectReference: {fileID: 0}
     - target: {fileID: 1365087497969053348, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574900568636833594, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -96
       objectReference: {fileID: 0}
     - target: {fileID: 6437347773943944764, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
       propertyPath: m_Pivot.x
@@ -7690,8 +7687,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 271
       objectReference: {fileID: 0}
+    - target: {fileID: 8708980446832203189, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -291.30002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8608140870729516283, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1325606003693171290, guid: 1769dae7e8ae7be43a7e9a298385ecd9, type: 3}
       insertIndex: 0

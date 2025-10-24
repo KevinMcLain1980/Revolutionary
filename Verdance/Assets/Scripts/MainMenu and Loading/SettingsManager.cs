@@ -44,7 +44,7 @@ public class SettingsManager : MonoBehaviour
 
             ApplySettings();
         }
-        catch
+        catch (System.Exception)
         {
             //Debug.LogError($"Failed to load settings: {e.Message}");
             currentSettings = SettingsData.GetDefault();
@@ -59,7 +59,7 @@ public class SettingsManager : MonoBehaviour
             File.WriteAllText(SettingsPath, json);
             //Debug.Log("Settings saved");
         }
-        catch 
+        catch (System .Exception)
         {
             //Debug.LogError($"Failed to save settings: {e.Message}");
         }

@@ -67,6 +67,7 @@ public class SettingsMenu : MonoBehaviour
         SetupButtons();
         SetupAudioOutputDropdown();
         LoadBindingOverrides();
+        LoadSettings();
 
         if (rebindingPrompt != null)
             rebindingPrompt.SetActive(false);
