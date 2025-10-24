@@ -303,6 +303,21 @@ public class SettingsMenu : MonoBehaviour
     {
         //Debug.Log($"Rebind completed for {currentActionToRebind.name}");
 
+        // Remove all other bindings for this action to prevent multiple keys from working
+        var indicesToErase = new System.Collections.Generic.List<int>();
+        for (int i = 0; i < currentActionToRebind.bindings.Count; i++)
+        {
+            if (i != bindingIndex && !currentActionToRebind.bindings[i].isComposite)
+            {
+                indicesToErase.Add(i);
+            }
+        }
+        indicesToErase.Sort((a, b) => b.CompareTo(a)); // Sort descending
+        foreach (var i in indicesToErase)
+        {
+            currentActionToRebind.ChangeBinding(i).Erase();
+        }
+
         currentActionToRebind.Enable();
         rebindingOperation.Dispose();
 
@@ -311,6 +326,14 @@ public class SettingsMenu : MonoBehaviour
 
         SaveBindingOverride(currentActionToRebind);
         UpdateKeybindTexts();
+
+        // Refresh PlayerInput to apply the new binding
+        PlayerInput playerInput = FindFirstObjectByType<PlayerInput>();
+        if (playerInput != null)
+        {
+            playerInput.enabled = false;
+            playerInput.enabled = true;
+        }
     }
 
     private void RebindCancelled()
@@ -406,6 +429,23 @@ public class SettingsMenu : MonoBehaviour
                 }
             }
         }
+
+        // For Attack, add default binding if none
+        var attackAction = inputActions.FindAction("Attack");
+        if (attackAction != null && attackAction.bindings.Count == 0)
+        {
+            string attackKey = $"InputBinding_{attackAction.name}_0";
+            string path = "<Keyboard>/leftCtrl";
+            if (PlayerPrefs.HasKey(attackKey))
+            {
+                string overridePath = PlayerPrefs.GetString(attackKey);
+                if (!string.IsNullOrEmpty(overridePath))
+                {
+                    path = overridePath;
+                }
+            }
+            attackAction.AddBinding(path);
+        }
     }
 
     // Reset all keybinds to defaults
@@ -429,8 +469,27 @@ public class SettingsMenu : MonoBehaviour
             }
         }
 
+        // For Attack, clear runtime bindings and add default
+        var attackAction = inputActions.FindAction("Attack");
+        if (attackAction != null)
+        {
+            for (int i = attackAction.bindings.Count - 1; i >= 0; i--)
+            {
+                attackAction.ChangeBinding(i).Erase();
+            }
+            attackAction.AddBinding("<Keyboard>/leftCtrl");
+        }
+
         PlayerPrefs.Save();
         UpdateKeybindTexts();
+
+        // Refresh PlayerInput to apply the reset bindings
+        PlayerInput playerInput = FindFirstObjectByType<PlayerInput>();
+        if (playerInput != null)
+        {
+            playerInput.enabled = false;
+            playerInput.enabled = true;
+        }
     }
 
     private void OnResetClicked()
@@ -476,7 +535,7 @@ public class SettingsMenu : MonoBehaviour
         string[] devices = new string[] { "Default" };
 
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
-        
+
         devices = new string[] { "Default (Use Windows Settings)" };
 #endif
 
