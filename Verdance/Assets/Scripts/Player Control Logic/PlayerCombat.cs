@@ -12,9 +12,9 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float hitboxActiveDuration = 0.2f;
 
     [Header("Audio")]
-    private AudioSource audioSource; 
+    private AudioSource audioSource;
     [SerializeField] private AudioClip attackSwingSound;
-    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+    // SFX volume controlled by SettingsManager
 
     private PlayerInventory inventory;
     private Animator animator;
@@ -22,9 +22,18 @@ public class PlayerCombat : MonoBehaviour
 
     private void Awake()
     {
-       // Debug.Log($"[PlayerCombat] Awake called on {gameObject.name}");
+        // Debug.Log($"[PlayerCombat] Awake called on {gameObject.name}");
 
-        
+
+        if (audioSource == null)
+        {
+            GameObject sfxObject = GameObject.Find("SFX");
+            if (sfxObject != null)
+            {
+                audioSource = sfxObject.GetComponent<AudioSource>();
+            }
+        }
+
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
@@ -33,7 +42,7 @@ public class PlayerCombat : MonoBehaviour
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
-           // Debug.Log("[PlayerCombat] Created new AudioSource in Awake");
+            // Debug.Log("[PlayerCombat] Created new AudioSource in Awake");
         }
     }
 
@@ -44,18 +53,18 @@ public class PlayerCombat : MonoBehaviour
 
         if (primaryWeaponHitbox != null) primaryWeaponHitbox.SetActive(false);
 
-        
+
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
             if (audioSource == null)
             {
                 audioSource = gameObject.AddComponent<AudioSource>();
-               // Debug.Log("[PlayerCombat] Re-created AudioSource in Start after scene reload");
+                // Debug.Log("[PlayerCombat] Re-created AudioSource in Start after scene reload");
             }
         }
 
-       // Debug.Log($"[PlayerCombat] Start called. AudioSource: {(audioSource != null ? "Found" : "NULL")}, Attack sound: {(attackSwingSound != null ? "Assigned" : "NULL")}");
+        // Debug.Log($"[PlayerCombat] Start called. AudioSource: {(audioSource != null ? "Found" : "NULL")}, Attack sound: {(attackSwingSound != null ? "Assigned" : "NULL")}");
     }
 
     public void PerformAttack()
@@ -67,7 +76,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!canAttackPrimary) return;
 
-       
+
         if (inventory != null && !inventory.HasSword())
         {
             //Debug.Log("No primary weapon equipped!");
@@ -79,10 +88,12 @@ public class PlayerCombat : MonoBehaviour
             animator.SetTrigger("AttackTrigger");
         }
 
-        
+
         if (attackSwingSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(attackSwingSound, sfxVolume);
+            audioSource.volume = 1f;
+            float volume = SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer() ? 1f : (SettingsManager.Instance?.GetSFXVolume() ?? 0.8f);
+            audioSource.PlayOneShot(attackSwingSound, volume);
         }
 
         ActivateWeaponHitbox(primaryWeaponHitbox, null);
@@ -114,7 +125,7 @@ public class PlayerCombat : MonoBehaviour
         Weapon weaponData = weapon as Weapon;
         if (weaponData != null)
         {
-            
+
         }
 
         hitbox.SetActive(true);

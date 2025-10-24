@@ -59,7 +59,7 @@ public class SettingsManager : MonoBehaviour
             File.WriteAllText(SettingsPath, json);
             //Debug.Log("Settings saved");
         }
-        catch (System .Exception)
+        catch (System.Exception)
         {
             //Debug.LogError($"Failed to save settings: {e.Message}");
         }
@@ -128,4 +128,5 @@ public class SettingsManager : MonoBehaviour
     public float GetMusicVolume() => currentSettings.musicVolume;
     public float GetSFXVolume() => currentSettings.sfxVolume;
     public float GetUIVolume() => currentSettings.uiVolume;
+    public bool HasAudioMixer() => audioMixer != null;
 }

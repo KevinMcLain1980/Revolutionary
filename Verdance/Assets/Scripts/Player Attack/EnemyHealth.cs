@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioSource audioSource;
-    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+    // SFX volume controlled by SettingsManager
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -26,7 +26,17 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
 
         if (audioSource == null)
-            audioSource = GetComponent<AudioSource>();
+        {
+            GameObject sfxObject = GameObject.Find("SFX");
+            if (sfxObject != null)
+            {
+                audioSource = sfxObject.GetComponent<AudioSource>();
+            }
+            if (audioSource == null)
+            {
+                audioSource = GetComponent<AudioSource>();
+            }
+        }
 
         //Debug.Log($"{gameObject.name} initialized with {currentHealth}/{maxHealth} health");
     }
@@ -68,7 +78,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         if (hurtSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(hurtSound, sfxVolume);
+            audioSource.volume = 1f;
+            float volume = SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer() ? 1f : (SettingsManager.Instance?.GetSFXVolume() ?? 0.8f);
+            audioSource.PlayOneShot(hurtSound, volume);
         }
     }
 
@@ -79,7 +91,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         if (deathSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(deathSound, sfxVolume);
+            audioSource.volume = 1f;
+            float volume = SettingsManager.Instance != null && SettingsManager.Instance.HasAudioMixer() ? 1f : (SettingsManager.Instance?.GetSFXVolume() ?? 0.8f);
+            audioSource.PlayOneShot(deathSound, volume);
         }
 
         if (LevelManager.Instance != null)
