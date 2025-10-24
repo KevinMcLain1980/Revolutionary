@@ -117,45 +117,10 @@ public class PlayerController2D : MonoBehaviour
         UpdateAnimationStates();
         HandleRunningSound();
         animator.SetBool("IsGrounded", IsGrounded());
-
-        // Input checks
-        if (SettingsMenu.Instance != null && SettingsMenu.Instance.GetKeyDown("Jump") && IsGrounded())
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            animator.SetTrigger("IsJumping");
-            if (jumpSound != null && audioSource != null)
-            {
-                audioSource.PlayOneShot(jumpSound, sfxVolume);
-            }
-        }
-
-        if (SettingsMenu.Instance != null && SettingsMenu.Instance.GetKeyDown("Attack"))
-        {
-            PlayerInventory inventory = PlayerInventory.Instance;
-            if (inventory != null && inventory.GetSelectedSlotIndex() != 0)
-            {
-                ////Debug.Log("Sword not selected. Switch to slot 0 to attack.");
-                return;
-            }
-            PlayerCombat combat = GetComponent<PlayerCombat>();
-            if (combat != null)
-            {
-                combat.PerformAttack();
-            }
-            else
-            {
-                TryAttack();
-            }
-        }
     }
     // Physics updates in FixedUpdate to prevent sticking issues
     private void FixedUpdate()
     {
-        if (SettingsMenu.Instance != null)
-        {
-            moveInput = new Vector2(SettingsMenu.Instance.GetAxis("Horizontal"), SettingsMenu.Instance.GetAxis("Vertical"));
-        }
         MovePlayer();
     }
     // Enable or disable collision with enemies (used during knockback)
@@ -220,13 +185,63 @@ public class PlayerController2D : MonoBehaviour
             isPlayingRunSound = false;
         }
     }
+    // Handle movement input from new input system
+    public void OnMove(InputValue value)
+    {
+        if (isKnockedBack) return;
+        Vector2 input = value.Get<Vector2>();
+        if (input.magnitude < 0.1f)
+        {
+            moveInput = Vector2.zero;
+        }
+        else
+        {
+            moveInput = input;
+        }
+
+    }
+    // Handle jump input and play jump sound
+    public void OnJump(InputValue value)
+    {
+        if (value.isPressed && IsGrounded())
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            animator.SetTrigger("IsJumping");
+            if (jumpSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(jumpSound, sfxVolume);
+            }
+        }
+    }
     // Check if player is on the ground
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
     public LayerMask GetGroundLayer() => groundLayer;
-
+    // Handle attack input - only works when sword slot (0) is selected
+    public void OnAttack(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            PlayerInventory inventory = PlayerInventory.Instance;
+            if (inventory != null && inventory.GetSelectedSlotIndex() != 0)
+            {
+                ////Debug.Log("Sword not selected. Switch to slot 0 to attack.");
+                return;
+            }
+            PlayerCombat combat = GetComponent<PlayerCombat>();
+            if (combat != null)
+            {
+                combat.PerformAttack();
+            }
+            else
+            {
+                TryAttack();
+            }
+        }
+    }
     // Legacy attack method using thornbrand hitbox
     private void TryAttack()
     {
@@ -365,19 +380,19 @@ public class PlayerController2D : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.linearVelocity = Vector2.zero;
         // Adjust collider for dead pose
-        CapsuleCollider2D cc = GetComponent<CapsuleCollider2D>();
+        CapsuleCollider2D cc = GetComponent<CapsuleCollider2D>(); 
         if (cc != null)
         {
-            cc.offset = new Vector2(originalColliderOffset.x, -0.3f);
-            cc.size = new Vector2(originalColliderSize.x, 0.6f);
+            cc.offset = new Vector2(originalColliderOffset.x, -0.3f); 
+            cc.size = new Vector2(originalColliderSize.x, 0.6f); 
         }
         // Wait for animation to finish
         StartCoroutine(HoldDeadAnimation());
     }
     private IEnumerator HoldDeadAnimation()
     {
-        yield return new WaitForSeconds(0.666f + 0.1f);
-        animator.SetBool("IsDead", true);
+        yield return new WaitForSeconds(0.666f + 0.1f); 
+        animator.SetBool("IsDead", true); 
         //Debug.Log("[PlayerController2D] Dead animation completed");
     }
     // Reset player state on respawn
@@ -388,9 +403,9 @@ public class PlayerController2D : MonoBehaviour
         isInvincible = true;
         if (animator != null)
         {
-            animator.SetBool("IsDead", false);
+            animator.SetBool("IsDead", false); 
             animator.SetFloat("Speed", 0f);
-            animator.Play("Idle", -1, 0f);
+            animator.Play("Idle", -1, 0f); 
         }
         spriteRenderer.color = originalColor;
         rb.bodyType = RigidbodyType2D.Dynamic;
