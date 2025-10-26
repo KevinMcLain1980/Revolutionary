@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
-    [Range(0f, 1f)][SerializeField] private float sfxVolume = 0.8f;
+  
 
     [Header("Sanity")]
     [SerializeField] private float maxSanity = 100f;
@@ -70,7 +70,7 @@ public class PlayerStats : MonoBehaviour
         }
         else if (hurtSound != null)
         {
-            AudioSource.PlayClipAtPoint(hurtSound, transform.position, sfxVolume);
+            AudioSource.PlayClipAtPoint(hurtSound, transform.position, SettingsManager.Instance.GetSFXVolume());
         }
     }
 
@@ -128,7 +128,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (deathSound != null)
         {
-            AudioSource.PlayClipAtPoint(deathSound, transform.position, sfxVolume);
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, SettingsManager.Instance.GetSFXVolume());
         }
 
         //Debug.Log("Player died!");
